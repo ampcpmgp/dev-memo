@@ -13,3 +13,6 @@ apm install pigments highlight-selected editorconfig linter script atom-terminal
 # windows config environment
 * 拡張子を表示する
 * Ctrl+Alt+上下による画面回転を無効にする（デスクトップ上で右クリック→グラフィックスオプション→ホットキー無効）
+
+# firefox 
+about:config / security.csp.enable の設定検討
