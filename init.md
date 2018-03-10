@@ -16,3 +16,43 @@ apm install pigments highlight-selected editorconfig linter script atom-terminal
 
 # firefox 
 about:config / security.csp.enable の設定検討 / S3.translator 翻訳のため
+
+# atom settings
+
+## stylesheet
+```
+atom-text-editor {
+  // font-family: "Ubuntu Mono";
+  font-family: "Avenir Next",Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
+}
+```
+
+## snippets 
+```
+
+'.source.js':
+  'JSON.stringify 1 line':
+    'prefix': 'logj'
+    'body': 'console.log(JSON.stringify($1))'
+  'JSON.stringify':
+    'prefix': 'logj_line_shaping'
+    'body': 'console.log(JSON.stringify($1, null, \'  \'))'
+
+'.text.html':
+  'less scope':
+    'prefix': 'lesss'
+    'body': """
+      <style type="less">
+        :scope {
+          $1
+        }
+      </style>
+    """
+  'less':
+    'prefix': 'less'
+    'body': """
+      <style type="less">
+        $1
+      </style>
+    """
+```
