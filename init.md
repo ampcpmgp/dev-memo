@@ -11,7 +11,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * line - https://www.microsoft.com/ja-jp/store/p/line/9wzdncrfj2g6
 
 # atom package
-apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr linter-coffee-variables svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-live-server atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number
+apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number
 
 # windows config environment
 nothing
