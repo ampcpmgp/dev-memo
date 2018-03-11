@@ -8,6 +8,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * github desktop - https://desktop.github.com/
 * clover - http://en.ejie.me/download/
+* line - https://www.microsoft.com/ja-jp/store/p/line/9wzdncrfj2g6
 
 # atom package
 apm install pigments highlight-selected editorconfig linter script atom-terminal file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr linter-coffee-variables svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-live-server atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number
