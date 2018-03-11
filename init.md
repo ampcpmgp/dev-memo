@@ -15,12 +15,20 @@ apm install pigments highlight-selected editorconfig linter script atom-terminal
 # windows config environment
 nothing
 
-# firefox 
+# firefox
 about:config / security.csp.enable の設定検討 / S3.translator 翻訳のため
 
 # atom settings
 
-## snippets 
+
+## stylesheet
+```
+atom-text-editor {
+  font-family: "Avenir Next",Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
+}
+```
+
+## snippets
 ```
 
 '.source.js':
