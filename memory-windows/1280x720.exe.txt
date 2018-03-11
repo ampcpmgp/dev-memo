@@ -1,0 +1,5 @@
+Clover.exe,Clover=======>484,186,796,498
+mintty.exe,MINGW64=======>-6,326,614,359
+GitHubDesktop.exe,GitHub Desktop=======>121,18,979,660
+atom.exe,Atom=======>70,0,1182,687
+firefox.exe,Mozilla Firefox=======>27,0,1161,685
