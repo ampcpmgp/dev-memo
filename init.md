@@ -58,3 +58,10 @@ atom-text-editor {
       </style>
     """
 ```
+
+# add startup
+```
+Windows Key + R
+shell:startup
+add quick start
+```
