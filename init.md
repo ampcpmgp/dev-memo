@@ -1,6 +1,6 @@
 
 # install chocolatey
-choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lhaplus notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit winmerge atom screentogif wechat visualstudiocode joytokey charles itunes
+choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lhaplus notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit winmerge screentogif wechat visualstudiocode joytokey charles itunes atom
 
 # download
 * color picker - http://www.vector.co.jp/soft/dl/win95/art/se350616.html
@@ -19,14 +19,6 @@ nothing
 about:config / security.csp.enable の設定検討 / S3.translator 翻訳のため
 
 # atom settings
-
-## stylesheet
-```
-atom-text-editor {
-  // font-family: "Ubuntu Mono";
-  font-family: "Avenir Next",Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
-}
-```
 
 ## snippets 
 ```
