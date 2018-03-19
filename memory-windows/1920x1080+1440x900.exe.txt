@@ -13,3 +13,9 @@ firefox.exe,Mozilla Firefox=======>560,0,1281,1032
 slack.exe,Slack=======>666,54,1096,978
 Teams.exe,Microsoft Teams=======>666,54,1096,978
 Code.exe,Visual Studio Code=======>2223,39,1148,753
+mintty.exe,MINGW64=======>2236,669,604,377
+mintty.exe,MINGW64=======>2109,668,604,377
+mintty.exe,MINGW64=======>1970,667,604,377
+cmd.exe,cmd.exe=======>2095,354,993,512
+cmd.exe,cmd.exe=======>2016,353,993,515
+cmd.exe,cmd.exe=======>1926,353,993,513
