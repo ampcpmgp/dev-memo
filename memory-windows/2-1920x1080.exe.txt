@@ -19,8 +19,6 @@ cmd.exe,npm=======>1931,525,993,519
 mintty.exe,MINGW64=======>2236,669,604,377
 mintty.exe,MINGW64=======>2109,668,604,377
 mintty.exe,MINGW64=======>1970,667,604,377
-electron.exe,Electron=======>1922,6,1027,914
-electron.exe,Electron=======>2268,44,757,497
 notepad++.exe,Notepad++=======>3192,98,646,883
 WeChat.exe,WeChat=======>-2767,-454,810,590
 WeChat.exe,WeChat=======>2767,454,810,590
