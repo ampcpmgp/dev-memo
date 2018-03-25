@@ -15,13 +15,12 @@ firefox.exe,Mozilla Firefox=======>560,0,1281,1032
 LINE.exe,LINE=======>2767,57,629,588
 slack.exe,Slack=======>666,54,1096,978
 Teams.exe,Microsoft Teams=======>666,54,1096,978
-cmd.exe,npm=======>1931,525,993,519
-mintty.exe,MINGW64=======>2236,669,604,377
-mintty.exe,MINGW64=======>2109,668,604,377
+mintty.exe,MINGW64=======>2236,667,604,377
+mintty.exe,MINGW64=======>2109,667,604,377
 mintty.exe,MINGW64=======>1970,667,604,377
-cmd.exe,cmd.exe=======>2236,669,993,512
-cmd.exe,cmd.exe=======>2109,668,993,512
-cmd.exe,cmd.exe=======>1970,667,993,512
+cmd.exe,cmd.exe=======>2236,525,993,519
+cmd.exe,cmd.exe=======>2109,525,993,519
+cmd.exe,cmd.exe=======>1970,525,993,519
 notepad++.exe,Notepad++=======>3192,98,646,883
 WeChat.exe,WeChat=======>-2767,-454,810,590
 WeChat.exe,WeChat=======>2767,454,810,590
