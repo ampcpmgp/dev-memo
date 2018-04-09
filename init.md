@@ -12,7 +12,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * markdown editor - https://github.com/marktext/marktext
 
 # atom package
-apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number language-markdown
+apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number language-markdown atom-live-server
 
 # windows config environment
 nothing
