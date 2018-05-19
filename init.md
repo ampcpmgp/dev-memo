@@ -15,7 +15,8 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number language-markdown atom-live-server
 
 # windows config environment
-nothing
+windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
+https://github.com/felixrieseberg/windows-build-tools
 
 # firefox
 about:config / security.csp.enable の設定検討 / S3.translator 翻訳のため
