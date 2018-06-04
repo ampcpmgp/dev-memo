@@ -1,14 +1,17 @@
-clover.exe,Clover=======>2406,26,796,498
-SciTE.exe,SciTE-Lite [2 of 7]=======>763,61,1103,962
-cmd.exe,npm=======>1931,525,993,519
-atom.exe,README.md — C:\Users\TEST\Documents\GitHub\amdev — Atom=======>819,20,1107,987
-GitHub.exe,GitHub=======>467,364,1224,675
-slack.exe,A-Frame=======>666,54,1096,978
-electron.exe,Electron=======>1922,6,1027,914
-chrome.exe,Google Chrome=======>1945,0,1202,959
-chrome.exe,Google Chrome=======>4,1,1062,975
-chrome.exe,Google Chrome=======>560,0,1281,1032
-clover.exe,Clover=======>2406,519,796,498
-explorer.exe,Sticky Notes=======>0,0,1,1
-LINE.exe,LINE=======>2767,57,629,588
-explorer.exe,Program Manager=======>0,0,5760,1080
+Clover.exe,Clover=======>2405,372,613,351
+chrome.exe,Google Chrome=======>324,14,1534,1030
+atom.exe,C:\Users\Akira Hayatake\Documents\GitHub\parcel-riot-mocktimes-starter — Atom=======>799,30,1107,987
+GitHubDesktop.exe,GitHub Desktop=======>467,364,1224,675
+Clover.exe,Clover=======>2404,0,613,376
+firefox.exe,Mozilla Firefox=======>4,1,1062,975
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>2045,274,805,457
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1981,273,805,451
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1935,273,743,452
+Code.exe,Visual Studio Code=======>2008,29,1154,638
+firefox.exe,Mozilla Firefox=======>1921,0,1077,696
+atom.exe,info.txt — C:\Users\Akira Hayatake\Documents\GitHub\dev-memo\memory-windows — Atom=======>819,45,1110,1100
+firefox.exe,Mozilla Firefox=======>560,0,1281,1032
+Teams.exe,一般 (【残業管理】CIOS企画・デザインチーム) | Microsoft Teams=======>666,54,1096,978
+ApplicationFrameHost.exe,設定=======>2014,16,1040,667
+OamTaskTray.exe,OamTaskTray=======>960,520,0,0
+explorer.exe,Program Manager=======>0,0,3200,1080
