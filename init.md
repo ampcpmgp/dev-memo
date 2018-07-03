@@ -15,6 +15,8 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number language-markdown atom-live-server split-diff
 
 # windows config environment
+https://rustup.rs/
+
 windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
 https://github.com/felixrieseberg/windows-build-tools
 
@@ -25,15 +27,14 @@ about:config / security.csp.enable の設定検討 / S3.translator 翻訳のた�
 
 
 ## stylesheet
-```
+```css
 atom-text-editor {
   font-family: "Avenir Next",Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
 }
 ```
 
 ## snippets
-```
-
+```cson
 '.source.js':
   'JSON.stringify 1 line':
     'prefix': 'logj'
