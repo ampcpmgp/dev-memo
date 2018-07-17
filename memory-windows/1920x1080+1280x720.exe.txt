@@ -6,13 +6,13 @@ firefox.exe,Mozilla Firefox=======>4,1,1062,975
 firefox.exe,Mozilla Firefox=======>1921,0,1077,696
 firefox.exe,Mozilla Firefox=======>560,0,1281,1032
 Teams.exe,Microsoft Teams=======>666,54,1096,978
-Clover.exe,Clover=======>2505,372,613,351
 Clover.exe,Clover=======>2504,0,613,376
-cmd.exe,C:\WINDOWS\system32\cmd.exe=======>2030,273,805,451
-cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1980,273,805,451
-cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1930,273,805,451
-mintty.exe,MINGW64=======>2030,273,805,451
-mintty.exe,MINGW64=======>1980,273,805,451
-mintty.exe,MINGW64=======>1930,273,805,451
+Clover.exe,Clover=======>2505,342,613,351
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>2030,273,805,421
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1980,273,805,421
+cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1930,273,805,421
+mintty.exe,MINGW64=======>2030,273,805,421
+mintty.exe,MINGW64=======>1980,273,805,421
+mintty.exe,MINGW64=======>1930,273,805,421
 Code.exe,Visual Studio Code=======>2008,29,1154,638
 chrome.exe,Google Chrome=======>324,14,1534,1030
