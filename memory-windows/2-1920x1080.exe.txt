@@ -1,6 +1,6 @@
-atom.exe,Atom=======>819,45,1107,987
-atom.exe,Atom=======>799,30,1107,987
-atom.exe,Atom=======>779,15,1107,987
+Code.exe,Visual Studio Code=======>819,45,1107,987
+Code.exe,Visual Studio Code=======>799,30,1107,987
+Code.exe,Visual Studio Code=======>779,15,1107,987
 Code.exe,Visual Studio Code=======>2508,92,1337,906
 clover.exe,Clover=======>2406,519,796,498
 clover.exe,Clover=======>2406,26,796,498
@@ -19,6 +19,6 @@ mintty.exe,MINGW64=======>1970,667,604,377
 cmd.exe,cmd.exe=======>2236,525,993,519
 cmd.exe,cmd.exe=======>2109,525,993,519
 cmd.exe,cmd.exe=======>1970,525,993,519
-notepad++.exe,Notepad++=======>3192,98,646,883
 WeChat.exe,WeChat=======>-2767,-454,810,590
 WeChat.exe,WeChat=======>2767,454,810,590
+notepad++.exe,Notepad++=======>2459,70,1387,906
