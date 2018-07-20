@@ -11,8 +11,8 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * line - https://www.microsoft.com/ja-jp/store/p/line/9wzdncrfj2g6
 * markdown editor - https://github.com/marktext/marktext
 
-# atom package
-apm install pigments highlight-selected editorconfig linter script file-icons atom-beautify linter-eslint linter-ui-default linter-js-standard standard-formatter markdown-preview-enhanced docblockr svg-preview restart-atom busy-signal intentions atom-mermaid@2.2.1 sort-lines atom-html-preview prettier-atom autoclose-html file-watcher GhostText/GhostText-for-Atom sequential-number language-markdown atom-live-server split-diff
+# vscode packages
+code --install-extension ritwickdey.liveserver vstirbu.vscode-mermaid-preview chenxsan.vscode-standardjs
 
 # windows config environment
 https://rustup.rs/
@@ -20,47 +20,6 @@ https://rustup.rs/
 windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
 https://github.com/felixrieseberg/windows-build-tools
 
-# firefox
-about:config / security.csp.enable の設定検討 / S3.translator 翻訳のため
-
-# atom settings
-
-
-## stylesheet
-```css
-atom-text-editor {
-  font-family: "Avenir Next",Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "メイリオ", Meiryo, Osaka, sans-serif;
-}
-```
-
-## snippets
-```cson
-'.source.js':
-  'JSON.stringify 1 line':
-    'prefix': 'logj'
-    'body': 'console.log(JSON.stringify($1))'
-  'JSON.stringify':
-    'prefix': 'logj_line_shaping'
-    'body': 'console.log(JSON.stringify($1, null, \'  \'))'
-
-'.text.html':
-  'less scope':
-    'prefix': 'lesss'
-    'body': """
-      <style type="less">
-        :scope {
-          $1
-        }
-      </style>
-    """
-  'less':
-    'prefix': 'less'
-    'body': """
-      <style type="less">
-        $1
-      </style>
-    """
-```
 
 # add startup
 ```
