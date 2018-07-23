@@ -21,13 +21,33 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 https://github.com/felixrieseberg/windows-build-tools
 
 # vscode user settings
-```
+
+html.json
+```json
 {
-    "window.zoomLevel": 0,
-    "workbench.startupEditor": "newUntitledFile",
-    "liveServer.settings.donotShowInfoMsg": true,
-    "git.enableSmartCommit": true,
-    "files.trimTrailingWhitespace": true
+	"less scope": {
+		"prefix": "lesss",
+		"body": [
+			"<style type=\"less\">",
+			"  :scope {",
+			"    $2",
+			"  }",
+			"</style>"
+		],
+		"description": "style tag for less"
+	},
+
+	"less style": {
+		"prefix": "less",
+		"body": [
+			"<style type=\"less\">",
+			"  > $1 {",
+			"    $2",
+			"  }",
+			"</style>"
+		],
+		"description": "style tag for less"
+	}
 }
 ```
 
