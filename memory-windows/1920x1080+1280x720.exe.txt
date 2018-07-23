@@ -1,6 +1,6 @@
-atom.exe,Atom=======>819,45,1107,987
-atom.exe,Atom=======>799,30,1107,987
-atom.exe,Atom=======>779,15,1107,987
+Code.exe,Visual Studio Code=======>819,45,1107,987
+Code.exe,Visual Studio Code=======>799,30,1107,987
+Code.exe,Visual Studio Code=======>779,15,1107,987
 GitHub Desktop.exe,GitHub Desktop=======>467,364,1224,675
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
 firefox.exe,Mozilla Firefox=======>1921,0,1077,696
@@ -14,5 +14,5 @@ cmd.exe,C:\WINDOWS\system32\cmd.exe=======>1930,273,805,421
 mintty.exe,MINGW64=======>2030,273,805,421
 mintty.exe,MINGW64=======>1980,273,805,421
 mintty.exe,MINGW64=======>1930,273,805,421
-Code.exe,Visual Studio Code=======>2008,29,1154,638
+notepad++.exe,Notepad++=======>2008,29,1154,638
 chrome.exe,Google Chrome=======>324,14,1534,1030
