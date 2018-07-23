@@ -12,7 +12,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * markdown editor - https://github.com/marktext/marktext
 
 # vscode packages
-code --install-extension ritwickdey.liveserver vstirbu.vscode-mermaid-preview chenxsan.vscode-standardjs yzhang.markdown-all-in-one
+code --install-extension ritwickdey.liveserver vstirbu.vscode-mermaid-preview chenxsan.vscode-standardjs yzhang.markdown-all-in-one editorconfig.editorconfig
 
 # windows config environment
 https://rustup.rs/
