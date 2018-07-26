@@ -2,5 +2,5 @@ Clover.exe,Clover=======>484,186,796,498
 mintty.exe,MINGW64=======>-6,326,614,359
 cmd.exe,cmd.exe=======>0,326,614,359
 GitHubDesktop.exe,GitHub Desktop=======>121,18,979,660
-atom.exe,Atom=======>270,0,982,687
+Code.exe,Visual Studio Code=======>270,0,982,687
 firefox.exe,Mozilla Firefox=======>27,0,1161,685
