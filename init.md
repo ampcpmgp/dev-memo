@@ -12,7 +12,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * markdown editor - https://github.com/marktext/marktext
 
 # vscode packages
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify crisward.riot-tag
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify
 
 # windows config environment
 https://rustup.rs/
@@ -21,6 +21,19 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 https://github.com/felixrieseberg/windows-build-tools
 
 # vscode user settings
+
+`Ctrl + ,`
+```
+{
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.associations": {
+        "*.tag": "html"
+    }
+}
+```
 
 html.json
 ```json
