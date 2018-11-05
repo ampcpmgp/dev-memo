@@ -13,7 +13,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * WSL (ubuntu) - from Window Store / ubuntu
 
 # vscode packages
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify tokoph.ghosttext
 
 # windows config environment
 https://rustup.rs/
