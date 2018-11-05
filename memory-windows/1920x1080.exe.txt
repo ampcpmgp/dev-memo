@@ -6,5 +6,4 @@ chrome.exe,Google Chrome=======>337,29,1421,996
 GitHubDesktop.exe,GitHub Desktop=======>391,371,1220,671
 Code.exe,Visual Studio Code=======>604,50,1262,964
 firefox.exe,Mozilla Firefox=======>48,6,1313,1012
-firefox.exe,Mozilla Firefox=======>0,0,1381,1045
-firefox.exe,Mozilla Firefox=======>4,0,1062,685
+firefox.exe,Mozilla Firefox=======>580,0,1252,993

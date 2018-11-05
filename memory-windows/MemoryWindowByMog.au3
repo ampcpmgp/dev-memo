@@ -99,5 +99,5 @@ Func getWindow()
 	  EndIf
    Next
 
-   writeFile("info.txt", $data)
+   writeFile("get.txt", $data)
 EndFunc
