@@ -11,6 +11,7 @@ choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lha
 * line - https://www.microsoft.com/ja-jp/store/p/line/9wzdncrfj2g6
 * markdown editor - https://github.com/marktext/marktext
 * WSL (ubuntu) - from Window Store / ubuntu
+* Firefox Quantom Developer Edition - https://www.mozilla.org/ja/firefox/developer/
 
 # vscode packages
 code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify tokoph.ghosttext
