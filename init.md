@@ -34,7 +34,7 @@ https://github.com/felixrieseberg/windows-build-tools
         "*.tag": "html"
     },
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 }
 ```
 
@@ -65,6 +65,12 @@ https://github.com/felixrieseberg/windows-build-tools
 		"description": "style tag for less"
 	}
 }
+```
+
+```shell
+nodist add v10 # or later
+npm i yarn -g
+npm i npx -g
 ```
 
 

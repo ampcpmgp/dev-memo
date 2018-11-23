@@ -2,7 +2,14 @@
 開発時に必要なメモ群
 
 # 初期化時
+Windows  
 https://github.com/ampcpmgp/dev-memo/blob/master/init.md
+
+
+WSL (Ubuntu)  
+https://github.com/ampcpmgp/dev-memo/blob/master/init-ubuntu.md
+
+
 
 # レポジトリツール一覧
 ```shell
