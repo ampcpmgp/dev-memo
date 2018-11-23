@@ -1,16 +1,15 @@
 
 # install chocolatey
-choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lhaplus notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit winmerge screentogif wechat visualstudiocode joytokey charles itunes lockhunter pixie obs teamviewer
+choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer
 
 # download
-* color picker - http://www.vector.co.jp/soft/dl/win95/art/se350616.html
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * github desktop - https://desktop.github.com/
-* clover - http://en.ejie.me/download/
-* line - https://www.microsoft.com/ja-jp/store/p/line/9wzdncrfj2g6
-* markdown editor - https://github.com/marktext/marktext
+* clover - http://cn.ejie.me/
+* markdown editor - https://github.com/marktext/marktext/releases
 * WSL (ubuntu) - from Window Store / ubuntu
+  * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
 * Firefox Quantom Developer Edition - https://www.mozilla.org/ja/firefox/developer/
 
 # vscode packages
