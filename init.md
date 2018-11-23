@@ -1,6 +1,6 @@
 
 # install chocolatey
-choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lhaplus notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit winmerge screentogif wechat visualstudiocode joytokey charles itunes atom lockhunter pixie obs teamviewer
+choco install -yf --allow-empty-checksums --checksum --checksum64 git nodist lhaplus notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit winmerge screentogif wechat visualstudiocode joytokey charles itunes lockhunter pixie obs teamviewer
 
 # download
 * color picker - http://www.vector.co.jp/soft/dl/win95/art/se350616.html
