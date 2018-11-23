@@ -13,7 +13,7 @@ choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome fi
 * Firefox Quantom Developer Edition - https://www.mozilla.org/ja/firefox/developer/
 
 # vscode packages
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence hookyqr.beautify tokoph.ghosttext
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext
 
 # windows config environment
 https://rustup.rs/
@@ -38,6 +38,7 @@ https://github.com/felixrieseberg/windows-build-tools
 }
 ```
 
+`Ctrl + p -> snippets -> html`
 html.json
 ```json
 {
