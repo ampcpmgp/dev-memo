@@ -39,7 +39,6 @@ https://github.com/felixrieseberg/windows-build-tools
 ```
 
 `Ctrl + p -> snippets -> html`
-html.json
 ```json
 {
 	"less scope": {
