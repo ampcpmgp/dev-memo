@@ -18,7 +18,7 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
 # windows config environment
 https://rustup.rs/
 
-windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
+windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入  
 https://github.com/felixrieseberg/windows-build-tools
 
 # vscode user settings
