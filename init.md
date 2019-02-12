@@ -35,7 +35,8 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
         "*.tag": "html"
     },
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "standard.autoFixOnSave": true
 }
 ```
 
