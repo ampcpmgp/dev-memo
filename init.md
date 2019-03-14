@@ -18,7 +18,6 @@ choco install firefox-dev --pre --yes --ignore-checksum
 * clover - http://cn.ejie.me/
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
-* Firefox Quantom Developer Edition - https://www.mozilla.org/ja/firefox/developer/
 
 # vscode packages
 ```shell
