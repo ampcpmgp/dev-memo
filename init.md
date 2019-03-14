@@ -14,7 +14,6 @@ choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome fi
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * clover - http://cn.ejie.me/
-* markdown editor - https://github.com/marktext/marktext/releases
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
 * Firefox Quantom Developer Edition - https://www.mozilla.org/ja/firefox/developer/
