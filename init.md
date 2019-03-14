@@ -21,7 +21,7 @@ choco install firefox-dev --pre --yes --ignore-checksum
 
 # vscode packages
 ```shell
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case damien.autoit ms-python.python ryu1kn.partial-diff eamodio.gitlens grapecity.gc-excelviewer
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case --install-extension damien.autoit --install-extension ms-python.python --install-extension ryu1kn.partial-diff --install-extension eamodio.gitlens --install-extension grapecity.gc-excelviewer
 ```
 
 # windows config environment
@@ -44,42 +44,15 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
         "*.tag": "html"
     },
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "standard.autoFixOnSave": true
 }
 ```
 
-`Ctrl + p -> snippets -> html`
-```json
-{
-	"less scope": {
-		"prefix": "lesss",
-		"body": [
-			"<style type=\"less\">",
-			"  :scope {",
-			"    $2",
-			"  }",
-			"</style>"
-		],
-		"description": "style tag for less"
-	},
-
-	"less style": {
-		"prefix": "less",
-		"body": [
-			"<style type=\"less\">",
-			"  > $1 {",
-			"    $2",
-			"  }",
-			"</style>"
-		],
-		"description": "style tag for less"
-	}
-}
-```
 
 ```shell
 nodist add v10 # or later
+nodist global v10
 npm i yarn -g
 npm i npx -g
 ```
