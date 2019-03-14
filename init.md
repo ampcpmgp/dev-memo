@@ -31,6 +31,11 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
 
+# firefox config
+
+`abount:config` を開いて `browser.urlbar.autoFill` を入力し、falseに変更する
+
+
 # vscode user settings
 
 `Ctrl + , -> config json`
