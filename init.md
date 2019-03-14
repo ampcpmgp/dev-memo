@@ -7,13 +7,12 @@
 
 refreshenv
 
-choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam vcxsrv
+choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam vcxsrv github-desktop
 ```
 
 # download
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
-* github desktop - https://desktop.github.com/
 * clover - http://cn.ejie.me/
 * markdown editor - https://github.com/marktext/marktext/releases
 * WSL (ubuntu) - from Window Store / ubuntu
