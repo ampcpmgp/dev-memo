@@ -7,7 +7,7 @@
 
 refreshenv
 
-choco install --yes --ignore-checksum git nodist notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam github-desktop
+choco install --yes --ignore-checksum git nvm.portable notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam github-desktop
 
 choco install firefox-dev --pre --yes --ignore-checksum
 ```
@@ -51,10 +51,9 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 
 
 ```shell
-nodist add v10 # or later
-nodist global v10
-npm i yarn -g
-npm i npx -g
+nvm list available # use LTS version
+nvm install __VERSION__
+nvm use __VERSION__
 ```
 
 
