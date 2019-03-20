@@ -11,7 +11,7 @@ https://github.com/ampcpmgp/dev-memo/blob/master/init-ubuntu.md
 
 
 
-# レポジトリツール一覧
+# ツール一覧
 ```shell
 # 要windows / 開発時 要autoit
 memory-windows/ # ウィンドウ位置記録ツール & メモ
