@@ -18,15 +18,14 @@ choco install firefox-dev --pre --yes --ignore-checksum
 * clover - http://cn.ejie.me/
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
+* rustup - https://rustup.rs/
 
 # vscode packages
 ```shell
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case --install-extension damien.autoit --install-extension ms-python.python --install-extension ryu1kn.partial-diff --install-extension eamodio.gitlens --install-extension grapecity.gc-excelviewer --install-extension goessner.mdmath --install-extension bierner.emojisense
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension chenxsan.vscode-standardjs --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case --install-extension damien.autoit --install-extension ms-python.python --install-extension ryu1kn.partial-diff --install-extension eamodio.gitlens --install-extension grapecity.gc-excelviewer --install-extension goessner.mdmath --install-extension bierner.emojisense --install-extension rust-lang.rust
 ```
 
-# windows config environment
-https://rustup.rs/
-
+# troubleshooting
 windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
@@ -63,3 +62,6 @@ Windows Key + R
 shell:startup
 add quick start
 ```
+
+# wsl setting
+TODO
