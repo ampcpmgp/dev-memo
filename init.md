@@ -51,6 +51,12 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 }
 ```
 
+`User Snippets -> glsl`
+
+https://gist.github.com/lewislepton/8b17f56baa7f1790a70284e7520f9623
+
+
+# commands settings
 
 ```shell
 nvm list available # use LTS version
