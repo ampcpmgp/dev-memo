@@ -13,9 +13,12 @@ npm i yarn -g
 ```shell
 # rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# restart
-exit
-wsl
+source ~/.bash_profile
+
+# nightly & target wasm
+rustup install nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
+rustup default nightly
 
 # rls
 rustup component add rls rust-analysis rust-src
