@@ -17,8 +17,8 @@ source ~/.bash_profile
 
 # nightly & target wasm
 rustup install nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
 rustup default nightly
+rustup target add wasm32-unknown-unknown --toolchain nightly
 
 # rls
 rustup component add rls rust-analysis rust-src
