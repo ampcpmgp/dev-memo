@@ -20,6 +20,6 @@ rustup install nightly
 rustup update
 rustup target add wasm32-unknown-unknown --toolchain nightly # 必要に応じてnightlyを利用する。可能な限りstableを利用。
 
-# rls
-rustup component add rls rust-analysis rust-src
+# components
+rustup component add rls rust-analysis rust-src rustfmt
 ```
