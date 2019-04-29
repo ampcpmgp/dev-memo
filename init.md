@@ -46,8 +46,18 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
         "*.tag": "html"
     },
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "standard.autoFixOnSave": true
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "standard.autoFixOnSave": true,
+    // glslang のパスを設定する
+    "glsl-linter.validatorPath": "C:\\MyPrograms\\glslang-master-windows-x64-Release\\bin\\glslangValidator.exe",
+    "glsl-linter.validatorArgs": "",
+    "rust-client.rustupPath": "~/.cargo/bin/rustup",
+    "rust-client.useWSL": true,
+    "editor.formatOnSave": true,
+    // TODO: standardのonSaveを外して、上記に統合したい。
+    "[javascript]": {
+        "editor.formatOnSave": false
+    }
 }
 ```
 
