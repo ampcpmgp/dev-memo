@@ -52,12 +52,7 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
     "glsl-linter.validatorPath": "C:\\MyPrograms\\glslang-master-windows-x64-Release\\bin\\glslangValidator.exe",
     "glsl-linter.validatorArgs": "",
     "rust-client.rustupPath": "~/.cargo/bin/rustup",
-    "rust-client.useWSL": true,
-    "editor.formatOnSave": true,
-    // TODO: standardのonSaveを外して、上記に統合したい。
-    "[javascript]": {
-        "editor.formatOnSave": false
-    }
+    "rust-client.useWSL": true
 }
 ```
 
