@@ -7,7 +7,7 @@ https://github.com/ampcpmgp/dev-memo/blob/master/init.md
 
 
 WSL (Ubuntu)  
-https://github.com/ampcpmgp/dev-memo/blob/master/init-ubuntu.md
+https://github.com/ampcpmgp/dev-memo/blob/master/init-wsl.md
 
 
 
