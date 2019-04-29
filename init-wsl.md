@@ -23,3 +23,9 @@ rustup target add wasm32-unknown-unknown --toolchain nightly # 必要に応じ�
 # components
 rustup component add rls rust-analysis rust-src rustfmt
 ```
+
+# トラブルシューティング
+
+* rustup component add rls の時のエラーの場合
+
+https://github.com/rust-lang/rls#error-component-rls-is-unavailable-for-download-nightly を参照
