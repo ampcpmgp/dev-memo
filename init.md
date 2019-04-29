@@ -73,4 +73,4 @@ add quick start
 ```
 
 # wsl setting
-[init-ubuntu.md](init-ubuntu.md) を参照
+[init-wsl.md](init-wsl.md) を参照
