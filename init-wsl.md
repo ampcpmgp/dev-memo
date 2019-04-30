@@ -25,7 +25,7 @@ rustup component add rls rust-analysis rust-src rustfmt
 
 # binary packages
 cargo +nightly install racer
-cargo install cargo-tree
+cargo install cargo-tree cargo-edit
 ```
 
 # トラブルシューティング
