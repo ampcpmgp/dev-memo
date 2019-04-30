@@ -22,6 +22,9 @@ rustup target add wasm32-unknown-unknown --toolchain nightly # 必要に応じ�
 
 # components
 rustup component add rls rust-analysis rust-src rustfmt
+
+# racer
+cargo +nightly install racer
 ```
 
 # トラブルシューティング
