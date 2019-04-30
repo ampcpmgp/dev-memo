@@ -23,8 +23,9 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 # components
 rustup component add rls rust-analysis rust-src rustfmt
 
-# racer
+# binary packages
 cargo +nightly install racer
+cargo install cargo-tree
 ```
 
 # トラブルシューティング
@@ -32,3 +33,13 @@ cargo +nightly install racer
 * rustup component add rls の時のエラーの場合
 
 https://github.com/rust-lang/rls#error-component-rls-is-unavailable-for-download-nightly を参照
+
+
+* cargo install cargo-tree
+
+下記エラー時
+> error: failed to run custom build command for `openssl-sys v0.9.43`
+
+```shell
+sudo apt-get install libssl-dev
+```
