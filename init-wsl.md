@@ -18,7 +18,7 @@ source ~/.bash_profile
 # nightly & target wasm
 rustup install nightly
 rustup update
-rustup target add wasm32-unknown-unknown --toolchain nightly # 必要に応じてnightlyを利用する。可能な限りstableを利用。
+rustup target add wasm32-unknown-unknown --toolchain nightly
 
 # components
 rustup component add rls rust-analysis rust-src rustfmt
