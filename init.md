@@ -56,7 +56,6 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
     "[rust]": {
         "editor.formatOnSave": true
     },
-    // rustfmtが効かない、要調査
     "rust.build_on_save": true
 }
 ```
