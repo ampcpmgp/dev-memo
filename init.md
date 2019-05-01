@@ -28,11 +28,6 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
 
 ```
 
-# troubleshooting
-windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
-* https://github.com/felixrieseberg/windows-build-tools
-* https://github.com/nodejs/node-gyp
-
 # vscode user settings
 
 `Ctrl + , -> config json`
@@ -51,12 +46,11 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
     // glslang のパスを設定する
     "glsl-linter.validatorPath": "C:\\MyPrograms\\glslang-master-windows-x64-Release\\bin\\glslangValidator.exe",
     "glsl-linter.validatorArgs": "",
-    "rust-client.rustupPath": "~/.cargo/bin/rustup",
-    "rust-client.useWSL": true,
     "[rust]": {
         "editor.formatOnSave": true
     },
-    "rust.build_on_save": true
+    "rust.build_on_save": true,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 }
 ```
 
@@ -65,12 +59,28 @@ windows 10 でnpm install時のビルドエラーが出た場合は、以下を�
 https://gist.github.com/lewislepton/8b17f56baa7f1790a70284e7520f9623
 
 
-# commands settings
+# nvm settings
 
 ```shell
 nvm list available # use LTS version
 nvm install __VERSION__
 nvm use __VERSION__
+```
+
+# rust settings
+
+```shell
+# nightly & target wasm
+rustup install nightly
+rustup update
+rustup target add wasm32-unknown-unknown --toolchain nightly
+
+# components
+rustup component add rls rust-analysis rust-src rustfmt
+
+# binary packages
+cargo +nightly install racer
+cargo install cargo-tree cargo-edit
 ```
 
 
@@ -83,3 +93,8 @@ add quick start
 
 # wsl setting
 [init-wsl.md](init-wsl.md) を参照
+
+# troubleshooting
+windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
+* https://github.com/felixrieseberg/windows-build-tools
+* https://github.com/nodejs/node-gyp
