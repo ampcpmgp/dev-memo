@@ -9,7 +9,7 @@ refreshenv
 
 choco install --yes --ignore-checksum git nvm.portable notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken libreoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam github-desktop jcpicker
 
-choco install firefox-dev --pre --yes --ignore-checksum
+choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
 # download
