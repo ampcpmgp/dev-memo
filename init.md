@@ -91,6 +91,10 @@ shell:startup
 add quick start
 ```
 
+# windows setting
+WinKey -> マルチタスクの設定 -> スナップ無効
+
+
 # wsl setting
 [init-wsl.md](init-wsl.md) を参照
 
