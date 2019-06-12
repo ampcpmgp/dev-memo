@@ -46,7 +46,9 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "glsl-linter.validatorPath": "C:\\MyPrograms\\glslang-master-windows-x64-Release\\bin\\glslangValidator.exe",
     "glsl-linter.validatorArgs": "",
     "[rust]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.autoIndent": false,
+        "editor.tabSize": 4
     },
     "rust.build_on_save": true,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
