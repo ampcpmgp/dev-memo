@@ -4,3 +4,6 @@ cmd.exe,cmd.exe=======>0,326,614,359
 GitHubDesktop.exe,GitHub Desktop=======>121,18,979,660
 Code.exe,Visual Studio Code=======>270,0,982,687
 firefox.exe,Mozilla Firefox=======>27,0,1161,685
+Slack.exe,electron-jp=======>97,37,1083,646
+chrome.exe,Google Chrome=======>55,17,1171,670
+notepad++.exe,Notepad++=======>164,24,1109,642
