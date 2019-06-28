@@ -23,3 +23,4 @@ cmd.exe,cmd.exe=======>1970,525,993,519
 WeChat.exe,WeChat=======>-2767,-454,810,590
 WeChat.exe,WeChat=======>2767,454,810,590
 notepad++.exe,Notepad++=======>2459,70,1387,906
+ApplicationFrameHost.exe,OneNote=======>2079,44,1720,930
