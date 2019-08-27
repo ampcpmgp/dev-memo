@@ -15,4 +15,5 @@ mintty.exe,MINGW64=======>2030,273,805,421
 mintty.exe,MINGW64=======>1980,273,805,421
 mintty.exe,MINGW64=======>1930,273,805,421
 notepad++.exe,Notepad++=======>2008,29,1154,638
+ApplicationFrameHost.exe,OneNote=======>2008,29,1154,638
 chrome.exe,Google Chrome=======>324,14,1534,1030
