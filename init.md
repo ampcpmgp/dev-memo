@@ -104,3 +104,11 @@ WinKey -> マルチタスクの設定 -> スナップ無効
 windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
+
+vscode-rls で `--features` を渡す必要がある場合、Workspace setting より以下を参考に設定する
+```json
+{
+  "rust.unstable_features": true,
+  "rust.features": ["vulkan"]
+}
+```
