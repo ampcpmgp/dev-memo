@@ -1,0 +1,24 @@
+Clover.exe,Clover=======>1106,27,819,488
+firefox.exe,Mozilla Firefox=======>580,0,1252,993
+Code.exe,Visual Studio Code=======>604,50,1262,964
+SciTE.exe,SciTE-Lite [2 of 2]=======>546,90,1281,892
+GitHubDesktop.exe,GitHub Desktop=======>391,371,1220,671
+firefox.exe,Mozilla Firefox=======>0,0,1381,1045
+chrome.exe,Google Chrome=======>337,29,1421,996
+Slack.exe,MDR_QC=======>569,83,1224,957
+Teams.exe,チャット | Microsoft Teams=======>537,65,1229,954
+Clover.exe,Clover=======>1104,511,821,501
+firefox.exe,Mozilla Firefox=======>4,0,1062,685
+chrome.exe,LINE=======>86,140,626,585
+ApplicationFrameHost.exe,映画 & テレビ=======>117,115,1322,787
+TeamViewer.exe,TeamViewer=======>363,191,884,489
+Video.UI.exe,映画 & テレビ=======>0,0,1306,779
+ApplicationFrameHost.exe,アラーム & クロック=======>118,64,1216,940
+WeChat.exe,Log In=======>-2767,-454,810,590
+Time.exe,アラーム & クロック=======>0,32,1200,900
+ApplicationFrameHost.exe,Xbox=======>-8,-8,1936,1056
+ApplicationFrameHost.exe,Microsoft Store=======>102,0,1222,682
+XboxApp.exe,Xbox=======>0,8,1920,1040
+WinStore.App.exe,Microsoft Store=======>0,32,1206,642
+notepad++.exe,Notepad++=======>-7,0,1288,685
+explorer.exe,Program Manager=======>0,0,1920,1080

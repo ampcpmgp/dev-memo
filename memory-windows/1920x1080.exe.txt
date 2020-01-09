@@ -1,0 +1,9 @@
+Clover.exe,Clover=======>1106,27,819,488
+Clover.exe,Clover=======>1104,511,821,501
+Teams.exe,チャット | Microsoft Teams=======>537,65,1229,954
+Slack.exe,MDR_QC=======>569,83,1224,957
+chrome.exe,Google Chrome=======>337,29,1421,996
+GitHubDesktop.exe,GitHub Desktop=======>391,371,1220,671
+Code.exe,Visual Studio Code=======>604,50,1262,974
+firefox.exe,Mozilla Firefox=======>48,6,1313,1012
+firefox.exe,Mozilla Firefox=======>580,0,1252,993
