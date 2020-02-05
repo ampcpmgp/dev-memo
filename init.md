@@ -94,7 +94,7 @@ add quick start
 ```
 
 # windows setting
-WinKey -> マルチタスクの設定 -> スナップ無効
+WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
 
 
 # wsl setting
