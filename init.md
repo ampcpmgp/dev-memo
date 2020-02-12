@@ -51,8 +51,7 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     },
     "rust.build_on_save": true,
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "remote.SSH.showLoginTerminal": true,
-    "editor.formatOnSave": true
+    "remote.SSH.showLoginTerminal": true
 }
 ```
 
