@@ -46,6 +46,7 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "glsl-linter.validatorArgs": "",
     "[rust]": {
         "editor.formatOnSave": true,
+        // 消せるか確認する
         "editor.autoIndent": false,
         "editor.tabSize": 4
     },
