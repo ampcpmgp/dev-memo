@@ -15,6 +15,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 ## download
 * https://scoop.sh/
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
+  * 上記リンク内にある→を利用し動作確認済み(2020/04/16) https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * clover - http://cn.ejie.me/
 * WSL (ubuntu) - from Window Store / ubuntu
