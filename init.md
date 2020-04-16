@@ -13,6 +13,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
 ## download
+* https://scoop.sh/
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * clover - http://cn.ejie.me/
