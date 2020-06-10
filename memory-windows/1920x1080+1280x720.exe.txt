@@ -18,3 +18,4 @@ notepad++.exe,Notepad++=======>2008,29,1154,638
 ApplicationFrameHost.exe,ノートブック=======>2008,29,1154,638
 chrome.exe,Google Chrome=======>324,14,1534,1030
 slack.exe,Slack=======>666,54,1096,978
+DingTalkLite.exe,DingTalk=======>593,100,1140,938
