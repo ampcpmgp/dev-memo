@@ -7,4 +7,4 @@ firefox.exe,Mozilla Firefox=======>27,0,1161,685
 Slack.exe,electron-jp=======>97,37,1083,646
 chrome.exe,Google Chrome=======>55,17,1171,670
 notepad++.exe,Notepad++=======>164,24,1109,642
-ApplicationFrameHost.exe,OneNote=======>123,34,1148,641
+ApplicationFrameHost.exe,ノートブック=======>123,34,1148,641
