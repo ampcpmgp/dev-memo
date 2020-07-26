@@ -7,7 +7,7 @@
 
 refreshenv
 
-choco install --yes --ignore-checksum git nvm.portable notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken openoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam github-desktop jcpicker typora vlc blender postman
+choco install --yes --ignore-checksum git nvm.portable notepadplusplus googlechrome firefox crystaldiskinfo greenshot crystaldiskmark gitkraken openoffice win32diskimager.install virtualbox slack autoit.commandline winmerge screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs teamviewer steam github-desktop jcpicker typora vlc blender postman ipfs
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
