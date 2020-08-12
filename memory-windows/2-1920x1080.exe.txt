@@ -25,3 +25,4 @@ WeChat.exe,WeChat=======>2767,454,810,590
 notepad++.exe,Notepad++=======>2459,70,1387,906
 ApplicationFrameHost.exe,ノートブック=======>2079,44,1720,930
 Typora.exe,Typora=======>644,23,1249,1027
+DingTalkLite.exe,DingTalk=======>593,100,1140,938
