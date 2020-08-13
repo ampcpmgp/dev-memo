@@ -3,8 +3,8 @@
 * nvm - https://github.com/creationix/nvm
 
 ```shell
-nvm install 10 # or later
-npm i yarn -g
+nvm ls-remote
+nvm install v14.8.0 # or later
 ```
 
 * rustup - https://rustup.rs/
