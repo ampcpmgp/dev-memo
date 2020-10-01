@@ -43,9 +43,6 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "javascript.updateImportsOnFileMove.enabled": "always",
     "[rust]": {
         "editor.formatOnSave": true,
-        // 消せるか確認する
-        "editor.autoIndent": false,
-        "editor.tabSize": 4
     },
     "rust.build_on_save": true,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
