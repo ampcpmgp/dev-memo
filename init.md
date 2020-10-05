@@ -44,6 +44,9 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "[rust]": {
         "editor.formatOnSave": true,
     },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+    },
     "rust.build_on_save": true,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "remote.SSH.showLoginTerminal": true,
