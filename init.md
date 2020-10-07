@@ -64,6 +64,13 @@ nvm install __VERSION__
 nvm use __VERSION__
 ```
 
+## Git user settings
+
+```shell
+git config --global user.name "ampcpmgp"
+git config --global user.email "email@example.com"
+```
+
 ## rust settings
 
 ```shell
