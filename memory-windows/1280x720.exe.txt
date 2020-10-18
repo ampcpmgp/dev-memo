@@ -8,3 +8,5 @@ Slack.exe,electron-jp=======>97,37,1083,646
 chrome.exe,Google Chrome=======>55,17,1171,670
 notepad++.exe,Notepad++=======>164,24,1109,642
 ApplicationFrameHost.exe,ノートブック=======>123,34,1148,641
+DeepL.exe,DeepL =======>74,7,1050,677
+Typora.exe,Typora=======>7,10,1157,650
