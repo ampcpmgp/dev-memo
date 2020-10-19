@@ -55,7 +55,8 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "remote.SSH.showLoginTerminal": true,
     "svelte-intellisense.trace.server": "messages",
-    "svelte.plugin.html.tagComplete.enable": false
+    "svelte.plugin.html.tagComplete.enable": false,
+    "editor.wordWrap": "on"
 }
 ```
 
