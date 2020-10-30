@@ -13,11 +13,12 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
 ## download
+* svg viewer - https://github.com/tibold/svg-explorer-extension/releases
+* clover - http://cn.ejie.me/
 * https://scoop.sh/
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
   * 上記リンク内にある→を利用し動作確認済み(2020/04/16) https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter
 * clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
-* clover - http://cn.ejie.me/
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
 * rustup - https://rustup.rs/
