@@ -25,7 +25,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 
 ## vscode packages
 ```shell
-code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case --install-extension damien.autoit --install-extension ryu1kn.partial-diff --install-extension eamodio.gitlens --install-extension grapecity.gc-excelviewer --install-extension goessner.mdmath --install-extension bierner.emojisense --install-extension rust-lang.rust --install-extension ecmel.vscode-html-css --install-extension humao.rest-client --install-extension be5invis.toml --install-extension visualstudioexptteam.vscodeintellicode --install-extension a5huynh.vscode-ron --install-extension ms-vscode-remote.vscode-remote-extensionpack --install-extension kelvin.vscode-sshfs --install-extension csholmq.excel-to-markdown-table --install-extension yzane.markdown-pdf --install-extension vadimcn.vscode-lldb --install-extension jamesbirtles.svelte-vscode --install-extension dbaeumer.vscode-eslint --install-extension fivethree.vscode-svelte-snippets --install-extension esbenp.prettier-vscode --install-extension cssho.vscode-svgviewer --install-extension mikeburgh.xml-format --install-extension oderwat.indent-rainbow --install-extension davidanson.vscode-markdownlint --install-extension svelte.svelte-vscode --install-extension ms-vsliveshare.vsliveshare --install-extension donjayamanne.githistory --install-extension mhutchie.git-graph --install-extension wix.vscode-import-cost --install-extension naumovs.color-highlight
+code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscode-mermaid-preview --install-extension yzhang.markdown-all-in-one --install-extension editorconfig.editorconfig --install-extension tomoki1207.vscode-input-sequence --install-extension hookyqr.beautify --install-extension tokoph.ghosttext --install-extension wmaurer.change-case --install-extension damien.autoit --install-extension ryu1kn.partial-diff --install-extension eamodio.gitlens --install-extension grapecity.gc-excelviewer --install-extension goessner.mdmath --install-extension bierner.emojisense --install-extension rust-lang.rust --install-extension ecmel.vscode-html-css --install-extension humao.rest-client --install-extension be5invis.toml --install-extension visualstudioexptteam.vscodeintellicode --install-extension a5huynh.vscode-ron --install-extension ms-vscode-remote.vscode-remote-extensionpack --install-extension kelvin.vscode-sshfs --install-extension csholmq.excel-to-markdown-table --install-extension yzane.markdown-pdf --install-extension vadimcn.vscode-lldb --install-extension dbaeumer.vscode-eslint --install-extension fivethree.vscode-svelte-snippets --install-extension esbenp.prettier-vscode --install-extension cssho.vscode-svgviewer --install-extension mikeburgh.xml-format --install-extension oderwat.indent-rainbow --install-extension davidanson.vscode-markdownlint --install-extension svelte.svelte-vscode --install-extension ms-vsliveshare.vsliveshare --install-extension donjayamanne.githistory --install-extension mhutchie.git-graph --install-extension wix.vscode-import-cost --install-extension naumovs.color-highlight
 ```
 
 ## vscode user settings
@@ -37,9 +37,11 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "explorer.confirmDelete": false,
     "window.zoomLevel": 0,
     "liveServer.settings.donotShowInfoMsg": true,
-    "files.associations": {
-        "*.tag": "html"
-    },
+    "eslint.validate": [
+        "javascript",
+        "html",
+        "svelte"
+    ],
     "explorer.confirmDragAndDrop": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "[rust]": {
@@ -51,11 +53,15 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     },
     "[svelte]": {
         "editor.formatOnSave": true,
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "rust.build_on_save": true,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "remote.SSH.showLoginTerminal": true,
-    "svelte-intellisense.trace.server": "messages",
     "svelte.plugin.html.tagComplete.enable": false,
     "editor.wordWrap": "on"
 }
