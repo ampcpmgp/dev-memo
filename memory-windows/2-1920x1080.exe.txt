@@ -20,6 +20,7 @@ ApplicationFrameHost.exe,ノートブック=======>2079,44,1720,930
 Typora.exe,Typora=======>644,23,1249,1027
 DingTalkLite.exe,DingTalk=======>593,100,1140,938
 V-CUBE Gate.exe,V-CUBE Gate=======>593,100,1140,938
+Discord.exe,Discord=======>593,100,1140,938
 LINE.exe,LINE=======>2767,57,629,588
 Teams.exe,Microsoft Teams=======>666,54,1096,978
 slack.exe,Slack=======>666,54,1096,978
