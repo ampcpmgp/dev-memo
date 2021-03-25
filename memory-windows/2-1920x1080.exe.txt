@@ -24,5 +24,6 @@ Discord.exe,Discord=======>593,100,1140,938
 LINE.exe,LINE=======>2767,57,629,588
 Teams.exe,Microsoft Teams=======>666,54,1096,978
 slack.exe,Slack=======>666,54,1096,978
+Focalboard.exe,Focalboard=======>425,86,1338,957
 WeChat.exe,WeChat=======>2767,454,810,590
 DeepL.exe,DeepL =======>1992,221,1093,796
