@@ -22,6 +22,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
 * rustup - https://rustup.rs/
+* Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 
 ## vscode packages
 ```shell
