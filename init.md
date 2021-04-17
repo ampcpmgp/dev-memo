@@ -40,7 +40,6 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
     "liveServer.settings.donotShowInfoMsg": true,
     "eslint.validate": [
         "javascript",
-        "html",
         "svelte"
     ],
     "explorer.confirmDragAndDrop": false,
