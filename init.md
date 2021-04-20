@@ -18,7 +18,6 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * https://scoop.sh/
 * ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
   * 上記リンク内にある→を利用し動作確認済み(2020/04/16) https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter
-* clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html
 * WSL (ubuntu) - from Window Store / ubuntu
   * WSLの有効化 - [参考記事](https://qiita.com/Aruneko/items/c79810b0b015bebf30bb)
 * rustup - https://rustup.rs/
@@ -108,7 +107,8 @@ add quick start
 ```
 
 ## windows setting
-WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+* WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+* Windows + V で clickboard 有効化
 
 
 ## wsl setting
