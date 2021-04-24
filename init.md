@@ -68,6 +68,22 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
 }
 ```
 
+## Snippets
+
+javascript
+
+```json
+{
+	"Filtered log": {
+		"prefix": "logf",
+		"body": [
+			"console.log(\"filtered log $1\", $1);"
+		],
+		"description": "Add filetered log to console"
+	}
+}
+```
+
 
 ## nvm settings
 
