@@ -24,6 +24,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * rustup - https://rustup.rs/
 * Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 * FocalBoard - https://www.microsoft.com/ja-jp/p/focalboard-insiders-edition/9nln2t0sx9vf?cid=website&rtc=1&activetab=pivot:overviewtab
+* Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
 
 ## vscode packages
 ```shell
