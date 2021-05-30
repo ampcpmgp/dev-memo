@@ -61,11 +61,13 @@ code --install-extension ritwickdey.liveserver --install-extension vstirbu.vscod
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "rust.build_on_save": true,
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "remote.SSH.showLoginTerminal": true,
-    "svelte.plugin.html.tagComplete.enable": false,
-    "editor.wordWrap": "on"
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
 }
 ```
 
