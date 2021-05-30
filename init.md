@@ -104,16 +104,12 @@ git config --global user.email "email@example.com"
 ## rust settings
 
 ```shell
-# nightly & target wasm
-rustup install nightly
 rustup update
-rustup target add wasm32-unknown-unknown --toolchain nightly
 
 # components
 rustup component add rls rust-analysis rust-src rustfmt
 
 # binary packages
-cargo +nightly install racer
 cargo install cargo-tree cargo-edit
 ```
 
