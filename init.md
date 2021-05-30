@@ -101,6 +101,10 @@ nvm use __VERSION__
 ```shell
 git config --global user.name "ampcpmgp"
 git config --global user.email "email@example.com"
+
+# 必要に応じて変更する
+git config --local user.name "ampcpmgp"
+git config --local user.email "email@example.com"
 ```
 
 ## rust settings
@@ -109,7 +113,8 @@ git config --global user.email "email@example.com"
 rustup update
 
 # components
-rustup component add rls rust-analysis rust-src rustfmt
+# 必要に応じて変更、2021/05/30時点では不要そう。
+# rustup component add rls rust-analysis rust-src
 
 # binary packages
 cargo install cargo-tree cargo-edit
@@ -134,11 +139,3 @@ add quick start
 windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
-
-vscode-rls で `--features` を渡す必要がある場合、Workspace setting より以下を参考に設定する
-```json
-{
-  "rust.unstable_features": true,
-  "rust.features": ["vulkan"]
-}
-```
