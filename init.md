@@ -7,12 +7,12 @@
 
 refreshenv
 
-choco install --yes --ignore-checksum git nvm.portable googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size
+choco install --yes --ignore-checksum git nvm.portable googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size docker-desktop
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
-## download
+## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
 * clover - http://cn.ejie.me/
 * https://scoop.sh/
@@ -25,6 +25,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 * FocalBoard - https://www.microsoft.com/ja-jp/p/focalboard-insiders-edition/9nln2t0sx9vf?cid=website&rtc=1&activetab=pivot:overviewtab
 * Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
+* Docker setup - https://docs.docker.com/docker-for-windows/install/
 
 ## vscode packages
 ```shell
@@ -136,6 +137,6 @@ add quick start
 [init-wsl.md](init-wsl.md) を参照
 
 ## troubleshooting
-windows 10 でnpm install時のビルドエラーが出た場合は、以下を導入
+windows 10 で `npm install` 時のビルドエラーが出た場合は、以下を導入
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
