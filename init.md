@@ -131,6 +131,7 @@ add quick start
 
 ## windows setting
 * WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+* WinKey -> エクスプローラーのオプション -> 表示 -> 「登録されている拡張子は表示しない」のチェックを外す
 
 
 ## wsl setting
