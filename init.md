@@ -102,6 +102,7 @@ nvm use __VERSION__
 ```shell
 git config --global user.name "ampcpmgp"
 git config --global user.email "email@example.com"
+git config --global core.autocrlf input
 
 # 必要に応じて変更する
 git config --local user.name "ampcpmgp"
