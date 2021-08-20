@@ -7,7 +7,7 @@
 
 refreshenv
 
-choco install --yes --ignore-checksum git nvm.portable googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size docker-desktop
+choco install --yes --ignore-checksum git googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size docker-desktop
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
@@ -26,18 +26,17 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
 * Docker setup - https://docs.docker.com/docker-for-windows/install/
   * 上記ページにて WSL の有効化も合わせて行う
+ * Volta - https://docs.volta.sh/guide/getting-started
 
 
 ## vscode settings
 
 Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
 
-## nvm settings
+## volta settings
 
 ```shell
-nvm list available # use LTS version
-nvm install __VERSION__
-nvm use __VERSION__
+volta install node@latest
 ```
 
 ## Git user settings
