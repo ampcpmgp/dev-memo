@@ -4,7 +4,7 @@ Code.exe,Visual Studio Code=======>779,15,1107,987
 Code.exe,Visual Studio Code=======>2508,92,1337,906
 clover.exe,Clover=======>2406,519,796,498
 clover.exe,Clover=======>2406,26,796,498
-chrome.exe,Google Chrome=======>560,0,1281,1032
+chrome.exe,Google Chrome=======>-7,0,974,1047
 chrome.exe,Google Chrome=======>1945,0,1202,959
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
 mintty.exe,MINGW64=======>2236,667,604,377
