@@ -82,5 +82,11 @@ add quick start
 
 ## troubleshooting
 windows 10 で `npm install` 時のビルドエラーが出た場合は、以下を導入
+
 * https://github.com/felixrieseberg/windows-build-tools
 * https://github.com/nodejs/node-gyp
+
+Windows 10 で環境変数をリロードせずに反映したい場合
+
+* `$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")` を入力
+ * https://github.com/microsoft/vscode/issues/47816#issuecomment-525523816
