@@ -80,6 +80,26 @@ add quick start
 ## wsl setting
 [init-wsl.md](init-wsl.md) を参照
 
+## Clibor settings
+
+定型文の追加
+
+```
+## Before & After
+
+| **Before**             | **After**            |
+| ------------------ | ------------------ |
+| <テキストや画像など> | <テキストや画像など> |
+|                    |                    |
+
+## 対応内容
+
+* 
+
+## 留意事項
+
+```
+
 ## troubleshooting
 windows 10 で `npm install` 時のビルドエラーが出た場合は、以下を導入
 
@@ -90,3 +110,4 @@ Windows 10 で環境変数をリロードせずに反映したい場合
 
 * `$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")` を入力
  * https://github.com/microsoft/vscode/issues/47816#issuecomment-525523816
+
