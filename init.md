@@ -20,7 +20,10 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 
 ## vscode settings
 
-Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
+* Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
+* Microsoft Store で ubuntu 最新版ダウンロード
+* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
+* 
 
 
 ## add startup
@@ -38,6 +41,11 @@ add quick start
 
 
 # WSL
+
+```
+sudo apt-get update
+sudo apt-get install wget ca-certificates
+```
 
  * Volta - https://docs.volta.sh/guide/getting-started
 
