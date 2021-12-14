@@ -4,24 +4,15 @@
 https://chocolatey.org/install
 
 ```shell
-refreshenv
-
-choco install --yes --ignore-checksum git googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion
+choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
 ## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
-* clover - http://cn.ejie.me/
 * https://scoop.sh/
-* ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
-  * 上記リンク内にある→を利用し動作確認済み(2020/04/16) https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter
-  * 有料版に変更されている(2021/07/25) https://inspect.dev/
-* Clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html?ref=top
-* rustup - https://rustup.rs/
 * Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
-* FocalBoard - https://www.microsoft.com/ja-jp/p/focalboard-insiders-edition/9nln2t0sx9vf?cid=website&rtc=1&activetab=pivot:overviewtab
 * Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
 * Docker setup - https://docs.docker.com/docker-for-windows/install/
   * 上記ページにて WSL の有効化も合わせて行う
