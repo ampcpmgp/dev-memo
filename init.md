@@ -43,31 +43,13 @@ add quick start
 # WSL
 
 ```
+# for WSL
 sudo apt-get update
 sudo apt-get install wget ca-certificates
+
+# for fnm
+apt install unzip
 ```
-
- * Volta - https://docs.volta.sh/guide/getting-started
-
-## volta settings
-
-```shell
-volta install node@latest
-```
-
-## rust settings
-
-```shell
-rustup update
-
-# components
-# 必要に応じて変更、2021/05/30時点では不要そう。
-# rustup component add rls rust-analysis rust-src
-
-# binary packages
-cargo install cargo-tree cargo-edit
-```
-
 
 ## Git user settings
 
@@ -81,3 +63,28 @@ git config --local user.name "ampcpmgp"
 git config --local user.email "email@example.com"
 ```
 
+
+## fnm settings
+
+ * fnm - https://github.com/Schniz/fnm
+
+```shell
+fnm list-remote
+fnm install <LATEST_STABLE_VERSION>
+```
+
+
+!以下未確認!
+
+## rust settings
+
+```shell
+rustup update
+
+# components
+# 必要に応じて変更、2021/05/30時点では不要そう。
+# rustup component add rls rust-analysis rust-src
+
+# binary packages
+cargo install cargo-tree cargo-edit
+```
