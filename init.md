@@ -55,8 +55,7 @@ apt install unzip
 
 ```shell
 git config --global user.name "ampcpmgp"
-git config --global user.email "email@example.com"
-git config --global core.autocrlf input
+git config --global user.email "USER_NAME@gmail.com"
 
 # 必要に応じて変更する
 git config --local user.name "ampcpmgp"
