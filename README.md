@@ -2,12 +2,8 @@
 開発時に必要なメモ群
 
 ## 初期化時
-Windows  
-https://github.com/ampcpmgp/dev-memo/blob/master/init.md
 
-
-WSL (Ubuntu)  
-https://github.com/ampcpmgp/dev-memo/blob/master/init-wsl.md
+* Windows & WSL - https://github.com/ampcpmgp/dev-memo/blob/master/init.md
 
 
 ## ツール一覧
@@ -19,6 +15,5 @@ https://github.com/ampcpmgp/dev-memo/blob/master/init-wsl.md
 
 ## 現在未使用
 
-Windows  
-https://github.com/ampcpmgp/dev-memo/blob/master/init-old.md
-
+* Windows - https://github.com/ampcpmgp/dev-memo/blob/master/init-old.md
+* WSL (Ubuntu) - https://github.com/ampcpmgp/dev-memo/blob/master/init-wsl.md
