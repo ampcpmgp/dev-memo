@@ -4,51 +4,74 @@
 https://chocolatey.org/install
 
 ```shell
-refreshenv
-
-choco install --yes --ignore-checksum git googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 itunes lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman ipfs python discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion
+choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo greenshot crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 lockhunter pixie obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
 ## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
-* clover - http://cn.ejie.me/
 * https://scoop.sh/
-* ios webkit debugger ( required itunes ) - https://github.com/google/ios-webkit-debug-proxy
-  * 上記リンク内にある→を利用し動作確認済み(2020/04/16) https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter
-  * 有料版に変更されている(2021/07/25) https://inspect.dev/
-* Clibor - https://www.vector.co.jp/soft/winnt/util/se472890.html?ref=top
-* rustup - https://rustup.rs/
 * Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
-* FocalBoard - https://www.microsoft.com/ja-jp/p/focalboard-insiders-edition/9nln2t0sx9vf?cid=website&rtc=1&activetab=pivot:overviewtab
 * Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
 * Docker setup - https://docs.docker.com/docker-for-windows/install/
   * 上記ページにて WSL の有効化も合わせて行う
- * Volta - https://docs.volta.sh/guide/getting-started
 
 
 ## vscode settings
 
-Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
+* Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
+* Microsoft Store で ubuntu 最新版ダウンロード
+* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
+* Ubuntu を起動して am user 追加
 
-## volta settings
 
-```shell
-volta install node@latest
+## add startup
 ```
+Windows Key + R
+shell:startup
+add quick start
+```
+
+## windows setting
+* WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+* WinKey -> エクスプローラーのオプション -> 表示 ->
+  * 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
+  * 「登録されている拡張子は表示しない」のチェックを外す
+
+
+# WSL
 
 ## Git user settings
 
 ```shell
 git config --global user.name "ampcpmgp"
-git config --global user.email "email@example.com"
-git config --global core.autocrlf input
+git config --global user.email "USER_NAME@gmail.com"
 
 # 必要に応じて変更する
 git config --local user.name "ampcpmgp"
 git config --local user.email "email@example.com"
 ```
+
+
+## fnm settings
+
+ * fnm - https://github.com/Schniz/fnm
+
+```shell
+fnm list-remote
+fnm install <LATEST_STABLE_VERSION>
+```
+
+## Repository 
+
+```shell
+mkdir repos
+cd repos
+git clone https://github.com/ampcpmgp/dev-memo.git
+```
+
+!以下未確認!
 
 ## rust settings
 
@@ -64,49 +87,8 @@ cargo install cargo-tree cargo-edit
 ```
 
 
-## add startup
-```
-Windows Key + R
-shell:startup
-add quick start
-```
+# TroubleShooting
 
-## windows setting
-* WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
-* WinKey -> エクスプローラーのオプション -> 表示 -> 「登録されている拡張子は表示しない」のチェックを外す
-
-
-## wsl setting
-[init-wsl.md](init-wsl.md) を参照
-
-## Clibor settings
-
-定型文の追加
-
-```
-## Before & After
-
-| **Before**             | **After**            |
-| ------------------ | ------------------ |
-| <テキストや画像など> | <テキストや画像など> |
-|                    |                    |
-
-## 対応内容
-
-* 
-
-## 留意事項
-
-```
-
-## troubleshooting
-windows 10 で `npm install` 時のビルドエラーが出た場合は、以下を導入
-
-* https://github.com/felixrieseberg/windows-build-tools
-* https://github.com/nodejs/node-gyp
-
-Windows 10 で環境変数をリロードせずに反映したい場合
-
-* `$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")` を入力
- * https://github.com/microsoft/vscode/issues/47816#issuecomment-525523816
-
+* スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
+  * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
+  * https://gunmagisgeek.com/blog/other/7171
