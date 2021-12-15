@@ -85,3 +85,10 @@ rustup update
 # binary packages
 cargo install cargo-tree cargo-edit
 ```
+
+
+# TroubleShooting
+
+* スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
+  * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
+  * https://gunmagisgeek.com/blog/other/7171
