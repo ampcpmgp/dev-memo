@@ -23,7 +23,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 * Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
 * Microsoft Store で ubuntu 最新版ダウンロード
 * Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
-* 
+* Ubuntu を起動して am user 追加
 
 
 ## add startup
@@ -41,15 +41,6 @@ add quick start
 
 
 # WSL
-
-```
-# for WSL
-sudo apt-get update
-sudo apt-get install wget ca-certificates
-
-# for fnm
-apt install unzip
-```
 
 ## Git user settings
 
@@ -72,10 +63,13 @@ fnm list-remote
 fnm install <LATEST_STABLE_VERSION>
 ```
 
-## Docker Compose
+## Repository 
 
-* Docker Compose - https://docs.docker.com/compose/install/
-
+```shell
+mkdir repos
+cd repos
+git clone https://github.com/ampcpmgp/dev-memo.git
+```
 
 !以下未確認!
 
