@@ -45,6 +45,8 @@ add quick start
 ## Git user settings
 
 ```shell
+sudo apt-get install git
+
 git config --global user.name "ampcpmgp"
 git config --global user.email "USER_NAME@gmail.com"
 
