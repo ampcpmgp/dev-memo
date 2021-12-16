@@ -20,10 +20,10 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 
 ## vscode settings
 
-* Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login
 * Microsoft Store で ubuntu 最新版ダウンロード
 * Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
 * Ubuntu を起動して am user 追加
+* Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
 
 
 ## add startup
