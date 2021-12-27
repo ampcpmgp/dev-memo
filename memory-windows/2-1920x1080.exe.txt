@@ -2,6 +2,7 @@ Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>799,30,1100,980
 Code.exe,Visual Studio Code=======>779,15,1100,980
 Code.exe,Visual Studio Code=======>759,0,1100,980
+WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1290,1072,1296,688
 explorer.exe,_=======>2406,519,796,498
 explorer.exe,_=======>2406,26,796,498
 chrome.exe,Google Chrome=======>-7,0,974,1047
