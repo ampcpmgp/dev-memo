@@ -9,6 +9,12 @@ choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo green
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
+## Download Ubuntu
+
+* Microsoft Store で ubuntu 最新版ダウンロード
+* Ubuntu を起動して am user 追加
+* ページ下部 #WSL を参照、セットアップ
+
 ## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
 * https://scoop.sh/
@@ -20,9 +26,7 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 
 ## vscode settings
 
-* Microsoft Store で ubuntu 最新版ダウンロード
 * Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
-* Ubuntu を起動して am user 追加
 * Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
 
 
@@ -42,19 +46,50 @@ add quick start
 
 # WSL
 
+## Dotfiles
+
+* Source: https://github.com/ampcpmgp/dotfiles/blob/main/README.md
+
+
+## apt-get
+
+```shell
+sudo apt-get update
+sudo apt-get install git clang wget ca-certificates
+```
+
 ## Git user settings
 
 ```shell
-sudo apt-get install git
-
 git config --global user.name "ampcpmgp"
-git config --global user.email "USER_NAME@gmail.com"
+git config --global user.email "<ACCOUNT_NAME>@gmail.com"
 
 # 必要に応じて変更する
-git config --local user.name "ampcpmgp"
-git config --local user.email "email@example.com"
+git config --local user.name "<USER_NAME>"
+git config --local user.email "<ACCOUNT_NAME>@<DOMAIN>"
 ```
 
+## Homebrew
+
+* Homebrew - https://docs.brew.sh/Homebrew-on-Linux
+
+手順が長いため、念のため上記 URL を確認する。
+
+```shell
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+```
+
+## Brew install
+
+```shell
+brew tap jandedobbeleer/oh-my-posh
+brew install oh-my-posh fnm
+```
 
 ## fnm settings
 
@@ -65,7 +100,7 @@ fnm list-remote
 fnm install <LATEST_STABLE_VERSION>
 ```
 
-## Repository 
+## This repository 
 
 ```shell
 mkdir repos
