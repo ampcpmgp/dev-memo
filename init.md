@@ -48,7 +48,7 @@ add quick start
 
 ## Dotfiles
 
-* Source: https://github.com/ampcpmgp/dotfiles/blob/main/README.md
+* Source: https://github.com/ampcpmgp/dotfiles
 
 
 ## apt-get
