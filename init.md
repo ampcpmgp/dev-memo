@@ -87,8 +87,7 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
 ## Brew install
 
 ```shell
-brew tap jandedobbeleer/oh-my-posh
-brew install oh-my-posh fnm
+brew install fnm
 ```
 
 ## fnm settings
