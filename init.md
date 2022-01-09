@@ -55,7 +55,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates
+sudo apt-get install git clang wget ca-certificates build-essential
 ```
 
 ## Git user settings
