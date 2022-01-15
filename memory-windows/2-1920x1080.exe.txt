@@ -5,6 +5,7 @@ Code.exe,Visual Studio Code=======>759,0,1100,980
 WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1290,1072,1296,688
 explorer.exe,_=======>2406,519,796,498
 explorer.exe,_=======>2406,26,796,498
+ApplicationFrameHost.exe,Files=======>2459,68,1210,891
 chrome.exe,Google Chrome=======>-7,0,974,1047
 chrome.exe,Google Chrome=======>1945,0,1202,959
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
@@ -17,3 +18,5 @@ Teams.exe,Microsoft Teams=======>666,54,1096,978
 slack.exe,Slack=======>666,54,1096,978
 WeChat.exe,WeChat=======>2767,454,810,590
 DeepL.exe,DeepL =======>1992,221,1093,796
+Notion.exe,分報=======>344,85,1364,914
+Element.exe,Element | Random=======>598,57,1167,948
