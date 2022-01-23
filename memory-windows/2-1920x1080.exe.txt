@@ -20,3 +20,4 @@ WeChat.exe,WeChat=======>2767,454,810,590
 DeepL.exe,DeepL =======>1992,221,1093,796
 Notion.exe,分報=======>344,85,1364,914
 Element.exe,Element | Random=======>598,57,1167,948
+Kindle.exe,Kindle for PC=======>1974,0,1180,1039
