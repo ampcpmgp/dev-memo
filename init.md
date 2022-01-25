@@ -9,9 +9,16 @@ choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo cryst
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
+## Windows Package Manager CLI 
+
+```shell
+winget install devtoys
+```
+
 ## Download Ubuntu
 
 * Microsoft Store で ubuntu 最新版ダウンロード
+  * このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
 * Ubuntu を起動して am user 追加
 * ページ下部 #WSL を参照、セットアップ
 
