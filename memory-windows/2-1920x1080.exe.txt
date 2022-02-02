@@ -3,17 +3,17 @@ Code.exe,Visual Studio Code=======>799,30,1100,980
 Code.exe,Visual Studio Code=======>779,15,1100,980
 Code.exe,Visual Studio Code=======>759,0,1100,980
 WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1290,1072,1296,688
-explorer.exe,_=======>2406,519,796,498
-explorer.exe,_=======>2406,26,796,498
-ApplicationFrameHost.exe,Files=======>2459,68,1210,891
+explorer.exe,_=======>2713,18,796,498
+explorer.exe,_=======>2714,508,796,498
+ApplicationFrameHost.exe,Files=======>2328,68,1341,891
 chrome.exe,Google Chrome=======>-7,0,974,1047
-chrome.exe,Google Chrome=======>1945,0,1202,959
+chrome.exe,Google Chrome=======>1946,0,1514,989
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
 ApplicationFrameHost.exe,ノートブック=======>2079,44,1720,930
 Typora.exe,Typora=======>644,23,1249,1027
 Discord.exe,Discord=======>593,100,1140,938
 Mattermost.exe,Mattermost=======>625,74,1157,940
-LINE.exe,LINE=======>2767,57,629,588
+chrome.exe,LINE=======>2975,43,629,588
 Teams.exe,Microsoft Teams=======>666,54,1096,978
 slack.exe,Slack=======>666,54,1096,978
 WeChat.exe,WeChat=======>2767,454,810,590
