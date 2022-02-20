@@ -4,7 +4,7 @@
 https://chocolatey.org/install
 
 ```shell
-choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 lockhunter obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git kindle microsoft-windows-terminal flameshot files powertoys wechat subtitleedit
+choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey charles4 lockhunter obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git kindle microsoft-windows-terminal flameshot files powertoys wechat subtitleedit authy-desktop
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
