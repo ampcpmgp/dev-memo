@@ -133,5 +133,6 @@ cargo install cargo-tree cargo-edit
 # TroubleShooting
 
 * スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
+  * WSL 2 側から `ip a show dev eth0` を叩いた URL に直アクセスできそう。出来れば下の手順が不要。
   * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
   * https://gunmagisgeek.com/blog/other/7171
