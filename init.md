@@ -94,7 +94,7 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
 ## Brew install
 
 ```shell
-brew install fnm
+brew install fnm go
 ```
 
 ## fnm settings
@@ -114,6 +114,15 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
+
+# TroubleShooting
+
+* スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
+  * WSL 2 側から `ip a show dev eth0` を叩いた URL に直アクセスできそう。出来れば下の手順が不要。
+  * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
+  * https://gunmagisgeek.com/blog/other/7171
+
+
 !以下未確認!
 
 ## rust settings
@@ -129,10 +138,3 @@ rustup update
 cargo install cargo-tree cargo-edit
 ```
 
-
-# TroubleShooting
-
-* スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
-  * WSL 2 側から `ip a show dev eth0` を叩いた URL に直アクセスできそう。出来れば下の手順が不要。
-  * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
-  * https://gunmagisgeek.com/blog/other/7171
