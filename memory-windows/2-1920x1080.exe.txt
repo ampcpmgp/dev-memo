@@ -2,7 +2,7 @@ Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>799,30,1100,980
 Code.exe,Visual Studio Code=======>779,15,1100,980
 Code.exe,Visual Studio Code=======>759,0,1100,980
-WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1290,1072,1296,688
+WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1000,1072,1296,688
 explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
 ApplicationFrameHost.exe,Files=======>2328,68,1341,891
