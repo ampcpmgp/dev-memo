@@ -62,7 +62,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv
 ```
 
 ## Git user settings
@@ -94,7 +94,7 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
 ## Brew install
 
 ```shell
-brew install fnm go python3
+brew install fnm go
 ```
 
 ## fnm settings
