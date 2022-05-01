@@ -94,7 +94,7 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
 ## Brew install
 
 ```shell
-brew install fnm go
+brew install fnm go python3
 ```
 
 ## fnm settings
