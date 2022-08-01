@@ -62,7 +62,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq
 ```
 
 ## Git user settings
