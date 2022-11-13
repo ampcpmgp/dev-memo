@@ -1,3 +1,4 @@
+# Windows
 
 ## install chocolatey
 
@@ -33,7 +34,6 @@ winget install devtoys
 
 ## vscode settings
 
-* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
 * Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
 
 
@@ -50,6 +50,8 @@ add quick start
   * 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
   * 「登録されている拡張子は表示しない」のチェックを外す
 
+## Tauri
+* [Prerequisites | Tauri Apps](https://tauri.app/v1/guides/getting-started/prerequisites)
 
 # WSL
 
@@ -135,8 +137,12 @@ netsh.exe interface portproxy show v4tov4
 * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
 * https://gunmagisgeek.com/blog/other/7171
 
+# Windows connect to WSL
 
-!以下未確認!
+* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
+
+
+# !以下未確認!
 
 ## rust settings
 
