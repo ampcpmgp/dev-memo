@@ -116,6 +116,26 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
+## Rust install
+
+```shell
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+* https://www.rust-lang.org/ja/tools/install
+
+```shell
+cargo install cargo-edit --features vendored-openssl
+```
+
+* https://github.com/killercup/cargo-edit
+
+
+
+# Windows connect to WSL
+
+* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
+
 
 # TroubleShooting
 
@@ -136,24 +156,4 @@ netsh.exe interface portproxy show v4tov4
 参考URL 
 * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
 * https://gunmagisgeek.com/blog/other/7171
-
-# Windows connect to WSL
-
-* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
-
-
-# !以下未確認!
-
-## rust settings
-
-```shell
-rustup update
-
-# components
-# 必要に応じて変更、2021/05/30時点では不要そう。
-# rustup component add rls rust-analysis rust-src
-
-# binary packages
-cargo install cargo-tree cargo-edit
-```
 
