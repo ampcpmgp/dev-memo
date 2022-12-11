@@ -51,7 +51,7 @@ add quick start
   * 「登録されている拡張子は表示しない」のチェックを外す
 
 ## Tauri
-* [Prerequisites | Tauri Apps](https://tauri.app/v1/guides/getting-started/prerequisites)
+* Prerequisites | Tauri Apps - https://tauri.app/v1/guides/getting-started/prerequisites
 
 # WSL
 
