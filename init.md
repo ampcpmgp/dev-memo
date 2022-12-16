@@ -116,6 +116,14 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
+## Deno
+
+```
+curl -fsSL https://deno.land/x/install/install.sh | sh
+```
+
+https://deno.land/manual@v1.29.1/getting_started/installation
+
 ## Rust install
 
 ```shell
