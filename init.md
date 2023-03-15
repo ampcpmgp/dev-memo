@@ -149,6 +149,14 @@ cargo install cargo-edit --features vendored-openssl
 
 ## スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
 
+### Android の場合
+
+こちらの手順を参考に
+
+<https://www.suzu6.net/posts/141-android-to-pc-localhost/>
+
+### それ以外の場合
+
 * WSL 2 側で `ip a show dev eth0` を叩き、 inet の次にある IP Address を取得する。
 * 管理者権限で Powershell を開き以下を入力する
 
