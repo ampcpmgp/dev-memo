@@ -158,6 +158,8 @@ netsh.exe interface portproxy show v4tov4 # ポート状況の確認
 netsh.exe interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=3000 connectaddress=<WSL_IP_ADDRESS> connectport=3000
 
 netsh.exe interface portproxy show v4tov4
+
+netsh.exe interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=3000
 ```
 
 
