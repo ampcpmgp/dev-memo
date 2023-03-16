@@ -170,8 +170,11 @@ netsh.exe interface portproxy show v4tov4
 netsh.exe interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=3000
 ```
 
+* 「セキュリティが強化された Windows Defender ファイアウォール」より、指定のポートを外す
 
 参考URL 
 * https://docs.microsoft.com/ja-jp/windows/wsl/networking 
 * https://gunmagisgeek.com/blog/other/7171
+* https://learn.microsoft.com/ja-jp/windows/security/threat-protection/windows-firewall/open-windows-firewall-with-advanced-security
+
 
