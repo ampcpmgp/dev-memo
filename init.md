@@ -157,17 +157,18 @@ cargo install cargo-edit --features vendored-openssl
 
 ### それ以外の場合
 
+* Powershell で `ipconfig` を叩き、 IPv4 アドレスの次にある IP Address を取得する。
 * WSL 2 側で `ip a show dev eth0` を叩き、 inet の次にある IP Address を取得する。
 * 管理者権限で Powershell を開き以下を入力する
 
 ```
 netsh.exe interface portproxy show v4tov4 # ポート状況の確認
 
-netsh.exe interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=3000 connectaddress=<WSL_IP_ADDRESS> connectport=3000
+netsh.exe interface portproxy add v4tov4 listenaddress=<LOCAL_IP_ADDRESS> listenport=3000 connectaddress=<WSL_IP_ADDRESS> connectport=3000
 
 netsh.exe interface portproxy show v4tov4
 
-netsh.exe interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=3000
+netsh.exe interface portproxy delete v4tov4 listenaddress=<LOCAL_IP_ADDRESS> listenport=3000
 ```
 
 * 「セキュリティが強化された Windows Defender ファイアウォール」より、指定のポートを外す
