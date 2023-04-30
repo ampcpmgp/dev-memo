@@ -1,24 +1,25 @@
 Code.exe,Visual Studio Code=======>819,45,1100,980
-Code.exe,Visual Studio Code=======>1000,1072,1290,680
-Code.exe,Visual Studio Code=======>799,30,1100,980
-Code.exe,Visual Studio Code=======>779,15,1100,980
-Code.exe,Visual Studio Code=======>759,0,1100,980
+Code.exe,Visual Studio Code=======>930,1080,1220,625
+Code.exe,Visual Studio Code=======>2880,0,960,1032
 WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1000,1072,1290,680
 explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
 ApplicationFrameHost.exe,Files=======>2328,68,1341,891
-chrome.exe,Google Chrome=======>-7,0,974,1047
-chrome.exe,Google Chrome=======>1946,0,1514,989
+chrome.exe,Google Chrome=======>0,0,970,1030
+chrome.exe,Google Chrome=======>1940,0,1510,990
+chrome.exe,Google Chrome=======>1000,1072,1290,680
+msedge.exe,Microsoft​ Edge=======>0,0,970,1030
+msedge.exe,Microsoft​ Edge=======>1940,0,1510,990
+msedge.exe,Microsoft​ Edge=======>960,1100,1220,625
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
-ApplicationFrameHost.exe,ノートブック=======>2079,44,1720,930
 Typora.exe,Typora=======>644,23,1249,1027
 Discord.exe,Discord=======>593,100,1140,938
 Mattermost.exe,Mattermost=======>625,74,1157,940
-chrome.exe,LINE=======>2975,43,629,588
 Teams.exe,Microsoft Teams=======>666,54,1096,978
 slack.exe,Slack=======>666,54,1096,978
 WeChat.exe,WeChat=======>2767,454,810,590
 DeepL.exe,DeepL =======>1992,221,1093,796
 Notion.exe,分報=======>344,85,1364,914
-Element.exe,Element | Random=======>598,57,1167,948
 Kindle.exe,Kindle for PC=======>1974,0,1180,1039
+LINE.exe,LINE=======>2860,8,720,620
+Figma.exe,Figma=======>990,1120,1220,625
