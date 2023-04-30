@@ -1,6 +1,5 @@
 Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>930,1080,1220,625
-Code.exe,Visual Studio Code=======>2880,0,960,1032
 WindowsTerminal.exe,am@DESKTOP-3FEPVAQ: ~=======>1000,1072,1290,680
 explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
