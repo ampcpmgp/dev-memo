@@ -68,9 +68,17 @@ add quick start
 
 ## apt-get
 
+※ 全て apt に移行できるか確認。
+
 ```shell
 sudo apt-get update
 sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq
+```
+
+## apt
+
+```shell
+sudo apt install ffmpeg
 ```
 
 ## Git user settings
