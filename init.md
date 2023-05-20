@@ -120,6 +120,13 @@ brew install fnm go
 ```shell
 fnm list-remote
 fnm install <LATEST_STABLE_VERSION>
+fnm default <LATEST_STABLE_VERSION>
+```
+
+If you want to fix the version in the repository, enter the following.
+
+```shell
+node -v > .node-version
 ```
 
 ## This repository 
