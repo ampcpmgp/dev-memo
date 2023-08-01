@@ -10,6 +10,11 @@ choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo cryst
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
+## Microsoft Store
+
+- Microsoft Loop
+- 
+
 ## install by winget
 
 ```shell
