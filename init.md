@@ -42,7 +42,7 @@ winget install devtoys
 * Docker setup - https://docs.docker.com/docker-for-windows/install/
   * 上記ページにて WSL の有効化も合わせて行う
  * Huion Tablet Driver - https://www.huion.com/jp/index.php?m=content&c=index&a=lists&catid=16&myform=1&down_title=kamvas+13
-* VB-Audio - https://vb-audio.com/Cable/
+* VB-CABLE - https://vb-audio.com/Cable/
 
 ## vscode settings
 
