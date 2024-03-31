@@ -43,6 +43,7 @@ winget install devtoys
   * 上記ページにて WSL の有効化も合わせて行う
  * Huion Tablet Driver - https://www.huion.com/jp/index.php?m=content&c=index&a=lists&catid=16&myform=1&down_title=kamvas+13
 * VB-CABLE - https://vb-audio.com/Cable/
+* 水匠 & ShogiGUI - search by google
 
 ## vscode settings
 
