@@ -70,6 +70,8 @@ add quick start
 
 ## Dotfiles
 
+`vi ~/.profile` で差分が無ければ更新の必要無し
+
 * Source: https://github.com/ampcpmgp/dotfiles
 
 
@@ -79,7 +81,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip
 ```
 
 ## apt
@@ -99,26 +101,16 @@ git config --local user.name "<USER_NAME>"
 git config --local user.email "<ACCOUNT_NAME>@<DOMAIN>"
 ```
 
-## Homebrew
-
-* Homebrew - https://docs.brew.sh/Homebrew-on-Linux
-
-手順が長いため、念のため上記 URL を確認する。
+## fnm install
 
 ```shell
-sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+curl -fsSL https://fnm.vercel.app/install | bash
 
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+# then restart and read ~/.bashrc
+fnm --version
 ```
 
-## Brew install
-
-```shell
-brew install fnm go
-```
+https://github.com/Schniz/fnm
 
 ## fnm settings
 
@@ -146,7 +138,7 @@ git clone https://github.com/ampcpmgp/dev-memo.git
 
 ## Deno
 
-```
+```shell
 curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
@@ -156,6 +148,13 @@ https://deno.land/manual@v1.29.1/getting_started/installation
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# 1) Proceed with standard installation (default - just press enter)
+# 2) Customize installation
+# 3) Cancel installation
+>1
+
+# then restart
 ```
 
 * https://www.rust-lang.org/ja/tools/install
