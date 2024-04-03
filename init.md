@@ -136,6 +136,14 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
+## Bun
+
+```shell
+https://bun.sh/docs/installation#installing
+```
+
+https://bun.sh/docs/installation#installing
+
 ## Deno
 
 ```shell
