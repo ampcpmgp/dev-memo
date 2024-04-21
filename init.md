@@ -62,6 +62,7 @@ add quick start
 * WinKey -> エクスプローラーのオプション -> 表示 ->
   * 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
   * 「登録されている拡張子は表示しない」のチェックを外す
+* パフォーマンスのオプションの設定 - [参考](https://zenn.dev/takashiaihara/articles/a1dfc9899a5fe7)
 
 ## Tauri
 * Prerequisites | Tauri Apps - https://tauri.app/v1/guides/getting-started/prerequisites
