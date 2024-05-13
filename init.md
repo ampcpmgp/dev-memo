@@ -141,7 +141,7 @@ git clone https://github.com/ampcpmgp/dev-memo.git
 ## Bun
 
 ```shell
-https://bun.sh/docs/installation#installing
+curl -fsSL https://bun.sh/install | bash
 ```
 
 https://bun.sh/docs/installation#installing
