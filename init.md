@@ -176,10 +176,24 @@ cargo install cargo-edit --features vendored-openssl
 * https://github.com/killercup/cargo-edit
 
 
+## Brew install
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# after RETURN/ENTER
+
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+```
+
+- https://brew.sh/
+- https://docs.brew.sh/Homebrew-on-Linux
+
 
 # Windows connect to WSL
 
-* Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
+- Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
 
 
 # TroubleShooting
@@ -188,9 +202,9 @@ cargo install cargo-edit --features vendored-openssl
 
 ### 共通
 
-* Powershell で `ipconfig` を叩き、 IPv4 アドレスの次にある IP Address を取得する。
-* WSL 2 側で `ip a show dev eth0` を叩き、 inet の次にある IP Address を取得する。
-* 管理者権限で Powershell を開き以下を入力する
+- Powershell で `ipconfig` を叩き、 IPv4 アドレスの次にある IP Address を取得する。
+- WSL 2 側で `ip a show dev eth0` を叩き、 inet の次にある IP Address を取得する。
+- 管理者権限で Powershell を開き以下を入力する
 
 ```
 netsh.exe interface portproxy show v4tov4 # ポート状況の確認
@@ -202,12 +216,12 @@ netsh.exe interface portproxy show v4tov4
 netsh.exe interface portproxy delete v4tov4 listenaddress=<LOCAL_IP_ADDRESS> listenport=3000
 ```
 
-* 「セキュリティが強化された Windows Defender ファイアウォール」より、指定のポートを外す
+- 「セキュリティが強化された Windows Defender ファイアウォール」より、指定のポートを外す
 
 参考URL 
-* https://docs.microsoft.com/ja-jp/windows/wsl/networking 
-* https://gunmagisgeek.com/blog/other/7171
-* https://learn.microsoft.com/ja-jp/windows/security/threat-protection/windows-firewall/open-windows-firewall-with-advanced-security
+- https://docs.microsoft.com/ja-jp/windows/wsl/networking 
+- https://gunmagisgeek.com/blog/other/7171
+- https://learn.microsoft.com/ja-jp/windows/security/threat-protection/windows-firewall/open-windows-firewall-with-advanced-security
 
 ### Android の場合
 
