@@ -198,6 +198,12 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 # TroubleShooting
 
+## Vmmem の CPU 使用率が高い場合
+
+以下を参考に、 .wslconfig を作成し、設定を行う
+
+https://jp.minitool.com/news/vmmem-high-memory.html
+
 ## スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
 
 ### 共通
