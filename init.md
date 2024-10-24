@@ -47,6 +47,7 @@ winget install devtoys
 * 音楽ツール
  * Melissa - https://github.com/mosynthkey/Melissa
  * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
+* Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
 
 ## vscode settings
 
