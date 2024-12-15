@@ -27,6 +27,10 @@ winget install httptoolkit
 winget install devtoys
 ```
 
+## Setup Windows reorder tool
+
+- build 2-1920x1080.exe, then locate desktop, and execute from logi+ tool
+
 ## Download Ubuntu
 
 * Microsoft Store で ubuntu 最新版ダウンロード
