@@ -52,6 +52,7 @@ winget install devtoys
  * Melissa - https://github.com/mosynthkey/Melissa
  * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
 * Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
+* TopClipper - https://jp.imyfone.com/crop-video/
 
 ## vscode settings
 
