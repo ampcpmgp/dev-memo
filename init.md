@@ -53,6 +53,7 @@ winget install devtoys
  * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
 * Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
 * TopClipper - https://jp.imyfone.com/crop-video/
+* API Dog - https://apidog.com/jp/download/
 
 ## vscode settings
 
