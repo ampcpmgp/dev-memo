@@ -54,6 +54,7 @@ winget install devtoys
 * Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
 * TopClipper - https://jp.imyfone.com/crop-video/
 * API Dog - https://apidog.com/jp/download/
+* ComfyUI - https://www.comfy.org/download
 
 ## vscode settings
 
