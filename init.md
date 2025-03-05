@@ -55,6 +55,7 @@ winget install devtoys
 * TopClipper - https://jp.imyfone.com/crop-video/
 * API Dog - https://apidog.com/jp/download/
 * ComfyUI - https://www.comfy.org/download
+* ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
 
 ## vscode settings
 
