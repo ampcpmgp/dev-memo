@@ -60,6 +60,8 @@ winget install devtoys
 * ComfyUI
   * Install ComfyUI - https://www.comfy.org/download
   * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
+  * Ollama - https://github.com/ollama/ollama
+    * Install Ollama and models
   * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
 
 ## vscode settings
