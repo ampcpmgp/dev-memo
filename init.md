@@ -37,7 +37,9 @@ winget install devtoys
   * このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
   * Ubuntu を起動して am user 追加
   * ページ下部 #WSL を参照、セットアップ
-  * Dドライブ引越 - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
+  * Dドライブ引越
+    * https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
+    * https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 
 ## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
