@@ -35,8 +35,9 @@ winget install devtoys
 
 * Microsoft Store で ubuntu 最新版ダウンロード
   * このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
-* Ubuntu を起動して am user 追加
-* ページ下部 #WSL を参照、セットアップ
+  * Ubuntu を起動して am user 追加
+  * ページ下部 #WSL を参照、セットアップ
+  * Dドライブ引越 - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
 
 ## download & setup
 * svg viewer - https://github.com/tibold/svg-explorer-extension/releases
