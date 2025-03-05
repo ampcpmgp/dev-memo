@@ -52,12 +52,13 @@ winget install devtoys
 * VB-CABLE - https://vb-audio.com/Cable/
 * 水匠 & ShogiGUI - search by google
 * 音楽ツール
- * Melissa - https://github.com/mosynthkey/Melissa
- * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
+  * Melissa - https://github.com/mosynthkey/Melissa
+  * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
 * Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
 * TopClipper - https://jp.imyfone.com/crop-video/
 * API Dog - https://apidog.com/jp/download/
 * ComfyUI - https://www.comfy.org/download
+  * ComfuUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
 * Ollama - https://ollama.com/
 
 ## vscode settings
