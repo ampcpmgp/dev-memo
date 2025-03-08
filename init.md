@@ -64,6 +64,7 @@ winget install devtoys
   * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
     * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+* Canva - https://www.canva.com/ja_jp/download/windows/
 
 ## vscode settings
 
