@@ -65,6 +65,7 @@ winget install devtoys
     * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
 * Canva - https://www.canva.com/ja_jp/download/windows/
+* あずきフォント - http://azukifont.com/font/azuki.html
 
 ## vscode settings
 
