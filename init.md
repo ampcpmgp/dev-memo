@@ -66,6 +66,7 @@ winget install devtoys
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
 * Canva - https://www.canva.com/ja_jp/download/windows/
 * あずきフォント - http://azukifont.com/font/azuki.html
+* ケイ字 - https://k-gothic-font.hatenablog.com/
 
 ## vscode settings
 
