@@ -1,5 +1,6 @@
 Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>930,1080,1220,625
+Code.exe,Visual Studio Code=======>930,1080,1220,625
 WindowsTerminal.exe,DESKTOP=======>922,1073,1295,687
 explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
@@ -22,3 +23,4 @@ Notion.exe,分報=======>344,85,1364,914
 Kindle.exe,Kindle for PC=======>1974,0,1180,1039
 LINE.exe,LINE=======>2683,43,866,717
 Figma.exe,Figma=======>990,1120,1220,625
+Canva.exe,Canva=======>990,1120,1220,625
