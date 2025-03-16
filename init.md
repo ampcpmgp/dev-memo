@@ -64,6 +64,7 @@ winget install devtoys
   * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
     * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+  * Stable Diffusion 3.5 or later - https://comfyui-wiki.com/ja/tutorial/advanced/stable-diffusion-3-5-comfyui-workflow
 * Canva - https://www.canva.com/ja_jp/download/windows/
 * あずきフォント - http://azukifont.com/font/azuki.html
 * ケイ字 - https://k-gothic-font.hatenablog.com/
