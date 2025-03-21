@@ -6,10 +6,10 @@ explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
 ApplicationFrameHost.exe,Files=======>2328,68,1341,891
 chrome.exe,Google Chrome=======>0,0,970,1030
-chrome.exe,Google Chrome=======>1940,0,1510,990
+chrome.exe,Google Chrome=======>1940,0,1480,990
 chrome.exe,Google Chrome=======>955,1100,1230,630
 msedge.exe,Microsoft​ Edge=======>0,0,970,1030
-msedge.exe,Microsoft​ Edge=======>1940,0,1510,990
+msedge.exe,Microsoft​ Edge=======>1940,0,1480,990
 msedge.exe,Microsoft​ Edge=======>955,1100,1230,630
 firefox.exe,Mozilla Firefox=======>4,1,1062,975
 Typora.exe,Typora=======>644,23,1249,1027
