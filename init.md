@@ -19,11 +19,6 @@ choco install firefox-nightly --pre --yes --ignore-checksum
 
 ```shell
 winget install httptoolkit
-```
-
-## Windows Package Manager CLI 
-
-```shell
 winget install devtoys
 ```
 
@@ -61,6 +56,7 @@ winget install devtoys
   * Install ComfyUI - https://www.comfy.org/download
   * Ollama - https://github.com/ollama/ollama
     * Install Ollama and models
+    * Install embedding model - https://ollama.com/library/nomic-embed-text
   * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
     * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
