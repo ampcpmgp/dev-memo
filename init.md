@@ -68,6 +68,7 @@ winget install devtoys
 * Canva - https://www.canva.com/ja_jp/download/windows/
 * あずきフォント - http://azukifont.com/font/azuki.html
 * ケイ字 - https://k-gothic-font.hatenablog.com/
+* Cherry Studio - https://cherry-ai.com/download
 
 ## vscode settings
 
