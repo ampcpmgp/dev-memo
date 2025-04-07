@@ -76,6 +76,11 @@ winget install devtoys
 ollama serve
 ```
 
+other settings
+
+- https://ollama.com/blog/embedding-models
+- 
+
 ## add startup
 ```
 Windows Key + R
