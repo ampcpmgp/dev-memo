@@ -74,6 +74,11 @@ winget install devtoys
 
 * Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
 
+## Ollama
+
+```shell
+ollama serve
+```
 
 ## add startup
 ```
