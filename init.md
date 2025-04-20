@@ -52,11 +52,11 @@ winget install devtoys
 * Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
 * TopClipper - https://jp.imyfone.com/crop-video/
 * API Dog - https://apidog.com/jp/download/
+* Ollama - https://github.com/ollama/ollama
+  * Install Ollama and models
+  * Install embedding model - https://ollama.com/library/nomic-embed-text
 * ComfyUI
   * Install ComfyUI - https://www.comfy.org/download
-  * Ollama - https://github.com/ollama/ollama
-    * Install Ollama and models
-    * Install embedding model - https://ollama.com/library/nomic-embed-text
   * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
     * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
     * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
@@ -65,6 +65,8 @@ winget install devtoys
 * あずきフォント - http://azukifont.com/font/azuki.html
 * ケイ字 - https://k-gothic-font.hatenablog.com/
 * Cherry Studio - https://cherry-ai.com/download
+* Pinokio - https://program.pinokio.computer/#/?id=install
+ * Install FramePack
 
 ## vscode settings
 
