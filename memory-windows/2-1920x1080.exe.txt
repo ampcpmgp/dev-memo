@@ -4,7 +4,8 @@ Code.exe,Visual Studio Code=======>930,1080,1220,625
 WindowsTerminal.exe,DESKTOP=======>922,1073,1295,687
 explorer.exe,_=======>2713,18,796,498
 explorer.exe,_=======>2714,508,796,498
-ApplicationFrameHost.exe,Files=======>2328,68,1341,891
+ApplicationFrameHost.exe,Files=======>2713,18,796,498
+ApplicationFrameHost.exe,Files=======>2714,508,796,498
 chrome.exe,Google Chrome=======>0,0,970,1030
 chrome.exe,Google Chrome=======>1940,0,1480,990
 chrome.exe,Google Chrome=======>955,1100,1230,630
