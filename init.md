@@ -10,6 +10,15 @@ choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo cryst
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
 
+## Install this repository 
+
+```powershell
+cd C:\
+mkdir repos
+cd repos
+git clone https://github.com/ampcpmgp/dev-memo.git
+```
+
 ## Microsoft Store
 
 - Microsoft Loop
