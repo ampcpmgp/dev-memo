@@ -75,10 +75,13 @@ winget install devtoys
 * ケイ字 - https://k-gothic-font.hatenablog.com/
 * Cherry Studio - https://cherry-ai.com/download
 * Pinokio - https://program.pinokio.computer/#/?id=install
- * Install FramePack
+  * Install FramePack
 * Install FramePack-eichi
- * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not Pinokio, 2025/04/29)
- * Install sage-attention, flash-attn, xformers - https://note.com/aonekoss/n/n8eb9260f5be9
+  * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not Pinokio, 2025/04/29)
+  * Install xformers - https://note.com/aonekoss/n/n8eb9260f5be9
+    * 上記で依存関係のエラーが起きた場合、 CLI に入力し Gemini 2.5 Pro にエラー内容の解決策を聞く。
+ * Install flash-attn - https://note.com/aonekoss/n/n8eb9260f5be9 (おそらく Windows では動かないためスキップ)
+ * Install sage-attention - https://note.com/aonekoss/n/n8eb9260f5be9
 
 ## vscode settings
 
