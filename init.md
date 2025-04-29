@@ -77,10 +77,11 @@ winget install devtoys
 * Pinokio - https://program.pinokio.computer/#/?id=install
   * Install FramePack
 * Install FramePack-eichi
-  * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not Pinokio, 2025/04/29)
+  * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not working in Pinokio, 2025/04/29)
   * choco install cuda
   * Install xformers, flash-attn, sage-attention - https://note.com/aonekoss/n/n8eb9260f5be9
     * 上記で依存関係のエラーが起きた場合、 CLI に入力し Gemini 2.5 Pro にエラー内容の解決策を聞く。
+    * 2025/04/29 時点では `pip install xformers==0.0.26.post1 --index-url https://download.pytorch.org/whl/cu121` で動かせた。
     * flash-attn (うまく動かせなければスキップ)
     * sage-attention (うまく動かせなければスキップ)
 
