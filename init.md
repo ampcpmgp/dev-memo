@@ -76,6 +76,8 @@ winget install devtoys
 * Cherry Studio - https://cherry-ai.com/download
 * Pinokio - https://program.pinokio.computer/#/?id=install
  * Install FramePack
+ * Install [FramePack-eichi](https://github.com/git-ai-code/FramePack-eichi) (optional)
+ * 
 
 ## vscode settings
 
