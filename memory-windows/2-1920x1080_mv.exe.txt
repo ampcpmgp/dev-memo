@@ -5,5 +5,6 @@ explorer.exe,エクスプローラー=======>1913,516,974,523
 Code.exe,Visual Studio Code=======>934,1080,1251,649
 Pinokio.exe,FramePack=======>1965,27,1835,966
 msedge.exe,Microsoft​ Edge=======>0,0,1887,1007
+msedge.exe,Microsoft​ Edge=======>1954,29,1854,978
 Canva.exe,Canva=======>962,1106,1253,645
 Clipchamp.exe,Microsoft Clipchamp=======>32,21,1893,1016
