@@ -76,6 +76,8 @@ winget install devtoys
 * Cherry Studio - https://cherry-ai.com/download
 * Pinokio - https://program.pinokio.computer/#/?id=install
   * Install FramePack
+* Install https://github.com/colinurbs/FramePack-Studio
+ * If error, see https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221p9we6tYvM-ZLVZdBYFpdDZHCuZNyPhjs%22%5D,%22action%22:%22open%22,%22userId%22:%22101802373527511565880%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
 * Install FramePack-eichi
   * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not working in Pinokio, 2025/04/29)
   * choco install cuda
@@ -84,6 +86,7 @@ winget install devtoys
     * 2025/04/29 時点では `pip install xformers==0.0.29.post3` で動かせた。
     * flash-attn (うまく動かせなければスキップ)
     * sage-attention (うまく動かせなければスキップ)
+    * 
 
 ## vscode settings
 
