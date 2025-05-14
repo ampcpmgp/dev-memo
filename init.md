@@ -82,11 +82,11 @@ winget install devtoys
   * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not working in Pinokio, 2025/04/29)
   * choco install cuda
   * Install xformers, flash-attn, sage-attention - https://note.com/aonekoss/n/n8eb9260f5be9
-    * 上記で依存関係のエラーが起きた場合、 CLI に入力し Gemini 2.5 Pro にエラー内容の解決策を聞く。
+    * 依存関係に失敗した場合、 clone し直して `pip cache purge` を行い再インストールする
+    * 分からなければ Gemini 2.5 Pro にエラー内容の解決策を聞く。
     * 2025/04/29 時点では `pip install xformers==0.0.29.post3` で動かせた。
     * flash-attn (うまく動かせなければスキップ)
     * sage-attention (うまく動かせなければスキップ)
-    * 
 
 ## vscode settings
 
