@@ -86,6 +86,10 @@ winget install devtoys
   * 上記で動かない場合、自分の環境では以下コマンドで動いた (2025/05/15 時点)
     * `pip install xformers --index-url https://download.pytorch.org/whl/cu121`
     * `pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121`
+    * 上記でもし依存関係のエラーが出た場合、以下コマンドを入力して元に戻す
+      *  `pip freeze > piplist.txt`
+      *  `pip uninstall -r piplist.txt -y`
+
 
 ## vscode settings
 
