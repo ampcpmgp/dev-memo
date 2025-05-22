@@ -87,6 +87,7 @@ winget install devtoys
     *  `pip freeze > piplist.txt`
     *  `pip uninstall -r piplist.txt -y`
     *  `pip install -r requiments.txt`
+*  ACE-Step - https://github.com/ace-step/ACE-Step
 
 
 ## vscode settings
