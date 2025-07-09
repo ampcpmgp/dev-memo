@@ -88,7 +88,10 @@ winget install devtoys
     *  `pip freeze > piplist.txt`
     *  `pip uninstall -r piplist.txt -y`
     *  `pip install -r requiments.txt`
-*  ACE-Step - https://github.com/ace-step/ACE-Step
+* ACE-Step - https://github.com/ace-step/ACE-Step
+* NVIDIA Driver
+  * `nvidia-smi` で CUDA バージョン確認、最新化出来てなければ以下対応
+  * `dxdiag` で GPU 確認後、最新ドライバダウンロード - https://www.nvidia.com/en-us/drivers/
 
 
 ## vscode settings
