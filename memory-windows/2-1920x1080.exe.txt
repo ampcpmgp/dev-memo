@@ -22,5 +22,5 @@ DeepL.exe,DeepL =======>1992,221,1093,796
 Notion.exe,分報=======>344,85,1364,914
 Kindle.exe,Kindle for PC=======>1974,0,1180,1039
 LINE.exe,LINE=======>2683,43,866,717
-Figma.exe,Figma=======>990,1120,1220,625
-Canva.exe,Canva=======>990,1120,1220,625
+Figma.exe,Figma=======>995,1125,1220,625
+Canva.exe,Canva=======>995,1125,1220,625
