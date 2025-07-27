@@ -76,7 +76,7 @@ winget install devtoys
 * ケイ字 - https://k-gothic-font.hatenablog.com/
 * AI Chat Communication Tool
   * Cherry Studio - https://cherry-ai.com/download
-  * Jan (2025/07時点で未使用, 試してみる価値ありそう) https://jan.ai/docs
+  * Jan (2025/07時点で未使用, 試してみる価値ありそう) - https://jan.ai/docs
 * Pinokio - https://program.pinokio.computer/#/?id=install
   * Install FramePack
 * Other FramePack
