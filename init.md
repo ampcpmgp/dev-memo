@@ -5,7 +5,7 @@
 https://chocolatey.org/install
 
 ```shell
-choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey lockhunter obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git kindle microsoft-windows-terminal flameshot files powertoys wechat subtitleedit authy-desktop notepadplusplus line coretemp chromium opera vcam.ai unity-hub androidstudio logitech-options-plus anyvideoconverter ffmpeg claude cuda bun node uv
+choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey lockhunter obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git kindle microsoft-windows-terminal flameshot files powertoys wechat subtitleedit authy-desktop notepadplusplus line coretemp chromium opera vcam.ai unity-hub androidstudio logitech-options-plus anyvideoconverter ffmpeg cuda bun node uv
 
 choco install firefox-nightly --pre --yes --ignore-checksum
 ```
@@ -74,7 +74,9 @@ winget install devtoys
 * Canva - https://www.canva.com/ja_jp/download/windows/
 * あずきフォント - http://azukifont.com/font/azuki.html
 * ケイ字 - https://k-gothic-font.hatenablog.com/
-* Cherry Studio - https://cherry-ai.com/download
+* AI Chat Communication Tool
+  * Cherry Studio - https://cherry-ai.com/download
+  * Jan (2025/07時点で未使用, 試してみる価値ありそう) https://jan.ai/docs
 * Pinokio - https://program.pinokio.computer/#/?id=install
   * Install FramePack
 * Other FramePack
