@@ -253,6 +253,10 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 - https://brew.sh/
 - https://docs.brew.sh/Homebrew-on-Linux
 
+## Other CLI Tool
+
+- `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
+- 
 
 # Windows connect to WSL
 
