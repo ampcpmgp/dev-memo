@@ -255,8 +255,10 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 ## Other CLI Tool
 
-- `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
-- 
+- LLM Coding Tool
+  - `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
+  - `npm install -g @charmland/crush` - https://github.com/charmbracelet/crush
+
 
 # Windows connect to WSL
 
