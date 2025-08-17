@@ -258,6 +258,7 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 - LLM Coding Tool
   - `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
   - `npm install -g @charmland/crush` - https://github.com/charmbracelet/crush
+  - `npm install -g @anthropic-ai/claude-code` - https://docs.anthropic.com/en/docs/claude-code/overview
 
 
 # Windows connect to WSL
