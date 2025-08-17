@@ -21,8 +21,9 @@ git clone https://github.com/ampcpmgp/dev-memo.git
 
 ## Microsoft Store
 
-- Microsoft Loop
-- 
+currently nothing
+
+- xxx
 
 ## install by winget
 
@@ -189,6 +190,12 @@ If you want to fix the version in the repository, enter the following.
 
 ```shell
 node -v > .node-version
+```
+
+## pnpm
+
+```bash
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
 ## This repository 
