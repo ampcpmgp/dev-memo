@@ -164,6 +164,11 @@ git config --global user.email "<ACCOUNT_NAME>@gmail.com"
 # 必要に応じて変更する
 git config --local user.name "<USER_NAME>"
 git config --local user.email "<ACCOUNT_NAME>@<DOMAIN>"
+
+# git 操作が遅い場合に設定する
+git config --global checkout.workers $(nproc)
+git config core.fsmonitor true
+git config core.untrackedCache true
 ```
 
 ## fnm install
