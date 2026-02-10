@@ -1,5 +1,6 @@
 Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>985,1080,1220,625
+Zed.exe,empty project=======>472,69,1412,890
 Zed.exe,empty project=======>2109,96,1538,869
 explorer.exe,エクスプローラー=======>753,25,1134,975
 explorer.exe,エクスプローラー=======>2409,68,1195,952
