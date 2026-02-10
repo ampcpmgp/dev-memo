@@ -1,13 +1,13 @@
 Code.exe,Visual Studio Code=======>819,45,1100,980
 Code.exe,Visual Studio Code=======>985,1080,1220,625
-Zed.exe,empty project=======>472,69,1412,890
+Zed.exe,empty project=======>475,104,1382,871
 Zed.exe,empty project=======>2109,96,1538,869
 explorer.exe,エクスプローラー=======>753,25,1134,975
 explorer.exe,エクスプローラー=======>2409,68,1195,952
-chrome.exe,Google Chrome=======>0,0,970,1030
+chrome.exe,Google Chrome=======>0,0,970,942
 chrome.exe,Google Chrome=======>1940,0,1480,990
 chrome.exe,Google Chrome=======>1015,1100,1230,630
-msedge.exe,Microsoft​ Edge=======>0,0,970,1030
+msedge.exe,Microsoft​ Edge=======>0,0,970,942
 msedge.exe,Microsoft​ Edge=======>1940,0,1480,990
 msedge.exe,Microsoft​ Edge=======>1015,1100,1230,630
 zen.exe,Zen Browser=======>1015,1100,1230,630
