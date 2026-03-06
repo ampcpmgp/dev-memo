@@ -210,21 +210,13 @@ setw -g pane-base-index 1
 bind - split-window -v -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
 
-# --- 一括終了設定 (Prefix + K で全セッション終了) ---
-bind K confirm-before -p "Kill all sessions? (y/n)" "kill-server"
-
 # --- 日本語ヘルプ ---
 bind h display-popup -E "bash -c 'echo \"
 Prefix(C-a) + | : 画面を縦に分割
 Prefix(C-a) + - : 画面を横に分割
 Prefix(C-a) + s : プロジェクト(セッション)切替
 Prefix(C-a) + $ : プロジェクト名の変更
-Prefix(C-a) + , : タブ(ウィンドウ)名の変更
-Prefix(C-a) + q : ペイン番号を表示
 Prefix(C-a) + d : そのまま中断 (次回復元)
-Prefix(C-a) + K : 全プロジェクトを強制終了(一括削除)
-
-Ctrl + d        : 現在の画面を閉じる (終了)
 何かキーを押すと閉じます...\" && read -n 1'"
 EOT
 
