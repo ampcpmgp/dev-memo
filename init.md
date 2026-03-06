@@ -203,6 +203,20 @@ bind | split-window -h
 EOT
 ```
 
+## Bun
+
+```shell
+curl -fsSL https://bun.sh/install | bash
+```
+
+https://bun.sh/docs/installation#installing
+
+### Bun module
+
+```shell
+bun add -g opencode-ai @anthropic-ai/claude-code
+```
+
 ## fnm install
 
 ```shell
@@ -243,14 +257,6 @@ mkdir repos
 cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
-
-## Bun
-
-```shell
-curl -fsSL https://bun.sh/install | bash
-```
-
-https://bun.sh/docs/installation#installing
 
 ## Deno
 
@@ -297,14 +303,6 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 - https://brew.sh/
 - https://docs.brew.sh/Homebrew-on-Linux
-
-## Other CLI Tool
-
-- LLM Coding Tool
-  - `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
-  - `npm install -g @charmland/crush` - https://github.com/charmbracelet/crush
-  - `npm install -g @anthropic-ai/claude-code` - https://docs.anthropic.com/en/docs/claude-code/overview
-
 
 # Windows connect to WSL
 
