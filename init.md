@@ -36,13 +36,10 @@ winget install -e --id Alacritty.Alacritty HTTPToolKit.HTTPToolKit ZedIndustries
 ```powershell
 $config = @"
 [window]
-# 背景の不透明度 (0.0 〜 1.0)
 opacity = 0.85
-# ウィンドウの余白（Zedのようにスッキリさせる）
 padding = { x = 10, y = 10 }
 
 [font]
-# Zed MonoやCascadia Codeなど、インストール済みのフォントを指定
 normal = { family = "Cascadia Code", style = "Regular" }
 size = 11.0
 
@@ -199,32 +196,40 @@ git config core.untrackedCache true
 ## tmux settings
 
 ```shell
-# edit .bashrc
-cat << 'EOT' >> ~/.bashrc
-
-# tmux auto-start
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach-session -t default || tmux new-session -s default
-fi
-EOT
-
-# edit tmux.conf
-cat <<EOT > ~/.tmux.conf
-# 256色表示と真の色 (True Color) 対応
+cat << 'EOT' > ~/.tmux.conf
+# --- 基本設定 ---
 set -g default-terminal "screen-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
-
-# マウス操作を有効化
 set -g mouse on
-
-# プレフィックスを Ctrl+a に変更 (押しやすさ重視)
 set -g prefix C-a
 unbind C-b
+set -g base-index 1
+setw -g pane-base-index 1
 
-# ペインの分割を直感的に (- で横、| で縦)
-bind - split-window -v
-bind | split-window -h
+# --- 分割操作 (パス維持) ---
+bind - split-window -v -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+
+# --- 一括終了設定 (Prefix + K で全セッション終了) ---
+bind K confirm-before -p "Kill all sessions? (y/n)" "kill-server"
+
+# --- 日本語ヘルプ ---
+bind h display-popup -E "bash -c 'echo \"
+Prefix(C-a) + | : 画面を縦に分割
+Prefix(C-a) + - : 画面を横に分割
+Prefix(C-a) + s : プロジェクト(セッション)切替
+Prefix(C-a) + $ : プロジェクト名の変更
+Prefix(C-a) + , : タブ(ウィンドウ)名の変更
+Prefix(C-a) + q : ペイン番号を表示
+Prefix(C-a) + d : そのまま中断 (次回復元)
+Prefix(C-a) + K : 全プロジェクトを強制終了(一括削除)
+
+Ctrl + d        : 現在の画面を閉じる (終了)
+何かキーを押すと閉じます...\" && read -n 1'"
 EOT
+
+# 設定を反映
+tmux source-file ~/.tmux.conf
 ```
 
 ## Bun
