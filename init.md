@@ -27,10 +27,34 @@ currently nothing
 
 ## install by winget
 
-```shell
-winget install httptoolkit
-winget install devtoys
-winget install -e --id ZedIndustries.Zed
+```powershell
+winget install -e --id Alacritty.Alacritty HTTPToolKit.HTTPToolKit ZedIndustries.Zed DevToys-app.DevToys --accept-package-agreements
+```
+
+### Alacritty Setup
+
+```powershell
+$config = @"
+[window]
+# 背景の不透明度 (0.0 〜 1.0)
+opacity = 0.85
+# ウィンドウの余白（Zedのようにスッキリさせる）
+padding = { x = 10, y = 10 }
+
+[font]
+# Zed MonoやCascadia Codeなど、インストール済みのフォントを指定
+normal = { family = "Cascadia Code", style = "Regular" }
+size = 11.0
+
+[terminal.shell]
+program = "wsl.exe"
+args = ["~"]
+"@
+
+# フォルダがなければ作成し、ファイルを書き出す
+$path = "$env:APPDATA\alacritty\alacritty.toml"
+New-Item -ItemType Directory -Force -Path (Split-Path $path)
+$config | Out-File -FilePath $path -Encoding utf8
 ```
 
 ## Setup Windows reorder tool
