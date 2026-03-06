@@ -30,7 +30,7 @@ currently nothing
 ```shell
 winget install httptoolkit
 winget install devtoys
-winget install ZedIndustries.Zed
+winget install -e --id ZedIndustries.Zed
 ```
 
 ## Setup Windows reorder tool
