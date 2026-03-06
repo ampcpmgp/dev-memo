@@ -30,6 +30,7 @@ currently nothing
 ```shell
 winget install httptoolkit
 winget install devtoys
+winget install ZedIndustries.Zed
 ```
 
 ## Setup Windows reorder tool
@@ -146,7 +147,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip tmux
 ```
 
 ## apt
@@ -169,6 +170,37 @@ git config --local user.email "<ACCOUNT_NAME>@<DOMAIN>"
 git config --global checkout.workers $(nproc)
 git config core.fsmonitor true
 git config core.untrackedCache true
+```
+
+## tmux settings
+
+```shell
+# edit .bashrc
+cat << 'EOT' >> ~/.bashrc
+
+# tmux auto-start
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach-session -t default || tmux new-session -s default
+fi
+EOT
+
+# edit tmux.conf
+cat <<EOT > ~/.tmux.conf
+# 256色表示と真の色 (True Color) 対応
+set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+# マウス操作を有効化
+set -g mouse on
+
+# プレフィックスを Ctrl+a に変更 (押しやすさ重視)
+set -g prefix C-a
+unbind C-b
+
+# ペインの分割を直感的に (- で横、| で縦)
+bind - split-window -v
+bind | split-window -h
+EOT
 ```
 
 ## fnm install
