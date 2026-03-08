@@ -197,7 +197,7 @@ git config core.untrackedCache true
 ## tmux settings
 
 ```shell
-cat << 'EOT' > ~/.tmux.conf
+sed '/^$/d' << 'EOT' > ~/.tmux.conf
 # --- 基本設定 ---
 set -g default-terminal "screen-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
@@ -206,23 +206,20 @@ set -g prefix C-a
 unbind C-b
 set -g base-index 1
 setw -g pane-base-index 1
-
 # --- 分割操作 (パス維持) ---
 bind - split-window -v -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
-
 # --- 日本語ヘルプ ---
-bind h display-popup -E "bash -c 'echo \"
-Prefix(C-a) + | : 画面を縦に分割
+bind h display-popup -E "bash -c 'echo \"Prefix(C-a) + | : 画面を縦に分割
 Prefix(C-a) + - : 画面を横に分割
 Prefix(C-a) + s : プロジェクト(セッション)切替
 Prefix(C-a) + $ : プロジェクト名の変更
 Prefix(C-a) + d : そのまま中断 (次回復元)
+---
 何かキーを押すと閉じます...\" && read -n 1'"
 EOT
 
-# 設定を反映
-sed '/^$/d' >> ~/.tmux.conf
+tmux source-file ~/.tmux.conf
 ```
 
 ## Bun
