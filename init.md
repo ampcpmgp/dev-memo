@@ -27,9 +27,31 @@ currently nothing
 
 ## install by winget
 
-```shell
-winget install httptoolkit
-winget install devtoys
+```powershell
+winget install -e --id Alacritty.Alacritty HTTPToolKit.HTTPToolKit ZedIndustries.Zed DevToys-app.DevToys --accept-package-agreements
+```
+
+### Alacritty Setup
+
+```powershell
+$config = @"
+[window]
+opacity = 0.85
+padding = { x = 10, y = 10 }
+
+[font]
+normal = { family = "Cascadia Code", style = "Regular" }
+size = 11.0
+
+[terminal.shell]
+program = "wsl.exe"
+args = ["~"]
+"@
+
+# フォルダがなければ作成し、ファイルを書き出す
+$path = "$env:APPDATA\alacritty\alacritty.toml"
+New-Item -ItemType Directory -Force -Path (Split-Path $path)
+$config | Out-File -FilePath $path -Encoding utf8
 ```
 
 ## Setup Windows reorder tool
@@ -53,7 +75,8 @@ winget install devtoys
 * Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
 * Docker setup - https://docs.docker.com/docker-for-windows/install/
   * 上記ページにて WSL の有効化も合わせて行う
-  * Dドライブに移行する
+  * Dドライブ等に移行する
+  * WSL Integration を行う
 * Huion Tablet Driver - https://www.huion.com/jp/index.php?m=content&c=index&a=lists&catid=16&myform=1&down_title=kamvas+13
 * VB-CABLE - https://vb-audio.com/Cable/
 * 水匠 & ShogiGUI - search by google
@@ -146,7 +169,7 @@ add quick start
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip tmux
 ```
 
 ## apt
@@ -169,6 +192,48 @@ git config --local user.email "<ACCOUNT_NAME>@<DOMAIN>"
 git config --global checkout.workers $(nproc)
 git config core.fsmonitor true
 git config core.untrackedCache true
+```
+
+## tmux settings
+
+```shell
+sed '/^$/d' << 'EOT' > ~/.tmux.conf
+# --- 基本設定 ---
+set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+set -g mouse on
+set -g prefix C-a
+unbind C-b
+set -g base-index 1
+setw -g pane-base-index 1
+# --- 分割操作 (パス維持) ---
+bind - split-window -v -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+# --- 日本語ヘルプ ---
+bind h display-popup -E "bash -c 'echo \"Prefix(C-a) + | : 画面を縦に分割
+Prefix(C-a) + - : 画面を横に分割
+Prefix(C-a) + s : プロジェクト(セッション)切替
+Prefix(C-a) + $ : プロジェクト名の変更
+Prefix(C-a) + d : そのまま中断 (次回復元)
+---
+何かキーを押すと閉じます...\" && read -n 1'"
+EOT
+
+tmux source-file ~/.tmux.conf
+```
+
+## Bun
+
+```shell
+curl -fsSL https://bun.sh/install | bash
+```
+
+https://bun.sh/docs/installation#installing
+
+### Bun module
+
+```shell
+bun add -g opencode-ai @anthropic-ai/claude-code
 ```
 
 ## fnm install
@@ -211,14 +276,6 @@ mkdir repos
 cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
-
-## Bun
-
-```shell
-curl -fsSL https://bun.sh/install | bash
-```
-
-https://bun.sh/docs/installation#installing
 
 ## Deno
 
@@ -265,14 +322,6 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 - https://brew.sh/
 - https://docs.brew.sh/Homebrew-on-Linux
-
-## Other CLI Tool
-
-- LLM Coding Tool
-  - `curl -fsSL https://opencode.ai/install | bash` - https://opencode.ai/docs/
-  - `npm install -g @charmland/crush` - https://github.com/charmbracelet/crush
-  - `npm install -g @anthropic-ai/claude-code` - https://docs.anthropic.com/en/docs/claude-code/overview
-
 
 # Windows connect to WSL
 
