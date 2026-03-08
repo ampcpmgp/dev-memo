@@ -222,7 +222,7 @@ Prefix(C-a) + d : そのまま中断 (次回復元)
 EOT
 
 # 設定を反映
-tmux source-file ~/.tmux.conf
+sed '/^$/d' >> ~/.tmux.conf
 ```
 
 ## Bun
