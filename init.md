@@ -156,6 +156,19 @@ add quick start
 
 # WSL
 
+## WSL Configuration (/etc/wsl.conf)
+
+Windowsコマンドとの連携（Interop）を有効化し、WindowsのPATHを引き継ぐための設定を行います。
+
+```shell
+cat << 'EOF' | sudo tee -a /etc/wsl.conf
+
+[interop]
+enabled = true
+appendWindowsPath = true
+EOF
+```
+
 ## Dotfiles
 
 `vi ~/.profile` で差分が無ければ更新の必要無し
