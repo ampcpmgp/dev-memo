@@ -161,8 +161,7 @@ add quick start
 Windowsコマンドとの連携（Interop）を有効化し、WindowsのPATHを引き継ぐための設定を行います。
 
 ```shell
-cat << 'EOF' | tr -d '\r' | sudo tee -a /etc/wsl.conf
-
+sed '/^$/d' << 'EOF' | sudo tee -a /etc/wsl.conf
 [interop]
 enabled = true
 appendWindowsPath = true
