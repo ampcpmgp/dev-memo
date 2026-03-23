@@ -119,7 +119,8 @@ $config | Out-File -FilePath $path -Encoding utf8
   * `nvidia-smi` で CUDA バージョン確認、最新化出来てなければ以下対応
   * `dxdiag` で GPU 確認後、最新ドライバダウンロード - https://www.nvidia.com/en-us/drivers/
 * Owl3d - https://www.owl3d.com/purchase/downloadstart
-* UVR5 - https://github.com/Anjok07/ultimatevocalremovergui
+* UVR5 - https://github.com/anjok07/ultimatevocalremovergui/releases
+  * Beta Roformer (and DirectML) Version of UVR (2026/03時点)
 
 
 ## vscode settings
