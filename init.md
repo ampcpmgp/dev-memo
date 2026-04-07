@@ -190,6 +190,9 @@ sudo apt-get install git clang wget ca-certificates build-essential python3-pip 
 
 ```shell
 sudo apt install ffmpeg
+
+# Ubuntu 25.10 or later, see https://github.com/jesseduffield/lazygit?tab=readme-ov-file#debian-and-ubuntu
+sudo apt install lazygit
 ```
 
 ## Git user settings
