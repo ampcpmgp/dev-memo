@@ -5,15 +5,18 @@
 - マルクタスクの設定 -> ウインドウのスナップ -> 開いて内側をすべて解除
 - コントロールパネル -> コンピューターの簡単操作 -> マウスを使いやすくします -> ウインドウが画面の端に移動されたとき自動的に整列されないようにします にチェック
 
-## install chocolatey
+## Install chocolatey
 
+以下より CLI インストール
 https://chocolatey.org/install
 
 ```shell
-choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark openoffice win32diskimager.install virtualbox slack autoit screentogif visualstudiocode joytokey lockhunter obs-studio teamviewer steam jcpicker typora vlc blender postman discord gimp deepl auto-dark-mode folder_size docker-desktop audacity notion figma mattermost-desktop git kindle microsoft-windows-terminal flameshot files powertoys wechat subtitleedit authy-desktop notepadplusplus line coretemp chromium opera vcam.ai unity-hub androidstudio logitech-options-plus anyvideoconverter ffmpeg cuda bun node uv
-
-choco install firefox-nightly --pre --yes --ignore-checksum
+choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark autoit screentogif visualstudiocode lockhunter obs-studio teamviewer steam jcpicker typora vlc folder_size docker-desktop audacity figma mattermost-desktop git flameshot line chromium logitech-options-plus
 ```
+
+## Install by Microsoft Store
+
+- WeChat
 
 ## Install this repository 
 
