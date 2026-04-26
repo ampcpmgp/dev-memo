@@ -60,15 +60,13 @@ winget install -e --id Canonical.Ubuntu --accept-package-agreements
 - Ubuntu
   - Ubuntu を起動して am user 追加
   - ページ下部 #WSL を参照、セットアップ
-  - Dドライブなど引越
+  - Dドライブなどに引っ越しする場合、現状非推奨
     - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
     - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 - Docker Desktop
-  - Setting -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
-  - 
-  - https://docs.docker.com/docker-for-windows/install/  
-    - 上記ページにて WSL の有効化も合わせて行う
-    - Dドライブ等に移行する
+  - Settings -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
+  - Dドライブなどに引っ越しする場合、推奨
+    - Settings -> Resources -> Advanced -> Browse 変更
 
 ## vscode settings
 
