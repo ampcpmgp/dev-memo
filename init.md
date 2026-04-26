@@ -6,6 +6,13 @@
 - コントロールパネル -> コンピューターの簡単操作 -> マウスを使いやすくします -> ウインドウが画面の端に移動されたとき自動的に整列されないようにします にチェック
 - エクスプローラーのオプション -> 拡張子は表示しない OFF -> 隠しファイルの表示する ON
 
+## windows setting
+- WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+- WinKey -> エクスプローラーのオプション -> 表示 ->
+  - 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
+  - 「登録されている拡張子は表示しない」のチェックを外す
+- パフォーマンスのオプションの設定 - [参考](https://zenn.dev/takashiaihara/articles/a1dfc9899a5fe7)
+
 ## Install chocolatey
 
 以下より CLI インストール
@@ -24,14 +31,12 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
-## Install by Microsoft Store
-
-- WeChat
-
 ## install by winget
 
 ```powershell
-winget install -e --id ZedIndustries.Zed Tencent.WeChat Canonical.Ubuntu --accept-package-agreements
+winget install -e --id ZedIndustries.Zed --accept-package-agreements
+winget install -e --id Tencent.WeChat --accept-package-agreements
+winget install -e --id Canonical.Ubuntu --accept-package-agreements
 
 # Canonical.Ubuntu もできるか次に試す、うまくいけば Store から除去
 ```
@@ -52,31 +57,22 @@ winget install -e --id ZedIndustries.Zed Tencent.WeChat Canonical.Ubuntu --accep
 
 - memory-windows
   - build 2-1920x1080.exe, then locate desktop, and execute from logi+ tool
-- Docker setup - https://docs.docker.com/docker-for-windows/install/
-  - 上記ページにて WSL の有効化も合わせて行う
-  - Dドライブ等に移行する
-  - WSL Integration を行う
 - Ubuntu
   - Ubuntu を起動して am user 追加
   - ページ下部 #WSL を参照、セットアップ
   - Dドライブなど引越
     - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
     - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
+- Docker Desktop
+  - Setting -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
+  - 
+  - https://docs.docker.com/docker-for-windows/install/  
+    - 上記ページにて WSL の有効化も合わせて行う
+    - Dドライブ等に移行する
 
 ## vscode settings
 
 - Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
-
-## Ollama
-
-```shell
-ollama serve
-```
-
-other settings
-
-- https://ollama.com/blog/embedding-models
-- 
 
 ## add startup
 ```
@@ -84,17 +80,6 @@ Windows Key + R
 shell:startup
 add quick start
 ```
-
-## windows setting
-- WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
-- WinKey -> エクスプローラーのオプション -> 表示 ->
-  - 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
-  - 「登録されている拡張子は表示しない」のチェックを外す
-- パフォーマンスのオプションの設定 - [参考](https://zenn.dev/takashiaihara/articles/a1dfc9899a5fe7)
-- Locatorjs の設定 - https://github.com/infi-pc/locatorjs/issues/77#issuecomment-1331894792
-
-## Tauri
-- Prerequisites | Tauri Apps - https://tauri.app/v1/guides/getting-started/prerequisites
 
 # WSL
 
