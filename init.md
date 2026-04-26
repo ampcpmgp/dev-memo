@@ -115,17 +115,46 @@ EOF
 
 ```shell
 sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip tmux
+sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip
 ```
 
 ## apt
 
 ```shell
 sudo apt install ffmpeg
-
-# Ubuntu 25.10 or later, see https://github.com/jesseduffield/lazygit?tab=readme-ov-file#debian-and-ubuntu
-sudo apt install lazygit
 ```
+
+## Install others
+
+```shell
+curl -fsSL https://bun.sh/install | bash
+bun -v
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv --version
+
+curl -o- https://fnm.vercel.app/install | bash
+fnm install 24 # 適切なバージョンを入れる
+node -v
+
+bun add -g opencode-ai @anthropic-ai/claude-code
+opencode -v
+claude -v
+
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+pnpm -v
+
+curl -fsSL https://deno.land/x/install/install.sh | sh
+deno -v
+```
+
+- https://bun.sh/docs/installation#installing
+- https://docs.astral.sh/uv/getting-started/installation/
+- https://nodejs.org/ja/download
+- https://opencode.ai/
+- https://code.claude.com/docs/ja/quickstart
+- https://pnpm.io/ja/installation
+- https://docs.deno.com/runtime/getting_started/installation/
 
 ## Git user settings
 
@@ -143,147 +172,7 @@ git config core.fsmonitor true
 git config core.untrackedCache true
 ```
 
-## tmux settings
-
-```shell
-sed '/^$/d' << 'EOT' > ~/.tmux.conf
-# --- 基本設定 ---
-set -g default-terminal "screen-256color"
-set-option -ga terminal-overrides ",xterm-256color:Tc"
-set -g mouse on
-set -g prefix C-a
-unbind C-b
-set -g base-index 1
-setw -g pane-base-index 1
-# --- 分割操作 (パス維持) ---
-bind - split-window -v -c "#{pane_current_path}"
-bind | split-window -h -c "#{pane_current_path}"
-# --- 日本語ヘルプ ---
-bind h display-popup -E "bash -c 'echo \"Prefix(C-a) + | : 画面を縦に分割
-Prefix(C-a) + - : 画面を横に分割
-Prefix(C-a) + s : プロジェクト(セッション)切替
-Prefix(C-a) + $ : プロジェクト名の変更
-Prefix(C-a) + d : そのまま中断 (次回復元)
----
-何かキーを押すと閉じます...\" && read -n 1'"
-EOT
-
-tmux source-file ~/.tmux.conf
-```
-
-## Bun
-
-```shell
-curl -fsSL https://bun.sh/install | bash
-```
-
-https://bun.sh/docs/installation#installing
-
-### Bun module
-
-```shell
-bun add -g opencode-ai @anthropic-ai/claude-code
-```
-
-## fnm install
-
-```shell
-curl -fsSL https://fnm.vercel.app/install | bash
-
-# then restart and read ~/.bashrc
-fnm --version
-```
-
-https://github.com/Schniz/fnm
-
-## fnm settings
-
- - fnm - https://github.com/Schniz/fnm
-
-```shell
-fnm list-remote
-fnm install <LATEST_STABLE_VERSION>
-fnm default <LATEST_STABLE_VERSION>
-```
-
-If you want to fix the version in the repository, enter the following.
-
-```shell
-node -v > .node-version
-```
-
-## pnpm
-
-```bash
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-```
-
-## This repository 
-
-```shell
-mkdir repos
-cd repos
-git clone https://github.com/ampcpmgp/dev-memo.git
-```
-
-## Deno
-
-```shell
-curl -fsSL https://deno.land/x/install/install.sh | sh
-```
-
-https://deno.land/manual@v1.29.1/getting_started/installation
-
-## Rust install
-
-```shell
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# 1) Proceed with standard installation (default - just press enter)
-# 2) Customize installation
-# 3) Cancel installation
->1
-
-# then restart
-```
-
-- https://www.rust-lang.org/ja/tools/install
-
-```shell
-cargo install cargo-edit --features vendored-openssl
-```
-
-- https://github.com/killercup/cargo-edit
-
-
-## Brew install
-
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# after RETURN/ENTER
-
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-echo "" >> ~/.bashrc
-echo "# brew" >> ~/.bashrc
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
-```
-
-- https://brew.sh/
-- https://docs.brew.sh/Homebrew-on-Linux
-
-# Windows connect to WSL
-
-- Linux 用 Windows サブシステムで Visual Studio Code の使用を開始する - https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-vscode
-
-
 # TroubleShooting
-
-## Vmmem の CPU 使用率が高い場合
-
-以下を参考に、 .wslconfig を作成し、設定を行う
-
-https://jp.minitool.com/news/vmmem-high-memory.html
 
 ## スマフォから WSL で立ち上げたサーバーにアクセスする参考手順
 
