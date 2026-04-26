@@ -5,6 +5,7 @@
 - マルクタスクの設定 -> ウインドウのスナップ -> 開いて内側をすべて解除
 - コントロールパネル -> コンピューターの簡単操作 -> マウスを使いやすくします -> ウインドウが画面の端に移動されたとき自動的に整列されないようにします にチェック
 - エクスプローラーのオプション -> 拡張子は表示しない OFF -> 隠しファイルの表示する ON
+- システム -> ディスプレイ -> 夜間モード -> スケジュールON
 
 ## windows setting
 - WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
@@ -37,9 +38,14 @@ git clone https://github.com/ampcpmgp/dev-memo.git
 winget install -e --id ZedIndustries.Zed --accept-package-agreements
 winget install -e --id Tencent.WeChat --accept-package-agreements
 winget install -e --id Canonical.Ubuntu --accept-package-agreements
+winget install --id Microsoft.PowerToys --source winget --accept-package-agreements
 
 # Canonical.Ubuntu もできるか次に試す、うまくいけば Store から除去
 ```
+
+## darkモードの設定
+
+- PowerToys -> Light Switch -> 夜間モードをフォローする
 
 ## Install directly
 - Kamvas 13 Driver - https://www.huion.com/jp/download/kamvas-13
@@ -306,5 +312,3 @@ netsh.exe interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=300
 Wifi debug を有効にする
 
 <https://dev.classmethod.jp/articles/android-chrome-debug/>
-
-
