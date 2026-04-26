@@ -1,3 +1,4 @@
+Zed.exe,分報 — 分報.md=======>-1050,74,949,609
 Zed.exe,dev-memo — 横縦横.exe.txt=======>-1054,376,1024,909
 Zed.exe,dev-memo — 横縦横.exe.txt=======>68,49,1705,931
 Zed.exe,dev-memo — 横縦横.exe.txt=======>28,1121,1227,624
