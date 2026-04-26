@@ -52,7 +52,10 @@ winget install -e --id Google.JapaneseIME --accept-package-agreements
 
 ## Install directly
 - Kamvas 13 Driver - https://www.huion.com/jp/download/kamvas-13
+- NVIDIA App
+  - https://www.nvidia.com/ja-jp/software/nvidia-app/
 - NVIDIA Driver
+  - NVIDIA App からダウンロード可能、もしできなければ以下
   - `nvidia-smi` で CUDA バージョン確認、最新化出来てなければ以下対応
   - `dxdiag` で GPU 確認後、最新ドライバダウンロード - https://www.nvidia.com/en-us/drivers/
 - 水匠 & ShogiGUI - search by google
@@ -120,34 +123,49 @@ sudo apt install ffmpeg
 ## Install others
 
 ```shell
+# https://bun.sh/docs/installation#installing
 curl -fsSL https://bun.sh/install | bash
 bun -v
 
+# https://docs.astral.sh/uv/getting-started/installation/
 curl -LsSf https://astral.sh/uv/install.sh | sh
 uv --version
 
+# https://nodejs.org/ja/download
 curl -o- https://fnm.vercel.app/install | bash
 fnm install 24 # 適切なバージョンを入れる
 node -v
 
+# https://opencode.ai/
+# https://code.claude.com/docs/ja/quickstart
 bun add -g opencode-ai @anthropic-ai/claude-code
 opencode -v
 claude -v
 
+# https://www.kimi.com/code/docs/en/kimi-code-cli/getting-started.html
+curl -LsSf https://code.kimi.com/install.sh | bash
+kimi --version
+
+# https://pnpm.io/ja/installation
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 pnpm -v
 
+# https://docs.deno.com/runtime/getting_started/installation/
 curl -fsSL https://deno.land/x/install/install.sh | sh
 deno -v
-```
 
-- https://bun.sh/docs/installation#installing
-- https://docs.astral.sh/uv/getting-started/installation/
-- https://nodejs.org/ja/download
-- https://opencode.ai/
-- https://code.claude.com/docs/ja/quickstart
-- https://pnpm.io/ja/installation
-- https://docs.deno.com/runtime/getting_started/installation/
+# https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian
+(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
+	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
+	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+	&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+	&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	&& sudo apt update \
+	&& sudo apt install gh -y
+gh --version
+```
 
 ## Git user settings
 
