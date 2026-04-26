@@ -102,13 +102,6 @@ appendWindowsPath = true
 EOF
 ```
 
-## Dotfiles
-
-`vi ~/.profile` で差分が無ければ更新の必要無し
-
-- Source: https://github.com/ampcpmgp/dotfiles
-
-
 ## apt-get
 
 ※ 全て apt に移行できるか確認。
