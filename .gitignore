@@ -1,3 +1,4 @@
 *.exe
 memory-windows/get.txt
 memory-windows/local/*
+.tmp
