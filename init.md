@@ -31,22 +31,10 @@ git clone https://github.com/ampcpmgp/dev-memo.git
 ## install by winget
 
 ```powershell
-winget install -e --id ZedIndustries.Zed --accept-package-agreements
+winget install -e --id ZedIndustries.Zed Tencent.WeChat Canonical.Ubuntu --accept-package-agreements
+
+# Canonical.Ubuntu もできるか次に試す、うまくいけば Store から除去
 ```
-
-## Setup Windows reorder tool
-
-- build 2-1920x1080.exe, then locate desktop, and execute from logi+ tool
-
-## Download Ubuntu
-
-- Microsoft Store で ubuntu 最新版ダウンロード
-  - このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
-  - Ubuntu を起動して am user 追加
-  - ページ下部 #WSL を参照、セットアップ
-  - Dドライブ引越
-    - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
-    - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 
 ## Install directly
 - Kamvas 13 Driver - https://www.huion.com/jp/download/kamvas-13
@@ -62,10 +50,18 @@ winget install -e --id ZedIndustries.Zed --accept-package-agreements
 
 ## Setup
 
+- memory-windows
+  - build 2-1920x1080.exe, then locate desktop, and execute from logi+ tool
 - Docker setup - https://docs.docker.com/docker-for-windows/install/
   - 上記ページにて WSL の有効化も合わせて行う
   - Dドライブ等に移行する
   - WSL Integration を行う
+- Ubuntu
+  - Ubuntu を起動して am user 追加
+  - ページ下部 #WSL を参照、セットアップ
+  - Dドライブなど引越
+    - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
+    - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 
 ## vscode settings
 
