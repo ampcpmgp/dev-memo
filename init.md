@@ -40,72 +40,36 @@ winget install -e --id ZedIndustries.Zed --accept-package-agreements
 
 ## Download Ubuntu
 
-* Microsoft Store で ubuntu 最新版ダウンロード
-  * このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
-  * Ubuntu を起動して am user 追加
-  * ページ下部 #WSL を参照、セットアップ
-  * Dドライブ引越
-    * https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
-    * https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
+- Microsoft Store で ubuntu 最新版ダウンロード
+  - このページを確認 - https://winget.run/pkg/Canonical/Ubuntu
+  - Ubuntu を起動して am user 追加
+  - ページ下部 #WSL を参照、セットアップ
+  - Dドライブ引越
+    - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
+    - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 
-## download & setup
-* svg viewer - https://github.com/tibold/svg-explorer-extension/releases
-* https://scoop.sh/
-* Windows Terminal - https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
-* Google Chrome Canary - https://www.google.com/intl/ja/chrome/canary/
-* Docker setup - https://docs.docker.com/docker-for-windows/install/
-  * 上記ページにて WSL の有効化も合わせて行う
-  * Dドライブ等に移行する
-  * WSL Integration を行う
-* Huion Tablet Driver - https://www.huion.com/jp/index.php?m=content&c=index&a=lists&catid=16&myform=1&down_title=kamvas+13
-* VB-CABLE - https://vb-audio.com/Cable/
-* 水匠 & ShogiGUI - search by google
-* 音楽ツール
-  * Melissa - https://github.com/mosynthkey/Melissa
-  * NeuralNote - https://github.com/DamRsn/NeuralNote/releases
-* Xreal NRSDK - https://docs.xreal.com/Getting%20Started%20with%20NRSDK
-* TopClipper - https://jp.imyfone.com/crop-video/
-* API Dog - https://apidog.com/jp/download/
-* Ollama - https://github.com/ollama/ollama
-  * Install Ollama and models
-  * Install embedding model - https://ollama.com/library/nomic-embed-text
-* ComfyUI
-  * Install ComfyUI - https://www.comfy.org/download
-  * ComfyUI Manager - https://github.com/ltdrdata/ComfyUI-Manager?tab=readme-ov-file#installation
-    * ComfyUI Ollama - https://github.com/stavsap/comfyui-ollama
-    * ComfyUI Custom Scripts - https://github.com/pythongosssss/ComfyUI-Custom-Scripts
-  * Stable Diffusion 3.5 or later - https://comfyui-wiki.com/ja/tutorial/advanced/stable-diffusion-3-5-comfyui-workflow
-* Canva - https://www.canva.com/ja_jp/download/windows/
-* あずきフォント - http://azukifont.com/font/azuki.html
-* ケイ字 - https://k-gothic-font.hatenablog.com/
-* AI Chat Communication Tool
-  * Cherry Studio - https://cherry-ai.com/download
-  * Jan (2025/07時点で未使用, 試してみる価値ありそう) - https://jan.ai/docs
-* Pinokio - https://program.pinokio.computer/#/?id=install
-  * Install FramePack
-* Other FramePack
-  * Install https://github.com/colinurbs/FramePack-Studio
-    * If error, see https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221p9we6tYvM-ZLVZdBYFpdDZHCuZNyPhjs%22%5D,%22action%22:%22open%22,%22userId%22:%22101802373527511565880%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
-  * Install FramePack-eichi
-    * Reference - https://github.com/git-ai-code/FramePack-eichi (currently not working in Pinokio, 2025/04/29)
-    * choco install cuda
-  * Install xformers, flash-attn, sage-attention - https://github.com/lllyasviel/FramePack/issues/138
-  * 上記で動かない場合、依存関係のエラーを戻す
-    *  `pip freeze > piplist.txt`
-    *  `pip uninstall -r piplist.txt -y`
-    *  `pip install -r requiments.txt`
-* ACE-Step - https://github.com/ace-step/ACE-Step
-* NVIDIA Driver
-  * `nvidia-smi` で CUDA バージョン確認、最新化出来てなければ以下対応
-  * `dxdiag` で GPU 確認後、最新ドライバダウンロード - https://www.nvidia.com/en-us/drivers/
-* Owl3d - https://www.owl3d.com/purchase/downloadstart
-* UVR5 - https://github.com/anjok07/ultimatevocalremovergui/releases
-  * Beta Roformer (and DirectML) Version of UVR (2026/03時点)
+## Install directly
+- Kamvas 13 Driver - https://www.huion.com/jp/download/kamvas-13
+- NVIDIA Driver
+  - `nvidia-smi` で CUDA バージョン確認、最新化出来てなければ以下対応
+  - `dxdiag` で GPU 確認後、最新ドライバダウンロード - https://www.nvidia.com/en-us/drivers/
+- 水匠 & ShogiGUI - search by google
+- 音楽ツール
+  - Melissa - https://github.com/mosynthkey/Melissa
+  - NeuralNote - https://github.com/DamRsn/NeuralNote/releases
+- Canva - https://www.canva.com/ja_jp/download/windows/
+- Owl3d - https://www.owl3d.com/purchase/downloadstart
 
+## Setup
+
+- Docker setup - https://docs.docker.com/docker-for-windows/install/
+  - 上記ページにて WSL の有効化も合わせて行う
+  - Dドライブ等に移行する
+  - WSL Integration を行う
 
 ## vscode settings
 
-* Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
+- Ctrl + Shift + P -> Settings Sync Turn On -> GitHub login (WSL 側で行う必要がある)
 
 ## Ollama
 
@@ -126,15 +90,15 @@ add quick start
 ```
 
 ## windows setting
-* WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
-* WinKey -> エクスプローラーのオプション -> 表示 ->
-  * 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
-  * 「登録されている拡張子は表示しない」のチェックを外す
-* パフォーマンスのオプションの設定 - [参考](https://zenn.dev/takashiaihara/articles/a1dfc9899a5fe7)
-* Locatorjs の設定 - https://github.com/infi-pc/locatorjs/issues/77#issuecomment-1331894792
+- WinKey -> マルチタスクの設定 -> 「横に配置できるものを表示」を無効
+- WinKey -> エクスプローラーのオプション -> 表示 ->
+  - 「ログオン時に以前のフォルダーウィンドウを表示する」のチェックを入れる
+  - 「登録されている拡張子は表示しない」のチェックを外す
+- パフォーマンスのオプションの設定 - [参考](https://zenn.dev/takashiaihara/articles/a1dfc9899a5fe7)
+- Locatorjs の設定 - https://github.com/infi-pc/locatorjs/issues/77#issuecomment-1331894792
 
 ## Tauri
-* Prerequisites | Tauri Apps - https://tauri.app/v1/guides/getting-started/prerequisites
+- Prerequisites | Tauri Apps - https://tauri.app/v1/guides/getting-started/prerequisites
 
 # WSL
 
@@ -154,7 +118,7 @@ EOF
 
 `vi ~/.profile` で差分が無ければ更新の必要無し
 
-* Source: https://github.com/ampcpmgp/dotfiles
+- Source: https://github.com/ampcpmgp/dotfiles
 
 
 ## apt-get
@@ -246,7 +210,7 @@ https://github.com/Schniz/fnm
 
 ## fnm settings
 
- * fnm - https://github.com/Schniz/fnm
+ - fnm - https://github.com/Schniz/fnm
 
 ```shell
 fnm list-remote
@@ -295,13 +259,13 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # then restart
 ```
 
-* https://www.rust-lang.org/ja/tools/install
+- https://www.rust-lang.org/ja/tools/install
 
 ```shell
 cargo install cargo-edit --features vendored-openssl
 ```
 
-* https://github.com/killercup/cargo-edit
+- https://github.com/killercup/cargo-edit
 
 
 ## Brew install
