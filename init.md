@@ -22,6 +22,8 @@ https://chocolatey.org/install
 choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark autoit screentogif visualstudiocode lockhunter obs-studio teamviewer steam jcpicker typora vlc folder_size docker-desktop audacity figma mattermost-desktop git flameshot line chromium logitech-options-plus
 ```
 
+インストールしたものを一通り確認する
+
 ## Install this repository 
 
 ```powershell
@@ -56,16 +58,16 @@ winget install -e --id Canonical.Ubuntu --accept-package-agreements
 ## Setup
 
 - memory-windows
-  - build 2-1920x1080.exe, then locate desktop, and execute from logi+ tool
-- Ubuntu
+  - build 横縦横.exe, then locate desktop, and execute from logi+ tool
+- Ubuntu"C:\repos\dev-memo\memory-windows\横縦横.exe"
   - Ubuntu を起動して am user 追加
   - ページ下部 #WSL を参照、セットアップ
-  - Dドライブなどに引っ越しする場合、現状非推奨
+  - DドライブなどのSSDに引っ越しする場合（しなくても適宜圧縮できればOK）
     - https://learn.microsoft.com/ja-jp/windows/wsl/basic-commands?source=recommendations#export-a-distribution
     - https://zenn.dev/shittoku_xxx/articles/066cfd072d87a1
 - Docker Desktop
   - Settings -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
-  - Dドライブなどに引っ越しする場合、推奨
+  - DドライブなどのSSDに引っ越しする場合（特に推奨）
     - Settings -> Resources -> Advanced -> Browse 変更
 
 ## vscode settings
