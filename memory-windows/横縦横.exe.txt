@@ -1,0 +1,9 @@
+explorer.exe,エクスプローラー=======>-1089,1299,877,510
+explorer.exe,エクスプローラー=======>1050,117,877,428
+explorer.exe,エクスプローラー=======>1052,537,877,450
+Zed.exe,dev-memo — 1920x1080+1440x900.exe.txt=======>68,49,1705,933
+msedge.exe,Microsoft​ Edge=======>-1086,343,1018,906
+msedge.exe,Microsoft​ Edge=======>34,22,1697,918
+msedge.exe,Microsoft​ Edge=======>-7,1094,1229,643
+Notepad.exe,メモ帳=======>-1056,80,964,620
+Docker Desktop.exe,Docker Desktop=======>-1080,43,940,600
