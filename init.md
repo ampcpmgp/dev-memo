@@ -15,10 +15,6 @@ https://chocolatey.org/install
 choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark autoit screentogif visualstudiocode lockhunter obs-studio teamviewer steam jcpicker typora vlc folder_size docker-desktop audacity figma mattermost-desktop git flameshot line chromium logitech-options-plus
 ```
 
-## Install by Microsoft Store
-
-- WeChat
-
 ## Install this repository 
 
 ```powershell
@@ -28,39 +24,14 @@ cd repos
 git clone https://github.com/ampcpmgp/dev-memo.git
 ```
 
-## Microsoft Store
+## Install by Microsoft Store
 
-currently nothing
-
-- xxx
+- WeChat
 
 ## install by winget
 
 ```powershell
-winget install -e --id Alacritty.Alacritty HTTPToolKit.HTTPToolKit ZedIndustries.Zed DevToys-app.DevToys --accept-package-agreements
-```
-
-### Alacritty Setup
-
-```powershell
-$config = @"
-[window]
-opacity = 0.85
-padding = { x = 10, y = 10 }
-
-[font]
-normal = { family = "Cascadia Code", style = "Regular" }
-size = 11.0
-
-[terminal.shell]
-program = "wsl.exe"
-args = ["~"]
-"@
-
-# フォルダがなければ作成し、ファイルを書き出す
-$path = "$env:APPDATA\alacritty\alacritty.toml"
-New-Item -ItemType Directory -Force -Path (Split-Path $path)
-$config | Out-File -FilePath $path -Encoding utf8
+winget install -e --id ZedIndustries.Zed --accept-package-agreements
 ```
 
 ## Setup Windows reorder tool
