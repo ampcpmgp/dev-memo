@@ -139,6 +139,11 @@ bun add -g opencode-ai @anthropic-ai/claude-code
 opencode -v
 claude -v
 
+# https://hermes-agent.nousresearch.com/docs/getting-started/quickstart#1-install-hermes-agent
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+source ~/.bashrc
+hermes -v
+
 # https://www.kimi.com/code/docs/en/kimi-code-cli/getting-started.html
 curl -LsSf https://code.kimi.com/install.sh | bash
 kimi --version
