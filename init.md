@@ -106,7 +106,7 @@ EOF
 
 ```shell
 sudo apt update
-sudo apt install git clang wget ca-certificates python3-pip python3-virtualenv peco xclip jq unzip ffmpeg libportaudio2 portaudio19-dev build-essential
+sudo apt install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip ffmpeg libportaudio2 portaudio19-dev 
 ```
 
 ## Install others
