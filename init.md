@@ -102,19 +102,11 @@ appendWindowsPath = true
 EOF
 ```
 
-## apt-get
-
-※ 全て apt に移行できるか確認。
-
-```shell
-sudo apt-get update
-sudo apt-get install git clang wget ca-certificates build-essential python3-pip python3-virtualenv peco xclip jq unzip
-```
-
 ## apt
 
 ```shell
-sudo apt install ffmpeg
+sudo apt update
+sudo apt install git clang wget ca-certificates python3-pip python3-virtualenv peco xclip jq unzip ffmpeg libportaudio2 portaudio19-dev build-essential
 ```
 
 ## Install others
