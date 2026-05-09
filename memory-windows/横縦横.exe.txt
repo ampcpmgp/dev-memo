@@ -9,7 +9,8 @@ msedge.exe,Microsoft​ Edge=======>-1086,332,1023,906
 msedge.exe,Microsoft​ Edge=======>34,22,1697,927
 msedge.exe,Microsoft​ Edge=======>-5,1094,1227,621
 Docker Desktop.exe,Docker Desktop=======>-1080,90,940,600
-WindowsTerminal.exe,am@DESKTOP-SAMT1HG: ~=======>-1056,1332,876,521
+WindowsTerminal.exe,=======>-1056,1332,876,521
+WindowsTerminal.exe,=======>-7,1087,1295,687
 Typora.exe,Typora=======>102,81,1423,933
 Mattermost.exe,Mattermost Desktop App=======>107,94,1280,913
 Figma.exe,Figma=======>63,1149,1217,617
