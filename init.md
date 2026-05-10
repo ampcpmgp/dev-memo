@@ -39,6 +39,7 @@ winget install -e --id ZedIndustries.Zed --accept-package-agreements
 winget install -e --id Tencent.WeChat --accept-package-agreements
 winget install -e --id Canonical.Ubuntu --accept-package-agreements
 winget install -e --id Microsoft.PowerToys --source winget --accept-package-agreements
+winget install Warp.Warp
 
 # Canonical.Ubuntu もできるか次に試す、うまくいけば Store から除去
 ```
