@@ -127,7 +127,7 @@ node -v
 
 # https://opencode.ai/
 # https://code.claude.com/docs/ja/quickstart
-bun add -g opencode-ai @anthropic-ai/claude-code
+bun add -g opencode-ai @anthropic-ai/claude-code git-open
 opencode -v
 claude -v
 
