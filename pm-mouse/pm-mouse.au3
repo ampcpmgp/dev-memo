@@ -4,327 +4,262 @@
 #include <WindowsConstants.au3>
 #include <Misc.au3>
 #include <String.au3>
-#include "MouseOnEvent.au3"
+#include <WinAPI.au3>
 
 Opt("TrayMenuMode", 3)
-;Opt("GUIOnEventMode", 1)
 
-Local $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $record_start_flag, $record_finish_flag, $idExit, $label, $input2
-Dim $arr[2], $tmp_arr[2]
-Local $sleep_time = 5
+; 全局変数
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2
+Global $record_start_flag = False
+Global $play_flag = False
+Global $arr[2], $tmp_arr[2]
+Global $file_handle = -1
+Global $loop_count = 0
+Global $wait_time_sec = 0
+Global $interval_timer = 0
+Global $is_waiting = False
+Global $move_num = 1
+Global $down_type = False
+
+; 64bit/32bit両対応のWindows標準低レベルマウスフック用変数
+Global $hMouseHook = 0
+Global $hMouseCallback = 0
+Global $dll_user32 = DllOpen("user32.dll")
+
 Example()
 
+; --- Windows標準のマウス監視システム ---
+Func _MouseHookProc($nCode, $wParam, $lParam)
+    If $nCode >= 0 And $record_start_flag Then
+        Local $tMSLLHOOKSTRUCT = DllStructCreate("long X;long Y;dword mouseData;dword flags;dword time;ulong_ptr dwExtraInfo", $lParam)
+        Local $iX = DllStructGetData($tMSLLHOOKSTRUCT, "X")
+        Local $iY = DllStructGetData($tMSLLHOOKSTRUCT, "Y")
 
-Func mouseUpLeft()
-   $time = TimerDiff($timer)
-   $word &= $time & ",up,left," & $arr[0] & "," & $arr[1] & @CRLF
-   $timer = TimerInit()
-EndFunc
-Func mouseUpRight()
-   $time = TimerDiff($timer)
-   $word &= $time & ",up,right," & $arr[0] & "," & $arr[1] & @CRLF
-   $timer = TimerInit()
-EndFunc
-Func mouseDownLeft()
-   $record_start_flag = True
-   $time = TimerDiff($timer)
-   $word &= $time & "," & "left," & $arr[0] & "," & $arr[1] & @CRLF
-   $timer = TimerInit()
-   ;ConsoleWrite("left down"&@CRLF)
-EndFunc
-Func mouseDownRight()
-   $record_start_flag = True
-   $time = TimerDiff($timer)
-   $word &= $time & "," & "right," & $arr[0] & "," & $arr[1] & @CRLF
-   $timer = TimerInit()
-   ;ConsoleWrite("right down"&@CRLF)
-EndFunc
+        Local $time_diff = TimerDiff($timer)
+        $timer = TimerInit()
 
-Func Record()
-   GUICtrlSetState($idNotepad, $GUI_DISABLE)
-   GUICtrlSetState($start, $GUI_DISABLE)
-   ConsoleWrite("Record")
-   ;
-   $timer = TimerInit()
-   _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT, mouseDownLeft)
-   _MouseSetOnEvent($MOUSE_PRIMARYUP_EVENT, mouseUpLeft)
-
-   _MouseSetOnEvent($MOUSE_SECONDARYDOWN_EVENT, mouseDownRight)
-   _MouseSetOnEvent($MOUSE_SECONDARYUP_EVENT, mouseUpRight)
-
-   $file = FileOpen("mouse_data", 2)
-   $word = ""
-   $record_start_flag = False
-
-
-   While True
-	  Sleep(10)
-	  If _IsPressed("1B") Then ExitLoop
-		 ;
-	  $arr = MouseGetPos()
-	  $time = TimerDiff($timer)
-	  $word &= $time & "," & $arr[0] & "," & $arr[1] & @CRLF
-	  $timer = TimerInit()
-   WEnd
-
-   FileWrite($file, $word)
-   FileClose($file)
+        Switch $wParam
+            Case 0x0201 ; WM_LBUTTONDOWN
+                $word &= $time_diff & ",left," & $iX & "," & $iY & @CRLF
+            Case 0x0202 ; WM_LBUTTONUP
+                $word &= $time_diff & ",up,left," & $iX & "," & $iY & @CRLF
+            Case 0x0204 ; WM_RBUTTONDOWN
+                $word &= $time_diff & ",right," & $iX & "," & $iY & @CRLF
+            Case 0x0205 ; WM_RBUTTONUP
+                $word &= $time_diff & ",up,right," & $iX & "," & $iY & @CRLF
+            Case 0x0200 ; WM_MOUSEMOVE
+                If $tmp_arr[0] <> $iX Or $tmp_arr[1] <> $iY Then
+                    $word &= $time_diff & "," & $iX & "," & $iY & @CRLF
+                    $tmp_arr[0] = $iX
+                    $tmp_arr[1] = $iY
+                EndIf
+        EndSwitch
+    EndIf
+    Return _WinAPI_CallNextHookEx($hMouseHook, $nCode, $wParam, $lParam)
 EndFunc
 
-Func Stop()
-   HotKeySet("{esc}")
-   _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT)
-   _MouseSetOnEvent($MOUSE_PRIMARYUP_EVENT)
-
-   _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT)
-   _MouseSetOnEvent($MOUSE_SECONDARYUP_EVENT)
-   ;
-   GUICtrlSetState($idNotepad, $GUI_ENABLE)
-   GUICtrlSetState($start, $GUI_ENABLE)
-   ConsoleWrite("Stop")
+; --- フック解除関数 ---
+Func _ReleaseHook()
+    If $hMouseHook <> 0 Then
+        _WinAPI_UnhookWindowsHookEx($hMouseHook)
+        $hMouseHook = 0
+    EndIf
+    If $hMouseCallback <> 0 Then
+        DllCallbackFree($hMouseCallback)
+        $hMouseCallback = 0
+    EndIf
 EndFunc
 
+; --- 安全な停止処理（リセット） ---
 Func Stop2()
-   HotKeySet("{esc}")
-   If $record_start_flag Then
-	  _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT)
-	  _MouseSetOnEvent($MOUSE_PRIMARYUP_EVENT)
+    AdlibUnRegister("_PlayExecution")
+    _ReleaseHook()
 
-	  _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT)
-	  _MouseSetOnEvent($MOUSE_SECONDARYUP_EVENT)
-	  $record_start_flag = False
-	  $record_finish_flag = True
-   Else
+    If $down_type Then
+        MouseUp($down_type)
+        $down_type = False
+    EndIf
 
-   EndIf
-   GUICtrlSetState($idNotepad, $GUI_ENABLE)
-   GUICtrlSetState($start, $GUI_ENABLE)
-EndFunc
+    If $file_handle <> -1 Then
+        FileClose($file_handle)
+        $file_handle = -1
+    EndIf
 
-Func Start()
-   HotKeySet("{esc}", "Stop2")
-   GUICtrlSetState($idNotepad, $GUI_DISABLE)
-   GUICtrlSetState($start, $GUI_DISABLE)
-   $num = Int(GUICtrlRead($input))
-   ConsoleWrite("Start - Num" & $num)
-   If $num = 0 Then $num += 1
-   ;
-   $move_num = 1
-   ;
-   While $num
-	  WinSetTitle($hGUI, "", "午後のマウス　＠" & $num & "回")
-	  $file = FileOpen("mouse_data")
-	  ;
-	  While True
-		 If _IsPressed("1B") Then ExitLoop
-			;
-		 $mouse = FileReadLine($file)
-		 If @error Then ExitLoop
-		 $MouseArr = _StringExplode($mouse, ",")
-		 ;Sleep($MouseArr[0])
-		 If $MouseArr[1] = "left" or $MouseArr[1] = "right" Then
-			MouseMove($MouseArr[2], $MouseArr[3], $move_num)
-			MouseDown($MouseArr[1])
-		 ElseIf $MouseArr[1] = "up" Then
-			MouseMove($MouseArr[3], $MouseArr[4], $move_num)
-			MouseUp($MouseArr[2])
-		 Else
-			MouseMove($MouseArr[1], $MouseArr[2], $move_num)
-		 EndIf
-		 ;ConsoleWrite($mouse&@crlf)
-	  WEnd
-	  $num -= 1
-   WEnd
-   FileClose($file)
+    $record_start_flag = False
+    $play_flag = False
+    $is_waiting = False
 
-   WinSetTitle($hGUI, "", "午後のマウス")
-   Stop2()
-
+    GUICtrlSetState($idNotepad, $GUI_ENABLE)
+    GUICtrlSetState($start, $GUI_ENABLE)
+    WinSetTitle($hGUI, "", "午後のマウス")
 EndFunc
 
 Func SpecialEvents()
-   If _IsPressed("1B") Then
-	  Stop2()
-	  Return
-   EndIf
-   Exit
+    Stop2()
+    DllClose($dll_user32)
+    Exit
 EndFunc
 
-Func Example()
+; --- 再生マクロ実行関数 ---
+Func _PlayExecution()
+    If _IsPressed("1B", $dll_user32) Then
+        Stop2()
+        Return
+    EndIf
 
-    ; Create a GUI with various controls.
+    ; ループ間の待機処理
+    If $is_waiting Then
+        Local $elapsed = Int(TimerDiff($interval_timer) / 1000)
+        Local $remaining = $wait_time_sec - $elapsed
+        If $remaining <= 0 Then
+            $is_waiting = False
+            $file_handle = FileOpen("mouse_data", 0)
+            If $file_handle = -1 Then
+                Stop2()
+                Return
+            EndIf
+            WinSetTitle($hGUI, "", "＠" & $loop_count & "回 動作中")
+        Else
+            WinSetTitle($hGUI, "", "＠" & $loop_count & "回 待機(" & $remaining & ")秒")
+            Return
+        EndIf
+    EndIf
+
+    ; データ読み込み
+    Local $mouse = FileReadLine($file_handle)
+    If @error Then
+        FileClose($file_handle)
+        $file_handle = -1
+        $loop_count -= 1
+
+        If $loop_count > 0 Then
+            $wait_time_sec = Int(GUICtrlRead($input2))
+            If $wait_time_sec > 0 Then
+                $is_waiting = True
+                $interval_timer = TimerInit()
+                WinSetTitle($hGUI, "", "＠" & $loop_count & "回 待機(" & $wait_time_sec & ")秒")
+            Else
+                $file_handle = FileOpen("mouse_data", 0)
+                WinSetTitle($hGUI, "", "＠" & $loop_count & "回 動作中")
+            EndIf
+        Else
+            Stop2()
+        EndIf
+        Return
+    EndIf
+
+    Local $MouseArr = _StringExplode($mouse, ",")
+    Local $iSize = UBound($MouseArr)
+    If $iSize < 3 Then Return
+
+    Local $step_delay = Int($MouseArr[0])
+    If $step_delay > 0 Then Sleep($step_delay)
+
+    If $iSize >= 4 And ($MouseArr[1] = "left" Or $MouseArr[1] = "right") Then
+        MouseMove(Int($MouseArr[2]), Int($MouseArr[3]), $move_num)
+        MouseDown($MouseArr[1])
+        $down_type = $MouseArr[1]
+    ElseIf $iSize >= 5 And $MouseArr[1] = "up" Then
+        MouseMove(Int($MouseArr[3]), Int($MouseArr[4]), $move_num)
+        MouseUp($MouseArr[2])
+        $down_type = False
+    ElseIf $iSize = 3 Then
+        MouseMove(Int($MouseArr[1]), Int($MouseArr[2]), $move_num)
+    EndIf
+EndFunc
+
+; --- メインGUI関数 ---
+Func Example()
     $hGUI = GUICreate("午後のマウス", 300, 50)
-	;WinSetOnTop($hGUI, "", 1)
-	TraySetIcon(@LocalAppDataDir&"mouse.ico")
-	GUISetIcon(@LocalAppDataDir&"mouse.ico")
+    TraySetIcon(@LocalAppDataDir & "\mouse.ico")
+    GUISetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetOnEvent($GUI_EVENT_CLOSE, "SpecialEvents")
 
+    $idNotepad = GUICtrlCreateButton("記録", 0, 0, 55, 25)
+    $idClose1 = GUICtrlCreateButton("停止(ESC)", 60, 0, 65, 25)
+    $input = GUICtrlCreateInput("1", 130, 0, 50, 20)
+    GUICtrlCreateUpdown($input)
+    $start = GUICtrlCreateButton("開始", 220, 0, 60, 25)
 
-   $idNotepad = GUICtrlCreateButton("記録", 0, 0)
-   $idClose1 = GUICtrlCreateButton("停止(ESC)", 60, 0)
-   $input = GUICtrlCreateInput( "", 130, 0)
-   GUICtrlCreateUpdown($input)
-   $start = GUICtrlCreateButton("開始", 220, 0)
+    $label = GUICtrlCreateLabel("間隔(秒指定)", 0, 30, 75, 20)
+    $input2 = GUICtrlCreateInput("0", 80, 25, 50, 20)
 
-   $label = GUICtrlCreateLabel("間隔(秒指定)", 0, 30)
-   $input2 = GUICtrlCreateInput( "", 80, 25)
-   GUICtrlSetData($input2, 0)
-
-   ;GUICtrlSetOnEvent($idNotepad, "Record")
-   ;GUICtrlSetOnEvent($idClose1, "Stop")
-   ;GUICtrlSetOnEvent($start, "Start")
-   $idExit = TrayCreateItem("終了")
-
-    ; Display the GUI.
+    $idExit = TrayCreateItem("終了")
     GUISetState(@SW_SHOW, $hGUI)
 
-    ;Local $hChild = GUICreate("", 169, 68, 20, 20, $WS_POPUP, BitOR($WS_EX_LAYERED, $WS_EX_MDICHILD), $hGUI)
+    While 1
+        Switch TrayGetMsg()
+            Case $idExit
+                Stop2()
+                DllClose($dll_user32)
+                Exit
+        EndSwitch
 
-    ; Create a picture control with a transparent image.
+        Switch GUIGetMsg()
+            Case $GUI_EVENT_CLOSE
+                Stop2()
+                DllClose($dll_user32)
+                ExitLoop
 
-    ; Display the child GUI.
-    GUISetState(@SW_SHOW)
+            Case $idNotepad ; 【記録開始】
+                Stop2()
+                GUICtrlSetState($idNotepad, $GUI_DISABLE)
+                GUICtrlSetState($start, $GUI_DISABLE)
+                ControlFocus($hGUI, "", $idClose1)
 
-    ; Loop until the user exits.
-   While 1
-	  Switch TrayGetMsg()
-		 Case $idExit ; Exit the loop.
-			Exit
-	  EndSwitch
-	  ;
-	  Switch GUIGetMsg()
-	  Case $GUI_EVENT_CLOSE
-		 If _IsPressed("1B") Then ContinueLoop
-		 ;FileDelete("mouse_data")
-		 ExitLoop
-	  Case $idNotepad
-		 HotKeySet("{esc}", "Stop2")
-		 ConsoleWrite("Record 2")
-		 GUICtrlSetState($idNotepad, $GUI_DISABLE)
-		 GUICtrlSetState($start, $GUI_DISABLE)
-		 ControlFocus($hGUI, "", $idClose1)
-		 ;
-		 $timer = TimerInit()
-		 _MouseSetOnEvent($MOUSE_PRIMARYDOWN_EVENT, mouseDownLeft)
-		 _MouseSetOnEvent($MOUSE_PRIMARYUP_EVENT, mouseUpLeft)
+                $word = ""
+                $record_start_flag = True
+                $timer = TimerInit()
 
-		 _MouseSetOnEvent($MOUSE_SECONDARYDOWN_EVENT, mouseDownRight)
-		 _MouseSetOnEvent($MOUSE_SECONDARYUP_EVENT, mouseUpRight)
+                Local $aPos = MouseGetPos()
+                $tmp_arr[0] = $aPos[0]
+                $tmp_arr[1] = $aPos[1]
 
-		 $file = FileOpen("mouse_data", 2)
-		 $word = ""
-		 $record_start_flag = True
-	  Case $idClose1
-		 ConsoleWrite("Stop 2")
-		 Stop2()
-	  Case $start
-		 HotKeySet("{esc}", "Stop2")
-		 ConsoleWrite("Start 2")
-		 GUICtrlSetState($idNotepad, $GUI_DISABLE)
-		 GUICtrlSetState($start, $GUI_DISABLE)
-		 ControlFocus($hGUI, "", $idClose1)
-		 $num = Int(GUICtrlRead($input))
-		 If $num = 0 Then $num += 1
-		 ;
-		 $move_num = 1
-		 ;
-		 While $num
-			$time = Int(GUICtrlRead($input2))
-			ConsoleWrite(@CRLF&$time)
-			WinSetTitle($hGUI, "", "＠" & $num & "回　待機(" & $time & ")秒 動作中")
+                $hMouseCallback = DllCallbackRegister("_MouseHookProc", "long_ptr", "int;wparam;lparam")
+                $hMouseHook = _WinAPI_SetWindowsHookEx(14, DllCallbackGetPtr($hMouseCallback), _WinAPI_GetModuleHandle(0))
 
-			$file = FileOpen("mouse_data")
-			;
-			$down_type = False
+                WinSetTitle($hGUI, "", "記録中... [ESC]で保存")
 
-			While True
-				  ;
-			   $mouse = FileReadLine($file)
-			   If @error Then ExitLoop
-			   $MouseArr = _StringExplode($mouse, ",")
-			   Sleep($MouseArr[0])
-			   ;If Int($MouseArr[0]) > 10 Then Sleep(Int($MouseArr[0]))
-			   ;ConsoleWrite($MouseArr[0]&@crlf)
-			   If $MouseArr[1] = "left" or $MouseArr[1] = "right" Then
-				  MouseMove($MouseArr[2], $MouseArr[3], $move_num)
-				  MouseDown($MouseArr[1])
-				  $down_type = $MouseArr[1]
-			   ElseIf $MouseArr[1] = "up" Then
-				  MouseMove($MouseArr[3], $MouseArr[4], $move_num)
-				  MouseUp($MouseArr[2])
-				  $down_type = False
-			   Else
-				  MouseMove($MouseArr[1], $MouseArr[2], $move_num)
-			   EndIf
-			   ;ConsoleWrite($mouse&@crlf)
-			   If _IsPressed("1B") Then ExitLoop
-			WEnd
-			If _IsPressed("1B") Then ExitLoop
-			$num -= 1
+            Case $idClose1 ; 【停止】
+                If $record_start_flag Then
+                    $file_handle = FileOpen("mouse_data", 2)
+                    FileWrite($file_handle, $word)
+                EndIf
+                Stop2()
 
-			$timer = TimerInit()
+            Case $start ; 【再生開始】
+                Stop2()
+                GUICtrlSetState($idNotepad, $GUI_DISABLE)
+                GUICtrlSetState($start, $GUI_DISABLE)
+                ControlFocus($hGUI, "", $idClose1)
 
-			$time *= 1000
-			$_flag = False
-			While $time
-			   If _IsPressed("1B") Then
-				  $_flag = True
-				  ExitLoop
-			   EndIf
+                $loop_count = Int(GUICtrlRead($input))
+                If $loop_count <= 0 Then $loop_count = 1
+                $move_num = 1
+                $is_waiting = False
 
-			   Sleep(250)
-			   WinSetTitle($hGUI, "", "＠" & $num & "回　待機(" & Int($time/1000) & ")秒 停止中")
-			   $time -= 250
-			WEnd
+                $file_handle = FileOpen("mouse_data", 0)
+                If $file_handle = -1 Then
+                    MsgBox(16, "エラー", "mouse_data が見つかりません。先に記録してください。")
+                    Stop2()
+                    ContinueLoop
+                EndIf
 
-			ConsoleWrite(@CRLF & timerDiff($timer))
+                WinSetTitle($hGUI, "", "＠" & $loop_count & "回 動作中")
+                $play_flag = True
 
+                AdlibRegister("_PlayExecution", 10)
+        EndSwitch
 
-			if $_flag then ExitLoop
+        If $record_start_flag And _IsPressed("1B", $dll_user32) Then
+            $file_handle = FileOpen("mouse_data", 2)
+            FileWrite($file_handle, $word)
+            Stop2()
+        EndIf
 
+        Sleep(10)
+    WEnd ; 👈 【ここを修正！】EndWhileからWEndに変更しました。
 
-
-		 WEnd
-		 If $down_type Then
-			MouseUp($down_type)
-		 EndIf
-
-		 Stop2()
-		 FileClose($file)
-
-		 WinSetTitle($hGUI, "", "午後のマウス")
-	  Case Else
-		 If $record_start_flag Then
-			If _IsPressed("1B") Then
-			   Stop2()
-			Else
-			   $arr = MouseGetPos()
-			   If $tmp_arr[0] = $arr[0] And $tmp_arr[1] = $arr[1] Then
-				  ;
-			   Else
-				  $tmp_arr = $arr
-				  $time = TimerDiff($timer)
-				  $word &= $time & "," & $arr[0] & "," & $arr[1] & @CRLF
-				  $timer = TimerInit()
-			   EndIf
-			EndIf
-		 ElseIf $record_finish_flag Then
-			FileWrite($file, $word)
-			FileClose($file)
-			$record_finish_flag = False
-		 ;
-
-		 EndIf
-	  EndSwitch
-
-	  Switch TrayGetMsg()
-		 Case $idExit ; Exit the loop.
-			Exit
-	  EndSwitch
-	  Sleep(1)
-   WEnd
-
-    ; Delete the previous GUIs and all controls.
     GUIDelete($hGUI)
-
+    DllClose($dll_user32)
 EndFunc   ;==>Example
