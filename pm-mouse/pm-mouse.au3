@@ -9,7 +9,7 @@
 Opt("TrayMenuMode", 3)
 
 ; 全局変数
-Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray
 Global $record_start_flag = False
 Global $play_flag = False
 Global $arr[2], $tmp_arr[2]
@@ -170,7 +170,7 @@ EndFunc
 
 ; --- メインGUI関数 ---
 Func Example()
-    $hGUI = GUICreate("午後のマウス", 300, 50)
+    $hGUI = GUICreate("午後のマウス", 300, 72)
     TraySetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetOnEvent($GUI_EVENT_CLOSE, "SpecialEvents")
@@ -184,11 +184,19 @@ Func Example()
     $label = GUICtrlCreateLabel("間隔(秒指定)", 0, 30, 75, 20)
     $input2 = GUICtrlCreateInput("0", 80, 25, 50, 20)
 
+    ; === 設定ゾーン ===
+    GUICtrlCreateLabel("", 0, 50, 300, 2, 0x10)
+    $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 180, 52, 105, 18)
+
+    $idOpenTray = TrayCreateItem("フォルダを開く")
+    TrayCreateItem("")
     $idExit = TrayCreateItem("終了")
     GUISetState(@SW_SHOW, $hGUI)
 
     While 1
         Switch TrayGetMsg()
+            Case $idOpenTray
+                ShellExecute(@WorkingDir)
             Case $idExit
                 Stop2()
                 DllClose($dll_user32)
@@ -200,6 +208,9 @@ Func Example()
                 Stop2()
                 DllClose($dll_user32)
                 ExitLoop
+
+            Case $idOpenBtn
+                ShellExecute(@WorkingDir)
 
             Case $idNotepad ; 【記録開始】
                 Stop2()
