@@ -9,7 +9,7 @@
 Opt("TrayMenuMode", 3)
 
 ; 全局変数
-Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo, $idRestoreBtn, $idRestoreTray
 Global $record_start_flag = False
 Global $play_flag = False
 Global $arr[2], $tmp_arr[2]
@@ -187,11 +187,14 @@ Func Example()
     ; === 設定ゾーン ===
     GUICtrlCreateLabel("", 0, 50, 350, 2, 0x10)
     GUICtrlCreateLabel("ファイル", 2, 55, 36, 15)
-    $idFileCombo = GUICtrlCreateCombo("mouse_data", 40, 52, 290, 20)
+    $idFileCombo = GUICtrlCreateCombo("", 40, 52, 290, 20)
     GUICtrlSetData($idFileCombo, _GetDataFiles(), "mouse_data")
     $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 235, 76, 105, 20)
+    $idRestoreBtn = GUICtrlCreateButton("戻す", 120, 76, 105, 20)
 
     $idOpenTray = TrayCreateItem("フォルダを開く")
+    TrayCreateItem("")
+    $idRestoreTray = TrayCreateItem("戻す")
     TrayCreateItem("")
     $idExit = TrayCreateItem("終了")
     GUISetState(@SW_SHOW, $hGUI)
@@ -200,6 +203,8 @@ Func Example()
         Switch TrayGetMsg()
             Case $idOpenTray
                 ShellExecute(@WorkingDir)
+            Case $idRestoreTray
+                _RestoreData()
             Case $idExit
                 Stop2()
                 DllClose($dll_user32)
@@ -214,9 +219,14 @@ Func Example()
 
             Case $idOpenBtn
                 ShellExecute(@WorkingDir)
+            Case $idRestoreBtn
+                _RestoreData()
 
             Case $idNotepad ; 【記録開始】
                 Stop2()
+                ; 既存ファイルを.bakに退避
+                Local $sFile = GUICtrlRead($idFileCombo)
+                If FileExists($sFile) Then FileCopy($sFile, $sFile & ".bak", 1)
                 GUICtrlSetState($idNotepad, $GUI_DISABLE)
                 GUICtrlSetState($start, $GUI_DISABLE)
                 ControlFocus($hGUI, "", $idClose1)
@@ -291,4 +301,16 @@ Func _GetDataFiles()
     WEnd
     FileClose($hSearch)
     Return $sList
+EndFunc
+
+; --- .bakからデータ復元 ---
+Func _RestoreData()
+    Local $sFile = GUICtrlRead($idFileCombo)
+    Local $sBak = $sFile & ".bak"
+    If Not FileExists($sBak) Then
+        MsgBox(64, "情報", "バックアップがありません。")
+        Return
+    EndIf
+    FileCopy($sBak, $sFile, 1)
+    MsgBox(64, "情報", $sFile & " を復元しました。")
 EndFunc
