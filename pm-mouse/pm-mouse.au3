@@ -9,7 +9,7 @@
 Opt("TrayMenuMode", 3)
 
 ; 全局変数
-Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo
 Global $record_start_flag = False
 Global $play_flag = False
 Global $arr[2], $tmp_arr[2]
@@ -113,7 +113,7 @@ Func _PlayExecution()
         Local $remaining = $wait_time_sec - $elapsed
         If $remaining <= 0 Then
             $is_waiting = False
-            $file_handle = FileOpen("mouse_data", 0)
+            $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
             If $file_handle = -1 Then
                 Stop2()
                 Return
@@ -139,7 +139,7 @@ Func _PlayExecution()
                 $interval_timer = TimerInit()
                 WinSetTitle($hGUI, "", "＠" & $loop_count & "回 待機(" & $wait_time_sec & ")秒")
             Else
-                $file_handle = FileOpen("mouse_data", 0)
+                $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
                 WinSetTitle($hGUI, "", "＠" & $loop_count & "回 動作中")
             EndIf
         Else
@@ -170,7 +170,7 @@ EndFunc
 
 ; --- メインGUI関数 ---
 Func Example()
-    $hGUI = GUICreate("午後のマウス", 300, 72)
+    $hGUI = GUICreate("午後のマウス", 350, 115)
     TraySetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetOnEvent($GUI_EVENT_CLOSE, "SpecialEvents")
@@ -185,8 +185,11 @@ Func Example()
     $input2 = GUICtrlCreateInput("0", 80, 25, 50, 20)
 
     ; === 設定ゾーン ===
-    GUICtrlCreateLabel("", 0, 50, 300, 2, 0x10)
-    $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 180, 52, 105, 18)
+    GUICtrlCreateLabel("", 0, 50, 350, 2, 0x10)
+    GUICtrlCreateLabel("ファイル", 2, 55, 36, 15)
+    $idFileCombo = GUICtrlCreateCombo("mouse_data", 40, 52, 290, 20)
+    GUICtrlSetData($idFileCombo, _GetDataFiles(), "mouse_data")
+    $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 235, 76, 105, 20)
 
     $idOpenTray = TrayCreateItem("フォルダを開く")
     TrayCreateItem("")
@@ -233,7 +236,7 @@ Func Example()
 
             Case $idClose1 ; 【停止】
                 If $record_start_flag Then
-                    $file_handle = FileOpen("mouse_data", 2)
+                    $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
                     FileWrite($file_handle, $word)
                 EndIf
                 Stop2()
@@ -249,9 +252,9 @@ Func Example()
                 $move_num = 1
                 $is_waiting = False
 
-                $file_handle = FileOpen("mouse_data", 0)
+                $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
                 If $file_handle = -1 Then
-                    MsgBox(16, "エラー", "mouse_data が見つかりません。先に記録してください。")
+                    MsgBox(16, "エラー", GUICtrlRead($idFileCombo) & " が見つかりません。先に記録してください。")
                     Stop2()
                     ContinueLoop
                 EndIf
@@ -263,7 +266,7 @@ Func Example()
         EndSwitch
 
         If $record_start_flag And _IsPressed("1B", $dll_user32) Then
-            $file_handle = FileOpen("mouse_data", 2)
+            $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
             FileWrite($file_handle, $word)
             Stop2()
         EndIf
@@ -274,3 +277,18 @@ Func Example()
     GUIDelete($hGUI)
     DllClose($dll_user32)
 EndFunc   ;==>Example
+
+; --- mouse_data*ファイル一覧を取得 ---
+Func _GetDataFiles()
+    Local $sList = "mouse_data"
+    Local $hSearch = FileFindFirstFile(@WorkingDir & "\mouse_data*")
+    If $hSearch = -1 Then Return $sList
+    While 1
+        Local $sF = FileFindNextFile($hSearch)
+        If @error Then ExitLoop
+        If $sF = "mouse_data" Then ContinueLoop
+        $sList &= "|" & $sF
+    WEnd
+    FileClose($hSearch)
+    Return $sList
+EndFunc
