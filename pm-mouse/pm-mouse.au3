@@ -20,6 +20,7 @@ Global $interval_timer = 0
 Global $is_waiting = False
 Global $move_num = 1
 Global $down_type = False
+Global $last_activity_timer = 0 ; 無操作検出用タイマー
 
 ; 64bit/32bit両対応のWindows標準低レベルマウスフック用変数
 Global $hMouseHook = 0
@@ -41,17 +42,22 @@ Func _MouseHookProc($nCode, $wParam, $lParam)
         Switch $wParam
             Case 0x0201 ; WM_LBUTTONDOWN
                 $word &= $time_diff & ",left," & $iX & "," & $iY & @CRLF
+                $last_activity_timer = TimerInit()
             Case 0x0202 ; WM_LBUTTONUP
                 $word &= $time_diff & ",up,left," & $iX & "," & $iY & @CRLF
+                $last_activity_timer = TimerInit()
             Case 0x0204 ; WM_RBUTTONDOWN
                 $word &= $time_diff & ",right," & $iX & "," & $iY & @CRLF
+                $last_activity_timer = TimerInit()
             Case 0x0205 ; WM_RBUTTONUP
                 $word &= $time_diff & ",up,right," & $iX & "," & $iY & @CRLF
+                $last_activity_timer = TimerInit()
             Case 0x0200 ; WM_MOUSEMOVE
                 If $tmp_arr[0] <> $iX Or $tmp_arr[1] <> $iY Then
                     $word &= $time_diff & "," & $iX & "," & $iY & @CRLF
                     $tmp_arr[0] = $iX
                     $tmp_arr[1] = $iY
+                    $last_activity_timer = TimerInit()
                 EndIf
         EndSwitch
     EndIf
@@ -150,10 +156,16 @@ Func _PlayExecution()
 
     Local $MouseArr = _StringExplode($mouse, ",")
     Local $iSize = UBound($MouseArr)
-    If $iSize < 3 Then Return
+    If $iSize < 2 Then Return
 
     Local $step_delay = Int($MouseArr[0])
     If $step_delay > 0 Then Sleep($step_delay)
+
+    ; wait行 → Sleepだけで移動なし
+    If $iSize >= 2 And $MouseArr[1] = "wait" Then Return
+
+    ; 移動/クリック系は最低3フィールド必要
+    If $iSize < 3 Then Return
 
     If $iSize >= 4 And ($MouseArr[1] = "left" Or $MouseArr[1] = "right") Then
         MouseMove(Int($MouseArr[2]), Int($MouseArr[3]), $move_num)
@@ -234,6 +246,7 @@ Func Example()
                 $word = ""
                 $record_start_flag = True
                 $timer = TimerInit()
+                $last_activity_timer = TimerInit()
 
                 Local $aPos = MouseGetPos()
                 $tmp_arr[0] = $aPos[0]
@@ -279,6 +292,16 @@ Func Example()
             $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
             FileWrite($file_handle, $word)
             Stop2()
+        EndIf
+
+        ; 0.1秒以上無操作 → wait行を記録
+        If $record_start_flag Then
+            Local $idle_ms = TimerDiff($last_activity_timer)
+            If $idle_ms > 100 Then
+                $word &= $idle_ms & ",wait" & @CRLF
+                $timer = TimerInit()
+                $last_activity_timer = TimerInit()
+            EndIf
         EndIf
 
         Sleep(10)
