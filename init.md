@@ -61,6 +61,8 @@ winget install -e --id Microsoft.PowerToys --source winget --accept-package-agre
   - NeuralNote - https://github.com/DamRsn/NeuralNote/releases
 - Canva - https://www.canva.com/ja_jp/download/windows/
 - Owl3d - https://www.owl3d.com/purchase/downloadstart
+- Hermes Desktop - https://hermes-agent.nousresearch.com/desktop
+- M5Burner (StackChan) - https://docs.m5stack.com/ja/uiflow/m5burner/intro
 
 ## Setup
 
@@ -76,8 +78,6 @@ winget install -e --id Microsoft.PowerToys --source winget --accept-package-agre
   - Settings -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
   - DドライブなどのSSDに引っ越しする場合（特に推奨）
     - Settings -> Resources -> Advanced -> Browse 変更
-- Hermes Desktop
-  - https://hermes-agent.nousresearch.com/desktop
 
 ## vscode settings
 
