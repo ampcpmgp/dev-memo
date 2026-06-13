@@ -76,8 +76,8 @@ winget install -e --id Microsoft.PowerToys --source winget --accept-package-agre
   - Settings -> Resources -> WSL integration -> Ubuntu -> Apply & Restart
   - DドライブなどのSSDに引っ越しする場合（特に推奨）
     - Settings -> Resources -> Advanced -> Browse 変更
-- M5Stackchan driver
-  - https://www.wch.cn/downloads/CH343SER_ZIP.html
+- Hermes Desktop
+  - https://hermes-agent.nousresearch.com/desktop
 
 ## vscode settings
 
