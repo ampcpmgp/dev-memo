@@ -9,7 +9,7 @@
 Opt("TrayMenuMode", 3)
 
 ; 全局変数
-Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo, $idRestoreBtn, $idRestoreTray
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo, $idRestoreBtn, $idRestoreTray, $idNewBtn, $idEditBtn
 Global $record_start_flag = False
 Global $play_flag = False
 Global $arr[2], $tmp_arr[2]
@@ -202,7 +202,9 @@ Func Example()
     $idFileCombo = GUICtrlCreateCombo("", 40, 52, 290, 20)
     GUICtrlSetData($idFileCombo, _GetDataFiles(), "mouse_data")
     $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 235, 76, 105, 20)
-    $idRestoreBtn = GUICtrlCreateButton("戻す", 120, 76, 105, 20)
+    $idRestoreBtn = GUICtrlCreateButton("戻す", 120, 76, 80, 20)
+    $idNewBtn = GUICtrlCreateButton("新規", 5, 76, 55, 20)
+    $idEditBtn = GUICtrlCreateButton("編集", 65, 76, 50, 20)
 
     $idOpenTray = TrayCreateItem("フォルダを開く")
     TrayCreateItem("")
@@ -233,6 +235,10 @@ Func Example()
                 ShellExecute(@WorkingDir)
             Case $idRestoreBtn
                 _RestoreData()
+            Case $idNewBtn
+                _AddNewDataFile()
+            Case $idEditBtn
+                _EditDataFile()
 
             Case $idNotepad ; 【記録開始】
                 Stop2()
@@ -261,6 +267,7 @@ Func Example()
                 If $record_start_flag Then
                     $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
                     FileWrite($file_handle, $word)
+                    _RefreshFileCombo()
                 EndIf
                 Stop2()
 
@@ -291,6 +298,7 @@ Func Example()
         If $record_start_flag And _IsPressed("1B", $dll_user32) Then
             $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
             FileWrite($file_handle, $word)
+            _RefreshFileCombo()
             Stop2()
         EndIf
 
@@ -336,4 +344,55 @@ Func _RestoreData()
     EndIf
     FileCopy($sBak, $sFile, 1)
     MsgBox(64, "情報", $sFile & " を復元しました。")
+EndFunc
+
+; --- 新規ファイルを追加（自動採番） ---
+Func _AddNewDataFile()
+    Local $i = 1
+    While FileExists(@WorkingDir & "\mouse_data_" & $i)
+        $i += 1
+    WEnd
+    Local $sNew = "mouse_data_" & $i
+    GUICtrlSetData($idFileCombo, $sNew, $sNew)
+EndFunc
+
+; --- ファイル名を変更 ---
+Func _EditDataFile()
+    Local $sOld = GUICtrlRead($idFileCombo)
+    If $sOld = "" Then
+        MsgBox(48, "エラー", "ファイルが選択されていません。")
+        Return
+    EndIf
+    If Not FileExists(@WorkingDir & "\" & $sOld) Then
+        MsgBox(48, "エラー", $sOld & " が見つかりません。先に記録してください。")
+        Return
+    EndIf
+
+    Local $sNew = InputBox("ファイル名の変更", "新しいファイル名を入力してください。", $sOld)
+    If @error Then Return ; キャンセル
+    If $sNew = "" Or $sNew = $sOld Then Return
+    ; 不正な文字チェック
+    If StringRegExp($sNew, '[\\/:*?"<>|]') Then
+        MsgBox(48, "エラー", "ファイル名に使えない文字が含まれています。")
+        Return
+    EndIf
+    If FileExists(@WorkingDir & "\" & $sNew) Then
+        MsgBox(48, "エラー", $sNew & " は既に存在します。")
+        Return
+    EndIf
+
+    FileMove(@WorkingDir & "\" & $sOld, @WorkingDir & "\" & $sNew, 0)
+    If @error Then
+        MsgBox(48, "エラー", "リネームに失敗しました。")
+        Return
+    EndIf
+    _RefreshFileCombo()
+    GUICtrlSetData($idFileCombo, $sNew, $sNew)
+EndFunc
+
+; --- コンボボックスの一覧をファイルシステムから再読み込み ---
+Func _RefreshFileCombo()
+    Local $sCurrent = GUICtrlRead($idFileCombo)
+    GUICtrlSetData($idFileCombo, "", "")
+    GUICtrlSetData($idFileCombo, _GetDataFiles(), $sCurrent)
 EndFunc
