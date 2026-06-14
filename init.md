@@ -61,12 +61,14 @@ winget install -e --id Microsoft.PowerToys --source winget --accept-package-agre
   - NeuralNote - https://github.com/DamRsn/NeuralNote/releases
 - Canva - https://www.canva.com/ja_jp/download/windows/
 - Owl3d - https://www.owl3d.com/purchase/downloadstart
+- Hermes Desktop - https://hermes-agent.nousresearch.com/desktop
+- M5Burner (StackChan) - https://docs.m5stack.com/ja/uiflow/m5burner/intro
 
 ## Setup
 
 - memory-windows
-  - build 横縦横.exe, then locate desktop, and execute from logi+ tool
-- Ubuntu"C:\repos\dev-memo\memory-windows\横縦横.exe"
+  - build 横縦横.exe then locate desktop, and execute from logi+ tool
+- Ubuntu
   - Ubuntu を起動して am user 追加
   - ページ下部 #WSL を参照、セットアップ
   - DドライブなどのSSDに引っ越しする場合（しなくても適宜圧縮できればOK）
