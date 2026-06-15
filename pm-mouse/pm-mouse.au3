@@ -9,7 +9,7 @@
 Opt("TrayMenuMode", 3)
 
 ; 全局変数
-Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo, $idRestoreBtn, $idRestoreTray, $idNewBtn, $idEditBtn
+Global $idNotepad, $idClose1, $input, $start, $timer, $word, $hGUI, $idExit, $label, $input2, $idOpenBtn, $idOpenTray, $idFileCombo, $idRestoreBtn, $idRestoreTray, $idNewBtn, $idEditBtn, $idDelBtn
 Global $record_start_flag = False
 Global $play_flag = False
 Global $arr[2], $tmp_arr[2]
@@ -202,9 +202,10 @@ Func Example()
     $idFileCombo = GUICtrlCreateCombo("", 40, 52, 290, 20)
     GUICtrlSetData($idFileCombo, _GetDataFiles(), "mouse_data")
     $idOpenBtn = GUICtrlCreateButton("フォルダを開く", 235, 76, 105, 20)
-    $idRestoreBtn = GUICtrlCreateButton("戻す", 120, 76, 80, 20)
-    $idNewBtn = GUICtrlCreateButton("新規", 5, 76, 55, 20)
-    $idEditBtn = GUICtrlCreateButton("編集", 65, 76, 50, 20)
+    $idRestoreBtn = GUICtrlCreateButton("戻す", 155, 76, 75, 20)
+    $idNewBtn = GUICtrlCreateButton("新規", 5, 76, 45, 20)
+    $idEditBtn = GUICtrlCreateButton("編集", 53, 76, 45, 20)
+    $idDelBtn = GUICtrlCreateButton("削除", 101, 76, 45, 20)
 
     $idOpenTray = TrayCreateItem("フォルダを開く")
     TrayCreateItem("")
@@ -239,6 +240,8 @@ Func Example()
                 _AddNewDataFile()
             Case $idEditBtn
                 _EditDataFile()
+            Case $idDelBtn
+                _DeleteDataFile()
 
             Case $idNotepad ; 【記録開始】
                 Stop2()
@@ -327,7 +330,7 @@ Func _GetDataFiles()
     While 1
         Local $sF = FileFindNextFile($hSearch)
         If @error Then ExitLoop
-        If $sF = "mouse_data" Then ContinueLoop
+        If $sF = "mouse_data" Or StringRight($sF, 4) = ".bak" Then ContinueLoop
         $sList &= "|" & $sF
     WEnd
     FileClose($hSearch)
@@ -353,6 +356,9 @@ Func _AddNewDataFile()
         $i += 1
     WEnd
     Local $sNew = "mouse_data_" & $i
+    ; 空ファイルを作成
+    Local $hFile = FileOpen(@WorkingDir & "\" & $sNew, 2)
+    FileClose($hFile)
     GUICtrlSetData($idFileCombo, $sNew, $sNew)
 EndFunc
 
@@ -388,6 +394,28 @@ Func _EditDataFile()
     EndIf
     _RefreshFileCombo()
     GUICtrlSetData($idFileCombo, $sNew, $sNew)
+EndFunc
+
+; --- ファイルを削除 ---
+Func _DeleteDataFile()
+    Local $sFile = GUICtrlRead($idFileCombo)
+    If $sFile = "" Then
+        MsgBox(48, "エラー", "ファイルが選択されていません。")
+        Return
+    EndIf
+    If Not FileExists(@WorkingDir & "\" & $sFile) Then
+        MsgBox(48, "エラー", $sFile & " が見つかりません。")
+        Return
+    EndIf
+    If MsgBox(36, "確認", $sFile & " を削除しますか？") <> 6 Then Return ; 6=Yes
+    FileDelete(@WorkingDir & "\" & $sFile)
+    ; .bakもあれば一緒に削除
+    If FileExists(@WorkingDir & "\" & $sFile & ".bak") Then
+        FileDelete(@WorkingDir & "\" & $sFile & ".bak")
+    EndIf
+    _RefreshFileCombo()
+    ; 先頭の mouse_data を選択状態に
+    GUICtrlSetData($idFileCombo, "mouse_data", "mouse_data")
 EndFunc
 
 ; --- コンボボックスの一覧をファイルシステムから再読み込み ---
