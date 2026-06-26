@@ -16,24 +16,26 @@
   - 更新を完了するために再起動が必要な場合に通知を受け取るON
   - アクティブ時間を変更 11:00 - 5:00 等
 - WinKey -> ナレーターの設定 -> ナレーターOFF -> ナレーターのキーボードショートカット OFF
-
 - エクスプローラーで音声フォルダが自動的にミュージック種別になるのを防ぐ
   - フォルダに .wav/.mp3 があると詳細表示の列が更新日時からアーティスト等に変わってしまう
-  - **設定（自動検出を全局無効化）:**
-    ```powershell
-    $regPath = "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell"
-    Remove-Item -Path "$regPath\Bags" -Recurse -Force -ErrorAction SilentlyContinue
-    Remove-Item -Path "$regPath\BagMRU" -Recurse -Force -ErrorAction SilentlyContinue
-    New-Item -Path $regPath -Name "Bags" -Force
-    New-Item -Path "$regPath\Bags" -Name "AllFolders" -Force
-    New-Item -Path "$regPath\Bags\AllFolders" -Name "Shell" -Force
-    New-ItemProperty -Path "$regPath\Bags\AllFolders\Shell" -Name "FolderType" -PropertyType String -Value "NotSpecified" -Force
-    ```
-  - **戻す:**
-    ```powershell
-    Remove-ItemProperty -Path "$regPath\Bags\AllFolders\Shell" -Name "FolderType"
-    ```
+  - 設定（自動検出を全局無効化） ^1
   - エクスプローラー再起動で反映（管理者権限不要）
+
+^1
+
+```powershell
+$regPath = "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell"
+Remove-Item -Path "$regPath\Bags" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "$regPath\BagMRU" -Recurse -Force -ErrorAction SilentlyContinue
+New-Item -Path $regPath -Name "Bags" -Force
+New-Item -Path "$regPath\Bags" -Name "AllFolders" -Force
+New-Item -Path "$regPath\Bags\AllFolders" -Name "Shell" -Force
+New-ItemProperty -Path "$regPath\Bags\AllFolders\Shell" -Name "FolderType" -PropertyType String -Value "NotSpecified" -Force
+```
+- **戻す:**
+```powershell
+Remove-ItemProperty -Path "$regPath\Bags\AllFolders\Shell" -Name "FolderType"
+```
 
 ## Install chocolatey
 
