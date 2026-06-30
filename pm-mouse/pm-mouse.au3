@@ -1,5 +1,7 @@
 #AutoIt3Wrapper_icon=C:\autoit\mylib\auto_mouse\mouse.ico
 
+#include <GuiComboBox.au3>
+#include <GuiListView.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <Misc.au3>
@@ -111,6 +113,7 @@ Func Stop2()
     $is_waiting = False
     $series_is_playing = False
     $series_idx = 0
+    _ClearSeriesSelection()
 
     GUICtrlSetState($idNotepad, $GUI_ENABLE)
     GUICtrlSetState($start, $GUI_ENABLE)
@@ -139,6 +142,7 @@ Func _StopPlay()
     $is_waiting = False
     $series_is_playing = False
     $series_idx = 0
+    _ClearSeriesSelection()
     GUICtrlSetState($idNotepad, $GUI_ENABLE)
     GUICtrlSetState($start, $GUI_ENABLE)
     WinSetTitle($hGUI, "", "午後のマウス")
@@ -183,7 +187,7 @@ Func _PlayExecution()
         Local $remaining = $wait_time_sec - $elapsed
         If $remaining <= 0 Then
             $is_waiting = False
-            $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
+            $file_handle = FileOpen(_GetFileListSel(), 0)
             If $file_handle = -1 Then
                 Stop2()
                 Return
@@ -207,7 +211,7 @@ Func _PlayExecution()
                 $interval_timer = TimerInit()
                 WinSetTitle($hGUI, "", "＠" & $loop_count & "回 待機(" & $wait_time_sec & ")秒")
             Else
-                $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
+                $file_handle = FileOpen(_GetFileListSel(), 0)
                 WinSetTitle($hGUI, "", "＠" & $loop_count & "回 動作中")
             EndIf
         Else
@@ -263,11 +267,13 @@ Func _OpenSeriesFile($iIdx)
     Local $p = StringInStr($sName, "\", 0, -1)
     If $p > 0 Then $sName = StringMid($sName, $p + 1)
     WinSetTitle($hGUI, "", "＠" & $loop_count & "回 " & $iIdx + 1 & "/" & $series_count & " " & $sName)
+    ; 実行中の行をリストで選択表示
+    _SelectSeriesItem($iIdx)
 EndFunc
 
 ; --- メインGUI関数 ---
 Func Example()
-    $hGUI = GUICreate("午後のマウス", 350, 300)
+    $hGUI = GUICreate("午後のマウス", 350, 580)
     TraySetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetOnEvent($GUI_EVENT_CLOSE, "SpecialEvents")
@@ -292,52 +298,53 @@ Func Example()
 
     ; ファイル行
     GUICtrlCreateLabel("ファイル", 7, 69, 36, 15)
-    $idFileCombo = GUICtrlCreateCombo("", 45, 66, 290, 20)
-    GUICtrlSetData($idFileCombo, _GetDataFiles(), "mouse_data")
+    $idFileCombo = GUICtrlCreateListView("ファイル", 45, 66, 290, 138, 0x00010008)
+    _GUICtrlListView_SetColumnWidth($idFileCombo, 0, 274)
 
     ; 管理ボタン行
-    $idNewBtn = GUICtrlCreateButton("新規", 5, 90, 40, 20)
-    $idEditBtn = GUICtrlCreateButton("編集", 48, 90, 40, 20)
-    $idDelBtn = GUICtrlCreateButton("削除", 91, 90, 40, 20)
-    $idRestoreBtn = GUICtrlCreateButton("戻す", 155, 90, 55, 20)
-    $idOpenBtn = GUICtrlCreateButton("フォルダ", 225, 90, 105, 20)
+    $idNewBtn = GUICtrlCreateButton("新規", 5, 208, 40, 20)
+    $idEditBtn = GUICtrlCreateButton("編集", 48, 208, 40, 20)
+    $idDelBtn = GUICtrlCreateButton("削除", 91, 208, 40, 20)
+    $idRestoreBtn = GUICtrlCreateButton("戻す", 155, 208, 55, 20)
+    $idOpenBtn = GUICtrlCreateButton("フォルダ", 225, 208, 105, 20)
 
     ; セクション区切り
-    GUICtrlCreateLabel("", 0, 114, 350, 2, 0x10)
+    GUICtrlCreateLabel("", 0, 232, 350, 2, 0x10)
 
     ; ==========================================================================
     ; ◆ シーケンスファイル実行 セクション
     ; ==========================================================================
     ; セクション見出し
-    GUICtrlCreateLabel("── シーケンス ──", 5, 119, 100, 15)
+    GUICtrlCreateLabel("── シーケンス ──", 5, 237, 100, 15)
     GUICtrlSetFont(-1, 9, 800)
 
     ; 操作行
-    $idSeqClose = GUICtrlCreateButton("停止(ESC)", 5, 136, 65, 22)
-    $idSeqInput = GUICtrlCreateInput("1", 143, 136, 40, 20)
+    $idSeqClose = GUICtrlCreateButton("停止(ESC)", 5, 254, 65, 22)
+    $idSeqInput = GUICtrlCreateInput("1", 143, 254, 40, 20)
     GUICtrlCreateUpdown($idSeqInput)
-    $idSeqStart = GUICtrlCreateButton("開始", 187, 136, 50, 22)
+    $idSeqStart = GUICtrlCreateButton("開始", 187, 254, 50, 22)
 
     ; 間隔行
-    GUICtrlCreateLabel("間隔(秒指定)", 5, 162, 75, 20)
-    $idSeqInput2 = GUICtrlCreateInput("0", 85, 160, 40, 20)
+    GUICtrlCreateLabel("間隔(秒指定)", 5, 280, 75, 20)
+    $idSeqInput2 = GUICtrlCreateInput("0", 85, 278, 40, 20)
 
     ; ファイル行
-    GUICtrlCreateLabel("Seq:", 7, 186, 30, 20)
-    $idSeriesFileCombo = GUICtrlCreateCombo("", 39, 183, 150, 20)
-    $idSeriesNewBtn = GUICtrlCreateButton("新規", 193, 183, 40, 22)
-    $idSeriesRenameBtn = GUICtrlCreateButton("編集", 235, 183, 40, 22)
-    $idSeriesFileDelBtn = GUICtrlCreateButton("削除", 277, 183, 40, 22)
+    GUICtrlCreateLabel("Seq:", 7, 304, 30, 20)
+    $idSeriesFileCombo = GUICtrlCreateCombo("", 39, 301, 150, 20)
+    $idSeriesNewBtn = GUICtrlCreateButton("新規", 193, 301, 40, 22)
+    $idSeriesRenameBtn = GUICtrlCreateButton("編集", 235, 301, 40, 22)
+    $idSeriesFileDelBtn = GUICtrlCreateButton("削除", 277, 301, 40, 22)
 
     ; 編集ボタン行
-    $idSeriesAdd = GUICtrlCreateButton("追加", 5, 209, 40, 22)
-    $idSeriesUp = GUICtrlCreateButton("↑", 48, 209, 30, 22)
-    $idSeriesDown = GUICtrlCreateButton("↓", 80, 209, 30, 22)
-    $idSeriesItemDel = GUICtrlCreateButton("削除", 113, 209, 40, 22)
-    $idSeriesSave = GUICtrlCreateButton("保存", 200, 209, 55, 22)
+    $idSeriesAdd = GUICtrlCreateButton("追加", 5, 327, 40, 22)
+    $idSeriesUp = GUICtrlCreateButton("↑", 48, 327, 30, 22)
+    $idSeriesDown = GUICtrlCreateButton("↓", 80, 327, 30, 22)
+    $idSeriesItemDel = GUICtrlCreateButton("削除", 113, 327, 40, 22)
+    $idSeriesSave = GUICtrlCreateButton("保存", 200, 327, 55, 22)
 
     ; シーケンスリスト
-    $idSeriesList = GUICtrlCreateList("", 5, 235, 330, 58)
+    $idSeriesList = GUICtrlCreateListView("項目", 5, 353, 330, 215, 0x00010008)
+    _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 314)
 
     ; ==========================================================================
     ; トレイメニュー
@@ -350,6 +357,7 @@ Func Example()
     GUISetState(@SW_SHOW, $hGUI)
 
     ; シーケンスファイルコンボ初期化＋先頭ファイルを自動読込
+    _RefreshFileCombo()
     _RefreshSeriesFileCombo()
     _SeriesLoadFromCombo()
 
@@ -385,7 +393,7 @@ Func Example()
 
             Case $idNotepad ; 【記録開始】
                 Stop2()
-                Local $sFile = GUICtrlRead($idFileCombo)
+                Local $sFile = _GetFileListSel()
                 If FileExists($sFile) Then FileCopy($sFile, $sFile & ".bak", 1)
                 GUICtrlSetState($idNotepad, $GUI_DISABLE)
                 GUICtrlSetState($start, $GUI_DISABLE)
@@ -403,7 +411,7 @@ Func Example()
 
             Case $idClose1 ; 【単体停止】
                 If $record_start_flag Then
-                    $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
+                    $file_handle = FileOpen(_GetFileListSel(), 2)
                     FileWrite($file_handle, $word)
                     _RefreshFileCombo()
                 EndIf
@@ -418,9 +426,9 @@ Func Example()
                 If $loop_count <= 0 Then $loop_count = 1
                 $move_num = 1
                 $is_waiting = False
-                $file_handle = FileOpen(GUICtrlRead($idFileCombo), 0)
+                $file_handle = FileOpen(_GetFileListSel(), 0)
                 If $file_handle = -1 Then
-                    MsgBox(16, "エラー", GUICtrlRead($idFileCombo) & " が見つかりません。")
+                    MsgBox(16, "エラー", _GetFileListSel() & " が見つかりません。")
                     Stop2()
                     ContinueLoop
                 EndIf
@@ -478,7 +486,7 @@ Func Example()
         EndSwitch
 
         If $record_start_flag And _IsPressed("1B", $dll_user32) Then
-            $file_handle = FileOpen(GUICtrlRead($idFileCombo), 2)
+            $file_handle = FileOpen(_GetFileListSel(), 2)
             FileWrite($file_handle, $word)
             _RefreshFileCombo()
             Stop2()
@@ -517,7 +525,7 @@ EndFunc
 
 ; --- .bakからデータ復元 ---
 Func _RestoreData()
-    Local $sFile = GUICtrlRead($idFileCombo)
+    Local $sFile = _GetFileListSel()
     Local $sBak = $sFile & ".bak"
     If Not FileExists($sBak) Then
         MsgBox(64, "情報", "バックアップがありません。")
@@ -536,12 +544,21 @@ Func _AddNewDataFile()
     Local $sNew = "mouse_data_" & $i
     Local $hFile = FileOpen(@WorkingDir & "\" & $sNew, 2)
     FileClose($hFile)
-    GUICtrlSetData($idFileCombo, $sNew, $sNew)
+    _RefreshFileCombo()
+    ; 新規行を選択
+    Local $hWnd = GUICtrlGetHandle($idFileCombo)
+    Local $nItems = _GUICtrlListView_GetItemCount($hWnd)
+    For $i = 0 To $nItems - 1
+        If _GUICtrlListView_GetItemText($hWnd, $i) = $sNew Then
+            _GUICtrlListView_SetItemSelected($hWnd, $i, True, True)
+            ExitLoop
+        EndIf
+    Next
 EndFunc
 
 ; --- mouse_data ファイル名を変更 ---
 Func _EditDataFile()
-    Local $sOld = GUICtrlRead($idFileCombo)
+    Local $sOld = _GetFileListSel()
     If $sOld = "" Then
         MsgBox(48, "エラー", "ファイルが選択されていません。")
         Return
@@ -567,12 +584,20 @@ Func _EditDataFile()
         Return
     EndIf
     _RefreshFileCombo()
-    GUICtrlSetData($idFileCombo, $sNew, $sNew)
+    ; 編集後のファイルを選択
+    Local $hWnd = GUICtrlGetHandle($idFileCombo)
+    Local $nItems = _GUICtrlListView_GetItemCount($hWnd)
+    For $i = 0 To $nItems - 1
+        If _GUICtrlListView_GetItemText($hWnd, $i) = $sNew Then
+            _GUICtrlListView_SetItemSelected($hWnd, $i, True, True)
+            ExitLoop
+        EndIf
+    Next
 EndFunc
 
 ; --- mouse_data ファイルを削除 ---
 Func _DeleteDataFile()
-    Local $sFile = GUICtrlRead($idFileCombo)
+    Local $sFile = _GetFileListSel()
     If $sFile = "" Then
         MsgBox(48, "エラー", "ファイルが選択されていません。")
         Return
@@ -587,14 +612,39 @@ Func _DeleteDataFile()
         FileDelete(@WorkingDir & "\" & $sFile & ".bak")
     EndIf
     _RefreshFileCombo()
-    GUICtrlSetData($idFileCombo, "mouse_data", "mouse_data")
+    ; "mouse_data" を選択
+    Local $hWnd = GUICtrlGetHandle($idFileCombo)
+    Local $nItems = _GUICtrlListView_GetItemCount($hWnd)
+    For $i = 0 To $nItems - 1
+        If _GUICtrlListView_GetItemText($hWnd, $i) = "mouse_data" Then
+            _GUICtrlListView_SetItemSelected($hWnd, $i, True, True)
+            ExitLoop
+        EndIf
+    Next
 EndFunc
 
-; --- コンボボックス再読み込み ---
+; --- コンボボックス／ListView 再読み込み ---
 Func _RefreshFileCombo()
-    Local $sCurrent = GUICtrlRead($idFileCombo)
-    GUICtrlSetData($idFileCombo, "", "")
-    GUICtrlSetData($idFileCombo, _GetDataFiles(), $sCurrent)
+    Local $sCurrent = _GetFileListSel()
+    Local $hWnd = GUICtrlGetHandle($idFileCombo)
+    _GUICtrlListView_DeleteAllItems($hWnd)
+    Local $sData = _GetDataFiles()
+    Local $aItems = StringSplit($sData, "|")
+    Local $iSelect = 0
+    For $i = 1 To $aItems[0]
+        GUICtrlCreateListViewItem($aItems[$i], $idFileCombo)
+        If $aItems[$i] = $sCurrent Then $iSelect = $i - 1
+    Next
+    _GUICtrlListView_SetItemSelected($hWnd, $iSelect, True, True)
+EndFunc
+
+; --- ListView の選択中アイテムのテキストを取得 ---
+Func _GetFileListSel()
+    Local $hWnd = GUICtrlGetHandle($idFileCombo)
+    Local $sIdx = _GUICtrlListView_GetSelectedIndices($hWnd)
+    If $sIdx = "" Then Return ""
+    Local $aIdx = StringSplit($sIdx, "|")
+    Return _GUICtrlListView_GetItemText($hWnd, Number($aIdx[1]))
 EndFunc
 
 
@@ -602,19 +652,37 @@ EndFunc
 ; ★★★ 複合シーケンス関数群 ★★★
 ; ============================================================================
 
-; --- sequence_*.series ファイル一覧を取得（拡張子なしで返す） ---
+; --- sequence_*.series ファイル一覧を取得（数値順にソート） ---
 Func _GetSeriesFileList()
-    Local $sList = ""
+    Local $aFiles[100], $n = 0
     Local $hSearch = FileFindFirstFile(@WorkingDir & "\sequence*.series")
     If $hSearch = -1 Then Return ""
     While 1
         Local $sF = FileFindNextFile($hSearch)
         If @error Then ExitLoop
-        ; 拡張子 .series を除去して表示用に
         $sF = StringReplace($sF, ".series", "", 1)
-        $sList &= "|" & $sF
+        $aFiles[$n] = $sF
+        $n += 1
     WEnd
     FileClose($hSearch)
+
+    ; バブルソート（数値順）
+    For $i = 0 To $n - 2
+        For $j = $i + 1 To $n - 1
+            Local $num_i = Int(StringReplace($aFiles[$i], "sequence_", ""))
+            Local $num_j = Int(StringReplace($aFiles[$j], "sequence_", ""))
+            If $num_i > $num_j Then
+                Local $sTmp = $aFiles[$i]
+                $aFiles[$i] = $aFiles[$j]
+                $aFiles[$j] = $sTmp
+            EndIf
+        Next
+    Next
+
+    Local $sList = ""
+    For $i = 0 To $n - 1
+        $sList &= "|" & $aFiles[$i]
+    Next
     Return $sList
 EndFunc
 
@@ -641,24 +709,21 @@ Func _RefreshSeriesFileCombo()
     $series_current_file = GUICtrlRead($idSeriesFileCombo)
 EndFunc
 
-; --- シーケンスリスト表示を更新 ---
+; --- シーケンスリスト表示を更新（ListView） ---
 Func _RefreshSeriesList()
-    GUICtrlSetData($idSeriesList, "|")
-    GUICtrlSetData($idSeriesList, "")
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    _GUICtrlListView_DeleteAllItems($hWnd)
     If $series_count = 0 Then
-        GUICtrlSetData($idSeriesList, "（ファイルを追加してください）")
+        GUICtrlCreateListViewItem("（ファイルを追加してください）", $idSeriesList)
         Return
     EndIf
-    Local $sItems = ""
     For $i = 0 To $series_count - 1
-        If $i > 0 Then $sItems &= "|"
         Local $sPath = $series_commands[$i]
         Local $sName = $sPath
         Local $p = StringInStr($sName, "\", 0, -1)
         If $p > 0 Then $sName = StringMid($sName, $p + 1)
-        $sItems &= $i + 1 & ": " & $sName
+        GUICtrlCreateListViewItem($i + 1 & ": " & $sName, $idSeriesList)
     Next
-    GUICtrlSetData($idSeriesList, $sItems)
 EndFunc
 
 ; --- 新規シーケンスファイル作成（.series 拡張子） ---
@@ -754,7 +819,7 @@ Func _SeriesAddFile()
         MsgBox(48, "エラー", "シーケンスの上限（100）に達しました。")
         Return
     EndIf
-    Local $sSelected = GUICtrlRead($idFileCombo)
+    Local $sSelected = _GetFileListSel()
     If $sSelected = "" Then
         MsgBox(48, "追加できません", "コンボボックスで追加したいファイルを選んでから「追加」を押してください。")
         Return
@@ -797,14 +862,26 @@ Func _GetSeriesIndexFromDisplay($sDisplay)
     Return -1
 EndFunc
 
-; --- 選択 ---
+; --- 選択（ListView版／他をクリアしてから選択） ---
 Func _SelectSeriesItem($iIdx)
     If $iIdx < 0 Or $iIdx >= $series_count Then Return
-    Local $sPath = $series_commands[$iIdx]
-    Local $sName = $sPath
-    Local $p = StringInStr($sName, "\", 0, -1)
-    If $p > 0 Then $sName = StringMid($sName, $p + 1)
-    GUICtrlSetData($idSeriesList, $iIdx + 1 & ": " & $sName, $iIdx + 1 & ": " & $sName)
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    ; 全行の選択を解除
+    For $i = 0 To _GUICtrlListView_GetItemCount($hWnd) - 1
+        _GUICtrlListView_SetItemSelected($hWnd, $i, False)
+    Next
+    ; 現在の行だけ選択
+    _GUICtrlListView_SetItemSelected($hWnd, $iIdx, True, True)
+    _GUICtrlListView_EnsureVisible($hWnd, $iIdx, False)
+EndFunc
+
+; --- シーケンスリストの全選択を解除 ---
+Func _ClearSeriesSelection()
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    Local $nItems = _GUICtrlListView_GetItemCount($hWnd)
+    For $i = 0 To $nItems - 1
+        _GUICtrlListView_SetItemSelected($hWnd, $i, False)
+    Next
 EndFunc
 
 ; --- アイテム削除 ---
