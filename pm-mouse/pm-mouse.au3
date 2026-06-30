@@ -652,37 +652,18 @@ EndFunc
 ; ★★★ 複合シーケンス関数群 ★★★
 ; ============================================================================
 
-; --- sequence_*.series ファイル一覧を取得（数値順にソート） ---
+; --- sequence_*.series ファイル一覧を取得（ファイルシステム順） ---
 Func _GetSeriesFileList()
-    Local $aFiles[100], $n = 0
+    Local $sList = ""
     Local $hSearch = FileFindFirstFile(@WorkingDir & "\sequence*.series")
     If $hSearch = -1 Then Return ""
     While 1
         Local $sF = FileFindNextFile($hSearch)
         If @error Then ExitLoop
         $sF = StringReplace($sF, ".series", "", 1)
-        $aFiles[$n] = $sF
-        $n += 1
+        $sList &= "|" & $sF
     WEnd
     FileClose($hSearch)
-
-    ; バブルソート（数値順）
-    For $i = 0 To $n - 2
-        For $j = $i + 1 To $n - 1
-            Local $num_i = Int(StringReplace($aFiles[$i], "sequence_", ""))
-            Local $num_j = Int(StringReplace($aFiles[$j], "sequence_", ""))
-            If $num_i > $num_j Then
-                Local $sTmp = $aFiles[$i]
-                $aFiles[$i] = $aFiles[$j]
-                $aFiles[$j] = $sTmp
-            EndIf
-        Next
-    Next
-
-    Local $sList = ""
-    For $i = 0 To $n - 1
-        $sList &= "|" & $aFiles[$i]
-    Next
     Return $sList
 EndFunc
 
