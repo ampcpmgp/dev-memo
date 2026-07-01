@@ -273,7 +273,7 @@ EndFunc
 
 ; --- メインGUI関数 ---
 Func Example()
-    $hGUI = GUICreate("午後のマウス", 350, 580)
+    $hGUI = GUICreate("午後のマウス", 350, 605)
     TraySetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetIcon(@LocalAppDataDir & "\mouse.ico")
     GUISetOnEvent($GUI_EVENT_CLOSE, "SpecialEvents")
@@ -298,52 +298,52 @@ Func Example()
 
     ; ファイル行
     GUICtrlCreateLabel("ファイル", 7, 69, 36, 15)
-    $idFileCombo = GUICtrlCreateListView("ファイル", 45, 66, 290, 138, 0x00010008)
+    $idFileCombo = GUICtrlCreateListView("ファイル", 45, 66, 290, 162, 0x00010008)
     _GUICtrlListView_SetColumnWidth($idFileCombo, 0, 274)
 
     ; 管理ボタン行
-    $idNewBtn = GUICtrlCreateButton("新規", 5, 208, 40, 20)
-    $idEditBtn = GUICtrlCreateButton("編集", 48, 208, 40, 20)
-    $idDelBtn = GUICtrlCreateButton("削除", 91, 208, 40, 20)
-    $idRestoreBtn = GUICtrlCreateButton("戻す", 155, 208, 55, 20)
-    $idOpenBtn = GUICtrlCreateButton("フォルダ", 225, 208, 105, 20)
+    $idNewBtn = GUICtrlCreateButton("新規", 5, 232, 40, 20)
+    $idEditBtn = GUICtrlCreateButton("編集", 48, 232, 40, 20)
+    $idDelBtn = GUICtrlCreateButton("削除", 91, 232, 40, 20)
+    $idRestoreBtn = GUICtrlCreateButton("戻す", 155, 232, 55, 20)
+    $idOpenBtn = GUICtrlCreateButton("フォルダ", 225, 232, 105, 20)
 
     ; セクション区切り
-    GUICtrlCreateLabel("", 0, 232, 350, 2, 0x10)
+    GUICtrlCreateLabel("", 0, 256, 350, 2, 0x10)
 
     ; ==========================================================================
     ; ◆ シーケンスファイル実行 セクション
     ; ==========================================================================
     ; セクション見出し
-    GUICtrlCreateLabel("── シーケンス ──", 5, 237, 100, 15)
+    GUICtrlCreateLabel("── シーケンス ──", 5, 261, 100, 15)
     GUICtrlSetFont(-1, 9, 800)
 
     ; 操作行
-    $idSeqClose = GUICtrlCreateButton("停止(ESC)", 5, 254, 65, 22)
-    $idSeqInput = GUICtrlCreateInput("1", 143, 254, 40, 20)
+    $idSeqClose = GUICtrlCreateButton("停止(ESC)", 5, 278, 65, 22)
+    $idSeqInput = GUICtrlCreateInput("1", 143, 278, 40, 20)
     GUICtrlCreateUpdown($idSeqInput)
-    $idSeqStart = GUICtrlCreateButton("開始", 187, 254, 50, 22)
+    $idSeqStart = GUICtrlCreateButton("開始", 187, 278, 50, 22)
 
     ; 間隔行
-    GUICtrlCreateLabel("間隔(秒指定)", 5, 280, 75, 20)
-    $idSeqInput2 = GUICtrlCreateInput("0", 85, 278, 40, 20)
+    GUICtrlCreateLabel("間隔(秒指定)", 5, 304, 75, 20)
+    $idSeqInput2 = GUICtrlCreateInput("0", 85, 302, 40, 20)
 
     ; ファイル行
-    GUICtrlCreateLabel("Seq:", 7, 304, 30, 20)
-    $idSeriesFileCombo = GUICtrlCreateCombo("", 39, 301, 150, 20)
-    $idSeriesNewBtn = GUICtrlCreateButton("新規", 193, 301, 40, 22)
-    $idSeriesRenameBtn = GUICtrlCreateButton("編集", 235, 301, 40, 22)
-    $idSeriesFileDelBtn = GUICtrlCreateButton("削除", 277, 301, 40, 22)
+    GUICtrlCreateLabel("Seq:", 7, 328, 30, 20)
+    $idSeriesFileCombo = GUICtrlCreateCombo("", 39, 325, 150, 20)
+    $idSeriesNewBtn = GUICtrlCreateButton("新規", 193, 325, 40, 22)
+    $idSeriesRenameBtn = GUICtrlCreateButton("編集", 235, 325, 40, 22)
+    $idSeriesFileDelBtn = GUICtrlCreateButton("削除", 277, 325, 40, 22)
 
     ; 編集ボタン行
-    $idSeriesAdd = GUICtrlCreateButton("追加", 5, 327, 40, 22)
-    $idSeriesUp = GUICtrlCreateButton("↑", 48, 327, 30, 22)
-    $idSeriesDown = GUICtrlCreateButton("↓", 80, 327, 30, 22)
-    $idSeriesItemDel = GUICtrlCreateButton("削除", 113, 327, 40, 22)
-    $idSeriesSave = GUICtrlCreateButton("保存", 200, 327, 55, 22)
+    $idSeriesAdd = GUICtrlCreateButton("追加", 5, 351, 40, 22)
+    $idSeriesUp = GUICtrlCreateButton("↑", 48, 351, 30, 22)
+    $idSeriesDown = GUICtrlCreateButton("↓", 80, 351, 30, 22)
+    $idSeriesItemDel = GUICtrlCreateButton("削除", 113, 351, 40, 22)
+    $idSeriesSave = GUICtrlCreateButton("保存", 200, 351, 55, 22)
 
     ; シーケンスリスト
-    $idSeriesList = GUICtrlCreateListView("項目", 5, 353, 330, 215, 0x00010008)
+    $idSeriesList = GUICtrlCreateListView("項目", 5, 377, 330, 215, 0x00010008)
     _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 314)
 
     ; ==========================================================================
@@ -818,9 +818,11 @@ EndFunc
 ; --- アイテム移動 ---
 Func _SeriesMoveItem($iDir)
     If $series_count <= 1 Then Return
-    Local $sSel = GUICtrlRead($idSeriesList)
-    If $sSel = "" Or $sSel = "（ファイルを追加してください）" Then Return
-    Local $iIdx = _GetSeriesIndexFromDisplay($sSel)
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    Local $sIdx = _GUICtrlListView_GetSelectedIndices($hWnd)
+    If $sIdx = "" Then Return
+    Local $aIdx = StringSplit($sIdx, "|")
+    Local $iIdx = Number($aIdx[1])
     If $iIdx < 0 Then Return
     Local $iTarget = $iIdx + $iDir
     If $iTarget < 0 Or $iTarget >= $series_count Then Return
@@ -831,17 +833,9 @@ Func _SeriesMoveItem($iDir)
     _SelectSeriesItem($iTarget)
 EndFunc
 
-; --- 表示→インデックス ---
-Func _GetSeriesIndexFromDisplay($sDisplay)
-    For $i = 0 To $series_count - 1
-        Local $sPath = $series_commands[$i]
-        Local $sName = $sPath
-        Local $p = StringInStr($sName, "\", 0, -1)
-        If $p > 0 Then $sName = StringMid($sName, $p + 1)
-        If $i + 1 & ": " & $sName = $sDisplay Then Return $i
-    Next
-    Return -1
-EndFunc
+; ============================================================================
+; ★★★ 複合シーケンス関数群 ★★★
+; ============================================================================
 
 ; --- 選択（ListView版／他をクリアしてから選択） ---
 Func _SelectSeriesItem($iIdx)
@@ -868,9 +862,11 @@ EndFunc
 ; --- アイテム削除 ---
 Func _SeriesRemoveItem()
     If $series_count = 0 Then Return
-    Local $sSel = GUICtrlRead($idSeriesList)
-    If $sSel = "" Or $sSel = "（ファイルを追加してください）" Then Return
-    Local $iIdx = _GetSeriesIndexFromDisplay($sSel)
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    Local $sIdx = _GUICtrlListView_GetSelectedIndices($hWnd)
+    If $sIdx = "" Then Return
+    Local $aIdx = StringSplit($sIdx, "|")
+    Local $iIdx = Number($aIdx[1])
     If $iIdx < 0 Then Return
     For $i = $iIdx To $series_count - 2
         $series_commands[$i] = $series_commands[$i + 1]
