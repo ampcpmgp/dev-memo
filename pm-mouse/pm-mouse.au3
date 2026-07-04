@@ -7,6 +7,7 @@
 #include <Misc.au3>
 #include <String.au3>
 #include <WinAPI.au3>
+#include <StructureConstants.au3>
 
 Opt("TrayMenuMode", 3)
 
@@ -36,6 +37,7 @@ Global $series_idx = 0              ; 実行中インデックス
 Global $series_is_playing = False   ; 複合再生中フラグ
 Global $series_current_file = ""    ; 現在のシーケンスファイル名
 ; シーケンスセクションGUIコントロールID
+Global $series_checked[100]         ; チェック状態（True=実行対象）
 Global $idSecSeqLabel, $idSecSep
 Global $idSeqClose, $idSeqInput, $idSeqStart, $idSeqInput2
 Global $idSeriesFileLabel, $idSeriesFileCombo
@@ -237,21 +239,39 @@ Func _PlayExecutionSeries()
         If @error Then
             FileClose($file_handle)
             $file_handle = -1
-            $series_idx += 1
-            If $series_idx >= $series_count Then
-                $loop_count -= 1
-                If $loop_count > 0 Then
-                    $series_idx = 0
-                    _OpenSeriesFile(0)
-                Else
-                    Stop2()
-                EndIf
-            Else
-                _OpenSeriesFile($series_idx)
-            EndIf
+            _AdvanceSeriesIndex()
             Return
         EndIf
         _ExecuteLine($mouse)
+    EndIf
+EndFunc
+
+; --- 次のチェックあり項目に進む ---
+Func _AdvanceSeriesIndex()
+    $series_idx += 1
+    ; チェックが入っている次のファイルまでスキップ
+    While $series_idx < $series_count And Not $series_checked[$series_idx]
+        $series_idx += 1
+    WEnd
+
+    If $series_idx >= $series_count Then
+        $loop_count -= 1
+        If $loop_count > 0 Then
+            $series_idx = 0
+            ; 先頭からチェックありを探す
+            While $series_idx < $series_count And Not $series_checked[$series_idx]
+                $series_idx += 1
+            WEnd
+            If $series_idx < $series_count Then
+                _OpenSeriesFile($series_idx)
+            Else
+                Stop2()
+            EndIf
+        Else
+            Stop2()
+        EndIf
+    Else
+        _OpenSeriesFile($series_idx)
     EndIf
 EndFunc
 
@@ -342,9 +362,12 @@ Func Example()
     $idSeriesItemDel = GUICtrlCreateButton("削除", 113, 351, 40, 22)
     $idSeriesSave = GUICtrlCreateButton("保存", 200, 351, 55, 22)
 
-    ; シーケンスリスト
-    $idSeriesList = GUICtrlCreateListView("項目", 5, 377, 330, 215, 0x00010008)
-    _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 314)
+    ; シーケンスリスト（チェックボックス付き2列）
+    $idSeriesList = GUICtrlCreateListView("実行|項目", 5, 377, 330, 215, 0x00010008)
+    _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 35)
+    _GUICtrlListView_SetColumnWidth($idSeriesList, 1, 279)
+    Local $hSeriesList = GUICtrlGetHandle($idSeriesList)
+    _GUICtrlListView_SetExtendedListViewStyle($hSeriesList, $LVS_EX_CHECKBOXES)
 
     ; ==========================================================================
     ; トレイメニュー
@@ -361,7 +384,16 @@ Func Example()
     _RefreshSeriesFileCombo()
     _SeriesLoadFromCombo()
 
+    ; 起動直後に ListView のチェック状態を再設定（タイミング問題対策）
+    Local $bStartupCheckDone = False
+
     While 1
+        ; 起動直後に一度だけ ListView のチェック状態を再設定
+        If Not $bStartupCheckDone Then
+            $bStartupCheckDone = True
+            _RefreshSeriesList()
+        EndIf
+
         Switch TrayGetMsg()
             Case $idOpenTray
                 ShellExecute(@WorkingDir)
@@ -473,14 +505,26 @@ Func Example()
                     MsgBox(48, "エラー", "シーケンスにファイルが1つもありません。先に[追加]してください。")
                     ContinueLoop
                 EndIf
+                ; ListView のチェック状態を確実に同期
+                _SeriesSyncChecks()
                 GUICtrlSetState($start, $GUI_DISABLE)
                 $loop_count = Int(GUICtrlRead($idSeqInput))
                 If $loop_count <= 0 Then $loop_count = 1
                 $move_num = 1
                 $is_waiting = False
-                $series_idx = 0
                 $series_is_playing = True
-                _OpenSeriesFile(0)
+                ; 最初のチェックあり項目を探す
+                $series_idx = 0
+                While $series_idx < $series_count And Not $series_checked[$series_idx]
+                    $series_idx += 1
+                WEnd
+                If $series_idx >= $series_count Then
+                    MsgBox(48, "エラー", "チェックが入っているファイルがありません。「実行」列をクリックしてチェックを入れてください。")
+                    Stop2()
+                    GUICtrlSetState($start, $GUI_ENABLE)
+                    ContinueLoop
+                EndIf
+                _OpenSeriesFile($series_idx)
                 $play_flag = True
                 AdlibRegister("_PlayExecutionSeries", 10)
         EndSwitch
@@ -695,7 +739,7 @@ Func _RefreshSeriesList()
     Local $hWnd = GUICtrlGetHandle($idSeriesList)
     _GUICtrlListView_DeleteAllItems($hWnd)
     If $series_count = 0 Then
-        GUICtrlCreateListViewItem("（ファイルを追加してください）", $idSeriesList)
+        GUICtrlCreateListViewItem("|（ファイルを追加してください）", $idSeriesList)
         Return
     EndIf
     For $i = 0 To $series_count - 1
@@ -703,7 +747,11 @@ Func _RefreshSeriesList()
         Local $sName = $sPath
         Local $p = StringInStr($sName, "\", 0, -1)
         If $p > 0 Then $sName = StringMid($sName, $p + 1)
-        GUICtrlCreateListViewItem($i + 1 & ": " & $sName, $idSeriesList)
+        GUICtrlCreateListViewItem("|" & $sName, $idSeriesList)
+    Next
+    ; アイテム追加後にまとめてチェック状態を設定（即時設定だと反映されないため）
+    For $i = 0 To $series_count - 1
+        _GUICtrlListView_SetItemChecked($hWnd, $i, $series_checked[$i])
     Next
 EndFunc
 
@@ -724,6 +772,7 @@ Func _SeriesNewFile()
     $series_count = 0
     For $j = 0 To 99
         $series_commands[$j] = ""
+        $series_checked[$j] = True
     Next
     _RefreshSeriesList()
 EndFunc
@@ -777,6 +826,7 @@ Func _SeriesDeleteFile()
     $series_count = 0
     For $j = 0 To 99
         $series_commands[$j] = ""
+        $series_checked[$j] = True
     Next
     _RefreshSeriesList()
 EndFunc
@@ -811,6 +861,7 @@ Func _SeriesAddFile()
         Return
     EndIf
     $series_commands[$series_count] = $sPath
+    $series_checked[$series_count] = True
     $series_count += 1
     _RefreshSeriesList()
 EndFunc
@@ -829,6 +880,9 @@ Func _SeriesMoveItem($iDir)
     Local $sTmp = $series_commands[$iIdx]
     $series_commands[$iIdx] = $series_commands[$iTarget]
     $series_commands[$iTarget] = $sTmp
+    Local $bTmp = $series_checked[$iIdx]
+    $series_checked[$iIdx] = $series_checked[$iTarget]
+    $series_checked[$iTarget] = $bTmp
     _RefreshSeriesList()
     _SelectSeriesItem($iTarget)
 EndFunc
@@ -870,9 +924,11 @@ Func _SeriesRemoveItem()
     If $iIdx < 0 Then Return
     For $i = $iIdx To $series_count - 2
         $series_commands[$i] = $series_commands[$i + 1]
+        $series_checked[$i] = $series_checked[$i + 1]
     Next
     $series_count -= 1
     $series_commands[$series_count] = ""
+    $series_checked[$series_count] = True
     _RefreshSeriesList()
     If $series_count > 0 Then
         If $iIdx >= $series_count Then $iIdx = $series_count - 1
@@ -886,6 +942,8 @@ Func _SeriesSave()
         MsgBox(48, "エラー", "シーケンスが空です。")
         Return
     EndIf
+    ; 保存前に ListView のチェック状態を同期
+    _SeriesSyncChecks()
     Local $sFile = GUICtrlRead($idSeriesFileCombo)
     If $sFile = "" Then
         MsgBox(48, "エラー", "保存先のシーケンスファイルを選んでください。")
@@ -898,7 +956,9 @@ Func _SeriesSave()
         Return
     EndIf
     For $i = 0 To $series_count - 1
-        FileWriteLine($hFile, $series_commands[$i])
+        Local $sLine = $series_commands[$i]
+        If Not $series_checked[$i] Then $sLine = "!" & $sLine
+        FileWriteLine($hFile, $sLine)
     Next
     FileClose($hFile)
     MsgBox(64, "保存完了", $series_count & " 個のファイルを " & $sFile & " に保存しました。")
@@ -925,6 +985,7 @@ Func _SeriesLoad()
     $series_count = 0
     For $i = 0 To 99
         $series_commands[$i] = ""
+        $series_checked[$i] = True  ; デフォルトはチェックあり
     Next
     While 1
         Local $sLine = FileReadLine($hFile)
@@ -932,15 +993,36 @@ Func _SeriesLoad()
         $sLine = StringStripWS($sLine, 3)
         If $sLine = "" Then ContinueLoop
         If $series_count < 100 Then
+            ; チェック状態を復元（行頭!がチェックなし、それ以外＝既存含めチェックあり）
+            Local $bChecked = True
+            If StringLeft($sLine, 1) = "!" Then
+                $bChecked = False
+                $sLine = StringMid($sLine, 2)
+            EndIf
             If StringLen($sLine) >= 2 And _
                StringLeft($sLine, 1) <> "\" And _
                StringMid($sLine, 2, 1) <> ":" Then
                 $sLine = @WorkingDir & "\" & $sLine
             EndIf
             $series_commands[$series_count] = $sLine
+            $series_checked[$series_count] = $bChecked
             $series_count += 1
         EndIf
     WEnd
     FileClose($hFile)
     _RefreshSeriesList()
-EndFunc
+EndFunc   ;==>_SeriesLoad
+
+; --- シーケンスリストのチェックボックス変更を検知（削除済み: RefreshSeriesList の途中で発火し配列を壊すため） ---
+Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
+    #forceref $hWnd, $iMsg, $iwParam, $ilParam
+    Return $GUI_RUNDEFMSG
+EndFunc   ;==>WM_NOTIFY
+
+; --- ListView のチェック状態を $series_checked[] に同期 ---
+Func _SeriesSyncChecks()
+    Local $hWnd = GUICtrlGetHandle($idSeriesList)
+    For $i = 0 To $series_count - 1
+        $series_checked[$i] = _GUICtrlListView_GetItemChecked($hWnd, $i)
+    Next
+EndFunc   ;==>_SeriesSyncChecks
