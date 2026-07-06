@@ -367,7 +367,8 @@ Func Example()
     _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 35)
     _GUICtrlListView_SetColumnWidth($idSeriesList, 1, 279)
     Local $hSeriesList = GUICtrlGetHandle($idSeriesList)
-    _GUICtrlListView_SetExtendedListViewStyle($hSeriesList, $LVS_EX_CHECKBOXES)
+    Local $aExStyle = _GUICtrlListView_GetExtendedListViewStyle($hSeriesList)
+    _GUICtrlListView_SetExtendedListViewStyle($hSeriesList, BitOR($aExStyle, $LVS_EX_CHECKBOXES, $LVS_EX_FULLROWSELECT))
 
     ; ==========================================================================
     ; トレイメニュー
