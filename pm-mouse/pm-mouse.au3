@@ -363,9 +363,9 @@ Func Example()
     $idSeriesSave = GUICtrlCreateButton("保存", 200, 351, 55, 22)
 
     ; シーケンスリスト（チェックボックス付き2列）
-    $idSeriesList = GUICtrlCreateListView("実行|項目", 5, 377, 330, 215, 0x00010008)
-    _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 35)
-    _GUICtrlListView_SetColumnWidth($idSeriesList, 1, 279)
+    $idSeriesList = GUICtrlCreateListView("#|項目", 5, 377, 330, 215, 0x00010008)
+    _GUICtrlListView_SetColumnWidth($idSeriesList, 0, 37)
+    _GUICtrlListView_SetColumnWidth($idSeriesList, 1, 293)
     Local $hSeriesList = GUICtrlGetHandle($idSeriesList)
     Local $aExStyle = _GUICtrlListView_GetExtendedListViewStyle($hSeriesList)
     _GUICtrlListView_SetExtendedListViewStyle($hSeriesList, BitOR($aExStyle, $LVS_EX_CHECKBOXES, $LVS_EX_FULLROWSELECT))
@@ -748,7 +748,7 @@ Func _RefreshSeriesList()
         Local $sName = $sPath
         Local $p = StringInStr($sName, "\", 0, -1)
         If $p > 0 Then $sName = StringMid($sName, $p + 1)
-        GUICtrlCreateListViewItem("|" & $sName, $idSeriesList)
+        GUICtrlCreateListViewItem(($i + 1) & "|" & $sName, $idSeriesList)
     Next
     ; アイテム追加後にまとめてチェック状態を設定（即時設定だと反映されないため）
     For $i = 0 To $series_count - 1
