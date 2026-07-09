@@ -1,0 +1,6 @@
+msedge.exe,Microsoft​ Edge=======>-1086,332,1023,906
+msedge.exe,Microsoft​ Edge=======>174,120,1697,907
+msedge.exe,Microsoft​ Edge=======>139,95,1697,907
+msedge.exe,Microsoft​ Edge=======>104,70,1697,907
+msedge.exe,Microsoft​ Edge=======>69,45,1697,907
+msedge.exe,Microsoft​ Edge=======>34,20,1697,907
