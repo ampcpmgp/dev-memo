@@ -42,6 +42,8 @@ Remove-ItemProperty -Path "$regPath\Bags\AllFolders\Shell" -Name "FolderType"
 以下より CLI インストール
 https://chocolatey.org/install
 
+※ docker-desktop 外せそうなら外したい、 wsl に直で docker を入れられればチャレンジ
+
 ```shell
 choco install --yes --ignore-checksum googlechrome firefox crystaldiskinfo crystaldiskmark autoit screentogif visualstudiocode lockhunter obs-studio teamviewer steam jcpicker typora vlc folder_size docker-desktop audacity figma mattermost-desktop git flameshot line chromium logitech-options-plus
 ```
